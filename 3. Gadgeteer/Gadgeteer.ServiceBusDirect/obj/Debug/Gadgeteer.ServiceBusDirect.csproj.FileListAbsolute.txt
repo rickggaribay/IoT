@@ -1,0 +1,193 @@
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.Resources.resources
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.csproj.GenerateResource.Cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.Resources.tinyresources
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\TinyResGen.cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\le\Gadgeteer.ServiceBusDirect.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\be\Gadgeteer.ServiceBusDirect.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\le\Gadgeteer.ServiceBusDirect.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\be\Gadgeteer.ServiceBusDirect.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.ServiceBusDirect.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.ServiceBusDirect.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\le\Gadgeteer.ServiceBusDirect.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\le\Gadgeteer.ServiceBusDirect.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\be\Gadgeteer.ServiceBusDirect.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\be\Gadgeteer.ServiceBusDirect.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.DaisyLink.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.WebClient.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.WebServer.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.Net.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHIElectronics.Gadgeteer.FEZSpider.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GTM.GHIElectronics.Ethernet_J11D.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GTM.GHIElectronics.MulticolorLed.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.IO.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.Hardware.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.System.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.DaisyLink.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.WebClient.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.WebServer.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.Net.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHIElectronics.Gadgeteer.FEZSpider.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GTM.GHIElectronics.Ethernet_J11D.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GTM.GHIElectronics.MulticolorLed.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.IO.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.Hardware.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.System.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.DaisyLink.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.WebClient.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.WebServer.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.Net.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHIElectronics.Gadgeteer.FEZSpider.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GTM.GHIElectronics.Ethernet_J11D.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GTM.GHIElectronics.MulticolorLed.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.IO.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.Hardware.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.System.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.DaisyLink.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.WebClient.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.WebServer.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.Net.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHIElectronics.Gadgeteer.FEZSpider.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GTM.GHIElectronics.Ethernet_J11D.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GTM.GHIElectronics.MulticolorLed.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.IO.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.Hardware.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.System.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.DaisyLink.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.WebClient.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.WebServer.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.Net.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHIElectronics.Gadgeteer.FEZSpider.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GTM.GHIElectronics.Ethernet_J11D.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GTM.GHIElectronics.MulticolorLed.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.IO.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.Hardware.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.System.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.DaisyLink.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.DaisyLink.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.WebClient.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.WebClient.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.WebServer.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.WebServer.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.Net.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHIElectronics.Gadgeteer.FEZSpider.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHIElectronics.Gadgeteer.FEZSpider.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GTM.GHIElectronics.Ethernet_J11D.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GTM.GHIElectronics.Ethernet_J11D.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GTM.GHIElectronics.MulticolorLed.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GTM.GHIElectronics.MulticolorLed.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.IO.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.Hardware.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.System.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\be\Gadgeteer.ServiceBusDirect.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\be\Gadgeteer.ServiceBusDirect.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\le\Gadgeteer.ServiceBusDirect.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\le\Gadgeteer.ServiceBusDirect.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.Resource1.resources
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.Resource1.tinyresources
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.csprojResolveAssemblyReference.cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\TinyCLR_DebugReferences.cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\le\Gadgeteer.ServiceBusDirect.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\be\Gadgeteer.ServiceBusDirect.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\le\Gadgeteer.ServiceBusDirect.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\be\Gadgeteer.ServiceBusDirect.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.ServiceBusDirect.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.ServiceBusDirect.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\le\Gadgeteer.ServiceBusDirect.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\le\Gadgeteer.ServiceBusDirect.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\be\Gadgeteer.ServiceBusDirect.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\be\Gadgeteer.ServiceBusDirect.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.DaisyLink.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.WebClient.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.WebServer.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.Net.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHIElectronics.Gadgeteer.FEZSpider.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GTM.GHIElectronics.Ethernet_J11D.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GTM.GHIElectronics.MulticolorLed.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.IO.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.Hardware.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.System.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.DaisyLink.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.WebClient.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.WebServer.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.Net.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHIElectronics.Gadgeteer.FEZSpider.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GTM.GHIElectronics.Ethernet_J11D.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GTM.GHIElectronics.MulticolorLed.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.IO.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.Hardware.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.System.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.DaisyLink.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.WebClient.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\Gadgeteer.WebServer.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.Net.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHIElectronics.Gadgeteer.FEZSpider.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GTM.GHIElectronics.Ethernet_J11D.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GTM.GHIElectronics.MulticolorLed.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.IO.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.Hardware.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\LE\GHI.Premium.System.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.DaisyLink.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.WebClient.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\Gadgeteer.WebServer.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.Net.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHIElectronics.Gadgeteer.FEZSpider.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GTM.GHIElectronics.Ethernet_J11D.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GTM.GHIElectronics.MulticolorLed.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.IO.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.Hardware.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\BE\GHI.Premium.System.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.DaisyLink.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.WebClient.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.WebServer.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.Net.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHIElectronics.Gadgeteer.FEZSpider.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GTM.GHIElectronics.Ethernet_J11D.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GTM.GHIElectronics.MulticolorLed.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.IO.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.Hardware.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.System.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.DaisyLink.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.DaisyLink.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.WebClient.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.WebClient.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.WebServer.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\Gadgeteer.WebServer.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.Net.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHIElectronics.Gadgeteer.FEZSpider.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHIElectronics.Gadgeteer.FEZSpider.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GTM.GHIElectronics.Ethernet_J11D.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GTM.GHIElectronics.Ethernet_J11D.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GTM.GHIElectronics.MulticolorLed.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GTM.GHIElectronics.MulticolorLed.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.IO.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.Hardware.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\bin\Debug\GHI.Premium.System.xml
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\TinyCLR_DebugReferences.cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.Resource1.resources
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.Resources.resources
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.csproj.GenerateResource.Cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.Resource1.tinyresources
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.Resources.tinyresources
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\TinyResGen.cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\be\Gadgeteer.ServiceBusDirect.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\be\Gadgeteer.ServiceBusDirect.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\le\Gadgeteer.ServiceBusDirect.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\le\Gadgeteer.ServiceBusDirect.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\3. Gadgeteer\Gadgeteer.ServiceBusDirect\obj\Debug\Gadgeteer.ServiceBusDirect.pdb

@@ -1,0 +1,654 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GHI.Premium.System</name>
+    </assembly>
+    <members>
+        <member name="T:GHI.Premium.System.MathEx">
+            <summary>
+            Provides constants and static methods for trigonometric, logarithmic, and other common mathematical functions.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.MathEx.E">
+            <summary>
+            Represents the natural logarithmic base, specified by the constant, e.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.MathEx.PI">
+            <summary>
+            Represents the ratio of the circumference of a circle to its diameter, specified by the constant, π.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Cos(System.Double)">
+            <summary>
+            Returns the cosine of the specified angle.
+            </summary>
+            <param name="d">An angle, measured in radians.</param>
+            <returns>The cosine of d. If d is equal to NaN, NegativeInfinity, or PositiveInfinity, this method returns NaN.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Sin(System.Double)">
+            <summary>
+            Returns the sine of the specified angle.
+            </summary>
+            <param name="a">An angle, measured in radians.</param>
+            <returns>The sine of a. If a is equal to NaN, NegativeInfinity, or PositiveInfinity, this method returns NaN.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Tan(System.Double)">
+            <summary>
+            Returns the tangent of the specified angle.
+            </summary>
+            <param name="a">An angle, measured in radians.</param>
+            <returns>The tangent of a. If a is equal to NaN, NegativeInfinity, or PositiveInfinity, this method returns NaN.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Acos(System.Double)">
+            <summary>
+            Returns the angle whose cosine is the specified number.
+            </summary>
+            <param name="d">A number representing a cosine, where -1 ≤d≤ 1.</param>
+            <returns>An angle, θ, measured in radians, such that 0 ≤θ≤π or NaN if d &lt; -1 or d > 1.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Asin(System.Double)">
+            <summary>
+            Returns the angle whose sine is the specified number.
+            </summary>
+            <param name="d">A number representing a sine, where -1 ≤d≤ 1.</param>
+            <returns>An angle, θ, measured in radians, such that -π/2 ≤θ≤π/2 or NaN if d &lt; -1 or d > 1.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Atan(System.Double)">
+            <summary>
+            Returns the angle whose tangent is the specified number.
+            </summary>
+            <param name="d">A number representing a tangent.</param>
+            <returns>An angle, θ, measured in radians, such that -π/2 ≤θ≤π/2 or NaN if d equals NaN, -π/2 rounded to double precision (-1.5707963267949) if d equals NegativeInfinity, or π/2 rounded to double precision (1.5707963267949) if d equals PositiveInfinity.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Atan2(System.Double,System.Double)">
+            <summary>
+            Returns the angle whose tangent is the quotient of two specified numbers.
+            </summary>
+            <param name="y">The y coordinate of a point.</param>
+            <param name="x">The x coordinate of a point.</param>
+            <returns>An angle, θ, measured in radians, such that -π≤θ≤π, and tan(θ) = y / x, where (x, y) is a point in the Cartesian plane.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Cosh(System.Double)">
+            <summary>
+            Returns the hyperbolic cosine of the specified angle.
+            </summary>
+            <param name="value">An angle, measured in radians.</param>
+            <returns>The hyperbolic cosine of value. If value is equal to NegativeInfinity or PositiveInfinity, PositiveInfinity is returned. If value is equal to NaN, NaN is returned.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Sinh(System.Double)">
+            <summary>
+            Returns the hyperbolic sine of the specified angle.
+            </summary>
+            <param name="value">An angle, measured in radians.</param>
+            <returns>The hyperbolic sine of value. If value is equal to NegativeInfinity, PositiveInfinity, or NaN, this method returns a Double equal to value.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Tanh(System.Double)">
+            <summary>
+            Returns the hyperbolic tangent of the specified angle.
+            </summary>
+            <param name="value">An angle, measured in radians.</param>
+            <returns>The hyperbolic tangent of value. If value is equal to NegativeInfinity, this method returns -1. If value is equal to PositiveInfinity, this method returns 1. If value is equal to NaN, this method returns NaN.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Pow(System.Double,System.Double)">
+            <summary>
+            Returns a specified number raised to the specified power.
+            </summary>
+            <param name="x">A double-precision floating-point number to be raised to a power.</param>
+            <param name="y">A double-precision floating-point number that specifies a power.</param>
+            <returns>The number x raised to the power y.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Sqrt(System.Double)">
+            <summary>
+            Returns the square root of a specified number.
+            </summary>
+            <param name="d">A number.</param>
+            <returns>The positive square root of d.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Exp(System.Double)">
+            <summary>
+            Returns e raised to the specified power.
+            </summary>
+            <param name="d">A number specifying a power.</param>
+            <returns>The number e raised to the power d. If d equals NaN or PositiveInfinity, that value is returned. If d equals NegativeInfinity, 0 is returned.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Log(System.Double)">
+            <summary>
+            Returns the natural (base e) logarithm of a specified number.
+            </summary>
+            <param name="d">A number whose logarithm is to be found. </param>
+            <returns>The natural logarithm of d.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Log10(System.Double)">
+            <summary>
+            Returns the base 10 logarithm of a specified number.
+            </summary>
+            <param name="d">A number whose logarithm is to be found.</param>
+            <returns>The base 10 log of d.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Ceiling(System.Double)">
+            <summary>
+            Returns the smallest integral value that is greater than or equal to the specified double-precision floating-point number.
+            </summary>
+            <param name="a">A double-precision floating-point number.</param>
+            <returns>The smallest integral value that is greater than or equal to a. If a is equal to NaN, NegativeInfinity, or PositiveInfinity, that value is returned. Note that this method returns a Double instead of an integral type.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Floor(System.Double)">
+            <summary>
+            Returns the largest integer less than or equal to the specified double-precision floating-point number.
+            </summary>
+            <param name="d">A double-precision floating-point number. </param>
+            <returns>The largest integer less than or equal to d. If d is equal to NaN, NegativeInfinity, or PositiveInfinity, that value is returned.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Round(System.Double)">
+            <summary>
+            Rounds a double-precision floating-point value to the nearest integral value.
+            </summary>
+            <param name="a">A double-precision floating-point number to be rounded.</param>
+            <returns>The integer nearest a. If the fractional component of a is halfway between two integers, one of which is even and the other odd, then the even number is returned. Note that this method returns a Double instead of an integral type.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.MathEx.Truncate(System.Double)">
+            <summary>
+            Calculates the integral part of a specified double-precision floating-point number. 
+            </summary>
+            <param name="d">A number to truncate.</param>
+            <returns>The integral part of d; that is, the number that remains after any fractional digits have been discarded.</returns>
+        </member>
+        <member name="T:GHI.Premium.System.XTEA">
+            <summary>
+            Extended Tiny Encryption Algorithm.
+            </summary>
+            <remarks>
+            Extended Tiny Encryption Algorithm uses 128 bit key. It is secure and has simple implementation. The algorithm is explained in length at various sources including Wikipedia.<br/>
+            <br/>
+            The version used in this class does 32 cycles of XTEA encryption (most common).<br/>
+            The data length to be encrypted or decrypted MUST be a multiple of 8. To work around this restriction, pad the data until it is a multiple of 8. Also, an implementation that does not have this limitation and is the same as NETMF's Key_TinyEncryptionAlgorithm is explained in the book “Expert .NET Micro Framework”, Second Edition by Jens Kühner. It includes source example that implements XTEA in addition to cipher block chaining with cipher byte stealing. See chapter 8 source code in the <a href="http://apress.com/book/view/9781590599730">book link</a>.<br/>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.System.XTEA.#ctor(System.Byte[])">
+            <summary>
+            Creates an XTEA using the encryption key.
+            </summary>
+            <param name="key">The key must be 16 bytes long (128 bits).</param>
+        </member>
+        <member name="M:GHI.Premium.System.XTEA.Encrypt(System.Byte[],System.Int32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Encrypts the data.
+            </summary>
+            <param name="plainData">Data to be encrypted. This array is not changed.</param>
+            <param name="plainDataOffset">Offset into the plain data array.</param>
+            <param name="encryptedData">Encrypted data will be written to this array.</param>
+            <param name="encryptedDataOffset">Offset into the encrypted data array.</param>
+            <param name="dataCount">Data count to be processed. It MUST be a multiple of 8.</param>
+        </member>
+        <member name="M:GHI.Premium.System.XTEA.Decrypt(System.Byte[],System.Int32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Decrypts the data.
+            </summary>
+            <param name="encryptedData">Data to be decrypted. This array is not changed.</param>
+            <param name="encryptedDataOffset">Offset into the encrypted data array.</param>
+            <param name="plainData">Decrypted data will be written to this array.</param>
+            <param name="plainDataOffset">Offset into the plain data array.</param>
+            <param name="dataCount">Data count to be processed. It MUST be a multiple of 8.</param>
+        </member>
+        <member name="T:GHI.Premium.System.CRC">
+            <summary>
+            Provides a cyclic redundancy check.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.System.CRC.CRC_16_CCITT(System.Byte[],System.Int32,System.Int32,System.UInt16)">
+            <summary>
+            Computes CRC.
+            </summary>
+            <param name="buffer">Buffer.</param>
+            <param name="offset">Offset.</param>
+            <param name="count">Count.</param>
+            <param name="seed">Seed.</param>
+            <returns>CRC.</returns>
+            <remarks>
+            This is used in XMODEM and many others.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.System.CRC.CRC_32_IEEE_802_3(System.Byte[],System.Int32,System.Int32,System.UInt32)">
+            <summary>
+            Computes CRC.
+            </summary>
+            <param name="buffer">Buffer.</param>
+            <param name="offset">Offset.</param>
+            <param name="count">Conut.</param>
+            <param name="seed">Seed.</param>
+            <returns>CRC.</returns>
+            <remarks>
+            This is used in ZMODEM and many others.
+            </remarks>
+        </member>
+        <member name="T:GHI.Premium.System.USBH_Device">
+            <summary>
+            Represents a device connected to USB Host.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_Device.ID">
+            <summary>
+            Device ID. 
+            </summary>
+            <remarks>
+            This is unique among the currently connected USB devices. It will be the same for a device with multiple interfaces.
+            </remarks>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_Device.INTERFACE_INDEX">
+            <summary>
+            Logical device interface index.
+            </summary>
+            <remarks>
+            Some USB devices might have multiple functions represented as multiple interfaces. If a device functions as a whole, this will be equal to <c>NO_INTERFACE_ASSOCIATED</c>.
+            </remarks>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_Device.TYPE">
+            <summary>
+            Device type.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_Device.VENDOR_ID">
+            <summary>
+            Device Vendor ID.
+            </summary>
+            <remarks>
+            This is unique per company.
+            </remarks>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_Device.PRODUCT_ID">
+            <summary>
+            Device Product ID.
+            </summary>
+            <remarks>
+            This is unique per product for a certain company.
+            </remarks>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_Device.PORT_NUMBER">
+            <summary>
+            Device USB port number.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.System.USBH_Device.#ctor(System.UInt32,System.Byte,GHI.Premium.System.USBH_DeviceType,System.UInt16,System.UInt16,System.Byte)">
+            <summary>
+            Constructor to create fields data.
+            </summary>
+            <param name="ID">ID.</param>
+            <param name="INTERFACE_INDEX">INTERFACE_INDEX.</param>
+            <param name="TYPE">TYPE.</param>
+            <param name="VENDOR_ID">VENDOR_ID.</param>
+            <param name="PRODUCT_ID">PRODUCT_ID.</param>
+            <param name="PORT_NUMBER">PORT_NUMBER.</param>
+        </member>
+        <member name="M:GHI.Premium.System.USBH_Device.#ctor(GHI.Premium.System.USBH_Device)">
+            <summary>
+             Constructor to create fields data identical to a given device.
+            </summary>
+            <param name="device">Target device.</param>
+        </member>
+        <member name="T:GHI.Premium.System.USBH_DeviceType">
+            <summary>
+            Available devices' types.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Unknown">
+            <summary>Device is not recognized.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Hub">
+            <summary>USB Hub.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.HID">
+            <summary>Human Interface Device.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Mouse">
+            <summary>Mouse.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Keyboard">
+            <summary>Keyboard.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Joystick">
+            <summary>Joystick.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.MassStorage">
+            <summary>Mass Storage. This includes USB storage devices such as USB Thumbs drives and USB hard disks. </summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Printer">
+            <summary>Printer.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Serial_FTDI">
+            <summary>USB to Serial device.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Serial_Prolific">
+            <summary>USB to Serial device.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Serial_Prolific2">
+            <summary>USB to Serial device.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Serial_SiLabs">
+            <summary>USB to Serial device.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Serial_CDC">
+            <summary>USB to Serial device.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Serial_Sierra_C885">
+            <summary>USB to Serial device.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Sierra_Installer">
+            <summary>Sierra Installer.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Video">
+            <summary>Video device.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.USBH_DeviceType.Webcamera">
+            <summary>Webcamera.</summary>
+        </member>
+        <member name="T:GHI.Premium.System.SystemModelType">
+            <summary>
+            System model types.
+            </summary>
+            <remarks>
+            To get the system model type use <c>Microsoft.SPOT.Hardware.SystemInfo.SystemID.Model</c>.
+            </remarks>
+        </member>
+        <member name="F:GHI.Premium.System.SystemModelType.EMX">
+            <summary>Model Type.</summary>
+        </member>
+        <member name="T:GHI.Premium.System.NetworkInterface">
+            <summary>
+            Network Interface.
+            </summary>
+            <remarks>
+            To get the NetworkInterface use.
+            </remarks>
+        </member>
+        <member name="F:GHI.Premium.System.NetworkInterface.Built_In_Ethernet">
+            <summary>Built In Interface.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.NetworkInterface.ENC28j60_Ethernet">
+            <summary>ENC28J60 Interface.</summary>
+        </member>
+        <member name="F:GHI.Premium.System.NetworkInterface.RS910_Wifi">
+            <summary>RS910 Interface.</summary> 
+        </member>
+        <member name="T:GHI.Premium.System.ApplicationProtectionLevel">
+            <summary>
+            Application protect level.
+            </summary>
+            <remarks>
+            To get the Application protect level use.
+            </remarks>
+        </member>
+        <member name="F:GHI.Premium.System.ApplicationProtectionLevel.Disable">
+            <summary>
+            Disable protection.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.ApplicationProtectionLevel.Level_1">
+            <summary>
+            Level_1 protection.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.ApplicationProtectionLevel.Level_2">
+            <summary>
+            Level_2 protection.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.ApplicationProtectionLevel.Level_3">
+            <summary>
+            Level_3 protection.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.System.Util">
+            <summary>
+            Utilities.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.System.Util.SetApplicationProtection(GHI.Premium.System.ApplicationProtectionLevel,System.Byte[])">
+             <summary>
+             Allows Set Application Protect
+             </summary>
+             <param name="level">Application protect level</param>
+             <param name="key">key value</param>           
+        </member>
+        <member name="M:GHI.Premium.System.Util.SetApplicationProtection(System.Byte,System.Byte[])">
+             <summary>
+             Allows Set Application Protect
+             </summary>
+             <param name="level">Application protect level</param>
+             <param name="key">key value</param>    
+        </member>
+        <member name="M:GHI.Premium.System.Util.SetMACAddress(GHI.Premium.System.NetworkInterface,System.Byte[])">
+             <summary>
+             Allows Update MAC address
+             </summary>
+             <param name="network_interface">Network Interface</param>
+             <param name="mac_addess">MAC address value</param>     
+        </member>
+        <member name="M:GHI.Premium.System.Util.PlayPCMAudio(Microsoft.SPOT.Hardware.Cpu.AnalogOutputChannel,System.Byte[],System.Int32,System.Int32,System.Int32)">
+             <summary>
+             Allows .wav file playback through AnalogOut
+             </summary>
+             <param name="channel">AnalogOut Channel</param>
+             <param name="data">.wav file buffer</param>
+             <param name="offset">Array offset</param>
+             <param name="count">Size of playback sample</param>
+             <param name="dataRate">Frequency in Hz</param>
+        </member>
+        <member name="M:GHI.Premium.System.Util.FlushExtendedWeakReferences">
+            <summary>
+            Forces Extended Weak References to flush.
+            </summary>
+            <remarks>
+            Extended Weak References are normally flushed in the background. Use this method to force flushing.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.System.Util.InsertValueIntoArray(System.String,System.Byte[],System.Int32,System.Boolean)">
+            <summary>
+            Converts a string to UTF-8 and inserts into a byte array.
+            </summary>
+            <param name="str">String.</param>
+            <param name="bytes">Buffer.</param>
+            <param name="offset">Insert offset in buffer.</param>
+            <param name="nullTerminate"><c>true</c> to terminate the string with a null. If this is used, the <c>buffer</c> must have extra byte to store the null.</param>
+        </member>
+        <member name="M:GHI.Premium.System.Util.InsertValueIntoArray(System.Single,System.Byte[],System.Int32)">
+            <summary>
+            Converts a value into little-endian binary bytes representation and insert them into an array.
+            </summary>
+            <param name="f">Value.</param>
+            <param name="buffer">Buffer.</param>
+            <param name="offset">Insert offset in buffer.</param>
+        </member>
+        <member name="M:GHI.Premium.System.Util.ExtractValueFromArray(System.Single@,System.Byte[],System.Int32)">
+            <summary>
+            Converts little-endian binary bytes representation to an equivalent value.
+            </summary>
+            <param name="f">Output value.</param>
+            <param name="buffer">Buffer.</param>
+            <param name="offset">Extract offset in buffer.</param>
+        </member>
+        <member name="M:GHI.Premium.System.Util.BitmapConvertBPP(System.Byte[],System.Byte[],GHI.Premium.System.Util.BPP_Type)">
+            <summary>
+            Converts <c>Bitmap</c> pixel bytes into different BPP representation.
+            </summary>
+            <param name="bitmapBuffer">Bitmap bytes.</param>
+            <param name="outputBuffer">Output buffer after conversion.</param>
+            <param name="bpp">Target bits per pixel representation.</param>
+            <remarks>
+            GHI Electronics' devices support Bitmap and WPF graphics natively on color TFT displays. A design may require a small low-cost SPI-based displays. Different SPI LCDs can have different BPP requirements. This function converts the Bitmap bytes, where each pixel is represented as 4 bytes, into the needed BPP representation and then it can be transferred to the display.<br/>
+            Start by doing all necessary graphics in NETMF on a Bitmap object. When you need to flush the results to the LCD:<br/>
+            1) Get the Bitmap bytes using <c>myBitmap.GetBitmap()</c>.<br/>
+            2) Use this conversion method to convert the buffer into the needed BPP.<br/>
+            3) Send output buffer to LCD over SPI.<br/>
+            <br/>
+            This drawing technique can be used also with Windows Presentation Foundation but it does not work on old non-TFT Embedded Master and it requires the following:<br/>
+            1) Set the display size to match your SPI-display using SetLCD. Use any values for timing and 0 for <c>PixelClockRateKHZ</c> which will disable TFT LCD refresh.<br/>
+            2) Use the following code to fetch the Bitmap object from the WPF system.
+            <code>
+            WindowManager.Instance.PostRender += new PostRenderEventHandler(Instance_PostRender);
+            // …
+            void Instance_PostRender(DrawingContext dc)
+            {
+               // get bitmap bytes
+               byte[] MyBitmapBytes = dc.Bitmap.GetBitmap();
+            
+               // do any necessary conversion
+               Util.ConvertBPP(MyBitmapBytes, output, Util.BPP_Type.BPP16_RGB_LE);
+            
+               // send over SPI
+               MySPIDisplay.FlushData(output);
+            }
+            </code>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.System.Util.BitmapToBMPFile(System.Byte[],System.Int32,System.Int32,System.Byte[])">
+            <summary>
+            Converts <c>Bitmap</c> pixel bytes to a BMP file.
+            </summary>
+            <remarks>
+            This method coverts .NET Micro Framework's <c>Bitmap</c> pixels to a BMP file. This file can be stored on a storage device or transferred over a network.<br/>
+            First allocate a buffer for the BMP file. Its size must be: imageWidth * imageHeight * 3 + 54. Then pass the buffer along with the Bitmap's pixels to this method. The Bitmap's pixels can be obtained using <c>Bitmap.GetBitmap()</c>.<br/>
+            </remarks>
+            <param name="bitmapBuffer">Pixel data. This is done using <c>Bitmap.GetBitmap()</c>.</param>
+            <param name="bitmapWidth">Image width (<c>Bitmap.Width</c>).</param>
+            <param name="bitmapHeight">Image height (<c>Bitmap.Height</c>).</param>
+            <param name="outputFileBuffer">BMP file buffer. Its size must be: imageWidth * imageHeight * 3 + 54.</param>
+        </member>
+        <member name="M:GHI.Premium.System.Util.IOCTL(System.UInt32,System.UInt32,System.UInt32,System.Byte[],System.Byte[],System.UInt32[])">
+            <summary>
+            Low level use.
+            </summary>
+            <param name="driverID">driverID.</param>
+            <param name="n1">n1.</param>
+            <param name="n2">n2.</param>
+            <param name="b1">b1.</param>
+            <param name="b2">b2.</param>
+            <param name="a">a.</param>
+            <returns>Return value.</returns>
+        </member>
+        <member name="M:GHI.Premium.System.Util.SplitToArray(System.Byte[],System.Int32,System.Char,System.Single[])">
+             <summary>
+             Splits a passed in string using a delimiter and fills out an array with the parsed values.
+             </summary>
+             <param name="line">The string to be split.</param>
+             <param name="length">The length of the string.</param>
+             <param name="delim">The delimiter character that will be used to split the string.</param>
+             <param name="values">An array of values to be filled out from the parsed string.</param>
+             <returns>Returns the number of values that were parsed.</returns>
+             <remarks>
+             <code>
+             <![CDATA[
+             public static void Main()
+            {
+                // This is the string that we will decode to extract values from.
+                // We are using an example GPS stream for this test.
+                string gpss = "$GPGGA,,,092750.000,5321.6802,N,00630.3372,W,1,,,8,1.03,61.7,M,55.2,M,FFF,0.515151,,,,*76";
+                byte[] gps = System.Text.UTF8Encoding.UTF8.GetBytes(gpss);
+            
+                // Our buffer to hold our line with comma separated values
+                byte[] CSVLine = new byte[256];
+            
+                // Our list of values that we want filled in from the string.
+                float[] values = new float[100];
+            
+                // Find the start of the line we care about.
+                int lineStart = Array.IndexOf(gps, '$');
+                int firstComma = Array.IndexOf(gps, ',', lineStart);
+            
+                // Skip the first comma
+                firstComma++;
+            
+                // Find the end of the line that we care about.
+                int lineEnd = Array.IndexOf(gps, '*', lineStart);
+                int length = lineEnd - firstComma;
+            
+                // Copy the string from the first comma to the end of the line into the string we will pass in.
+                Array.Copy(gps, firstComma, CSVLine, 0, length);
+            
+                // "CSVLine" now holds a single line of the length "length" and looks like this.
+                // ,,092750.000,5321.6802,N,00630.3372,W,1,,,8,1.03,61.7,M,55.2,M,FFF,0.515151,,,,
+            
+                // An array of values will be extracted and put in the float array that we created and passed in.
+                // in this example it use ',' but this can be anything!
+                int floatCount = GHI.Premium.System.Util.SplitToArray(CSVLine, length, ',', values);
+                /* from values above it will be
+                 * values[0] = NaN; (not a number)
+                 * values[1] = NaN; (not a number)
+                 * values[2] = 092750.000;
+                 * values[3] = 5321.6802;
+                 * values[4] = (float)'N';
+                 * ...etc.
+                */
+            
+                // show the byte array
+                string extracted = new string(System.Text.UTF8Encoding.UTF8.GetChars(CSVLine));
+            
+                //show the decoded values
+                for (int i = 0; i < floatCount; i++)
+                {
+                    Debug.Print(values[i].ToString());
+            
+                    if (double.IsNaN(values[i]))
+                        Debug.Print("Value[" + i + "] is a NaN!");
+                }
+            
+                Debug.Print(extracted);
+            
+                Thread.Sleep(-1);
+            
+            ]]>
+            </code>
+            </remarks>
+        </member>
+        <member name="T:GHI.Premium.System.Util.BPP_Type">
+            <summary>
+            Bits per pixel conversion type.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.Util.BPP_Type.BPP1_x128">
+            <summary>
+            1 BPP for displays of 128 width and 128 or 64 height. The 1-bit pixel is set if the bitmap pixel has any color besides black.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.Util.BPP_Type.BPP8_RGB">
+            <summary>
+            8 BPP with RGB 3:3:2.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.Util.BPP_Type.BPP8_RED">
+            <summary>
+            8 BPP from red channel.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.Util.BPP_Type.BPP8_GREEN">
+            <summary>
+            8 BPP from green channel.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.Util.BPP_Type.BPP8_BLUE">
+            <summary>
+            8 BPP from blue channel.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.Util.BPP_Type.BPP16_RGB_BE">
+            <summary>
+            Big Endian 16 BPP with RGB 5:6:5. 
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.Util.BPP_Type.BPP16_RGB_LE">
+            <summary>
+            Little Endian 16 BPP with RGB 5:6:5. 
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.Util.BPP_Type.BPP16_BGR_BE">
+            <summary>
+            Big Endian 16 BPP with BGR 5:6:5. 
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.System.Util.BPP_Type.BPP16_BGR_LE">
+            <summary>
+            Little Endian 16 BPP with BGR 5:6:5. 
+            </summary>
+        </member>
+    </members>
+</doc>

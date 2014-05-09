@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GHIElectronics.Gadgeteer.FEZSpider</name>
+    </assembly>
+    <members>
+        <member name="T:GHIElectronics.Gadgeteer.FEZSpider">
+            <summary>
+            Support class for GHI Electronics FEZSpider, using the GHI EMX SoM, for Microsoft .NET Gadgeteer
+            </summary>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.#ctor">
+            <summary>
+            Instantiates a new FEZSpider mainboard
+            </summary>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.GetStorageDeviceVolumeNames">
+            <summary>
+            Allows mainboards to support storage device mounting/umounting.  This provides modules with a list of storage device volume names supported by the mainboard. 
+            </summary>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.MountStorageDevice(System.String)">
+            <summary>
+            Functionality provided by mainboard to mount storage devices, given the volume name of the storage device (see <see cref="M:GHIElectronics.Gadgeteer.FEZSpider.GetStorageDeviceVolumeNames"/>).
+            This should result in a Microsoft.SPOT.IO.RemovableMedia.Insert event if successful.
+            </summary>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.UnmountStorageDevice(System.String)">
+            <summary>
+            Functionality provided by mainboard to ummount storage devices, given the volume name of the storage device (see <see cref="M:GHIElectronics.Gadgeteer.FEZSpider.GetStorageDeviceVolumeNames"/>).
+            This should result in a Microsoft.SPOT.IO.RemovableMedia.Eject event if successful.
+            </summary>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.SetProgrammingMode(Gadgeteer.Mainboard.ProgrammingInterface)">
+            <summary>
+            Changes the programming interafces to the one specified
+            </summary>
+            <param name="programmingInterface">The programming interface to use</param>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.SetLCDConfiguration(Gadgeteer.Mainboard.LCDConfiguration)">
+            <summary>
+            This sets the LCD configuration.  If the value GT.Mainboard.LCDConfiguration.HeadlessConfig (=null) is specified, no display support should be active.
+            If a non-null value is specified but the property LCDControllerEnabled is false, the LCD controller should be disabled if present,
+            though the Bitmap width/height for WPF should be modified to the Width and Height parameters.  This must reboot if the LCD configuration changes require a reboot.
+            </summary>
+            <param name="lcdConfig">The LCD Configuration</param>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.SetLCDRotation(Gadgeteer.Modules.Module.DisplayModule.LCDRotation)">
+            <summary>
+            Configures rotation in the LCD controller. This must reboot if performing the LCD rotation requires a reboot.
+            </summary>
+            <param name="rotation">The LCD rotation to use</param>
+            <returns>true if the rotation is supported</returns>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.SetDebugLED(System.Boolean)">
+            <summary>
+            Turns the debug LED on or off
+            </summary>
+            <param name="on">True if the debug LED should be on</param>
+        </member>
+        <member name="M:GHIElectronics.Gadgeteer.FEZSpider.PostInit">
+            <summary>
+            This performs post-initialization tasks for the mainboard.  It is called by Gadgeteer.Program.Run and does not need to be called manually.
+            </summary>
+        </member>
+        <member name="P:GHIElectronics.Gadgeteer.FEZSpider.MainboardName">
+            <summary>
+            The mainboard name, which is printed at startup in the debug window
+            </summary>
+        </member>
+        <member name="P:GHIElectronics.Gadgeteer.FEZSpider.MainboardVersion">
+            <summary>
+            The mainboard version, which is printed at startup in the debug window
+            </summary>
+        </member>
+    </members>
+</doc>

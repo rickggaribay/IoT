@@ -1,0 +1,565 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GHI.Premium.Net</name>
+    </assembly>
+    <members>
+        <member name="E:GHI.Premium.Net.NetworkChangeExtension.NetworkAddressChanged">
+            Events
+        </member>
+        <member name="T:GHI.Premium.Net.NetworkInterfaceExtensionException">
+            <summary>
+            NetworkInterfaceExtensionException
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.errorCode">
+            <summary>
+            errorCode
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorMsg">
+            <summary>
+            ErrorMsg
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.NetworkInterfaceExtensionException.#ctor(GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="err">error code </param>
+        </member>
+        <member name="M:GHI.Premium.Net.NetworkInterfaceExtensionException.#ctor(GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="err">error code</param>
+            <param name="msg">error message</param>
+        </member>
+        <member name="T:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode">
+            <summary>
+            ErrorCode
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.UnknownNetworkInterface">
+            <summary>
+            UnknownNetworkInterface
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.ReservedInterface">
+            <summary>
+            The Interface is assigned to another object.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.AlreadyActivated">
+            <summary>
+            AlreadyActivated
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.OtherInterfaceIsActivated">
+            <summary>
+            Currently, only one interface can be activate at a time. Other interface can not be activated before deactivating the active one.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.AlreadyDeactivated">
+            <summary>
+            AlreadyDeactivated
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.AlreadyJoined">
+            <summary>
+            Already Joined or associated.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.WrongSSID">
+            <summary>
+            The SSID (AP name) provided not found
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.AuthenticationFailed">
+            <summary>
+            Authentication failure or Wrong pass phrase
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.InvalidChannel">
+            <summary>
+            Invalid radio channel
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.UnKnownError">
+            <summary>
+            Unknown Error
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.HardwareNotEnabled">
+            <summary>
+            The WiFi module is not enabled.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.HardwareCommunicationFailure">
+            <summary>
+            It means that the system could not communicate with the WiFi module.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.HardwareCommunicationTimeout">
+            <summary>
+            It means that the system could communicate with the WiFi module but it did not get the expected initialization response. This happens when the WiFi module firmware is corrupted. The firmware can be updated using WiFi FirmwareUpdate() method.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.HardwareFirmwareVersionMismatch">
+            <summary>
+            It means that WiFi module firmware version and the current supported version with the hosting system mismatches. The firmware can be updated using WiFi FirmwareUpdate() method.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.HardwareFirmwareCorrupted">
+            <summary>
+            It means that WiFi module firmware is corrupted.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.NotSupported">
+            <summary>
+            Not Supported Feature.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.RequestTimeout">
+            <summary>
+            Time out
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkInterfaceExtensionException.ErrorCode.NotOpen">
+            <summary>
+            The interface is not open.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Net.NetworkInterfaceExtension">
+            <summary>
+            NetworkInterfaceExtension class is an extension to Microsoft.SPOT.NET.NetworkInformation.NetworkInterface class with extra features.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.NetworkInterfaceExtension.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.NetworkInterfaceExtension.RefreshtNetworkInterface">
+            <summary>
+            Network settings like the IP address do not refresh automatically in NetworkInterface member, specially when using DHCP to acquire the settings. This method is call to get a fresh copy of the settings.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.NetworkInterfaceExtension.Activate">
+            <summary>
+            Activate networking interface.
+            </summary>
+            <remarks>
+            The interface driver must be installed before activating the interface. Activating an interface just hooks the interface driver to the TCP/IP stack.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Net.NetworkInterfaceExtension.SetDefaultInterface(GHI.Premium.Net.NetworkInterfaceExtension)">
+            <summary>
+            Although LwIP supports multiple interface, but it can access only one default interface (The same as on a PC). LwIP will use this interface to initialize connection to the outside (internet). For example, when using HttpClient, LwIP will use the this interface.
+            </summary>
+            <param name="networkInterface">NetworkInterfaceExtension</param>
+        </member>
+        <member name="M:GHI.Premium.Net.NetworkInterfaceExtension.Open">
+            <summary>
+            Opens an interface
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.NetworkInterfaceExtension.Close">
+            <summary>
+            Closes an interface
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.NetworkInterfaceExtension.Deactivate">
+            <summary>
+            Deactivate networking interface.
+            </summary>
+            <remarks>
+            Deactivating an interface does not disable the interface. Deactivating the interface just unhook the interface driver from TCP/IP stack.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Net.NetworkInterfaceExtension.DeactivateAllInterfaces">
+            <summary>
+            Deactivate all interfaces.
+            </summary>
+            <remarks>
+            Deactivating an interface does not disable the interface. deactivating the interface just unhook the interface driver from TCP/IP stack.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Net.NetworkInterfaceExtension.AssignNetworkingStackTo(GHI.Premium.Net.NetworkInterfaceExtension)">
+            <summary>
+            Assign network interface to the TCP/IP stack.
+            </summary>
+            <remarks> Currently, only one interface can access the TCP/IP stack at a time. Use this function to assign the TCP/IP stack to a certain interface.</remarks>
+            <param name="networkInterface">NetworkInterfaceExtension or null to disconnect the stack completely</param>
+        </member>
+        <member name="P:GHI.Premium.Net.NetworkInterfaceExtension.NetworkInterface">
+            <summary>
+            Returns an instant of the associated NetworkInformation object.
+            </summary>
+        </member>
+        <member name="E:GHI.Premium.Net.NetworkInterfaceExtension.NetworkAddressChanged">
+            <summary>
+            NetworkAddressChangedEventHandler fires when network IP setting of this interfaces changes.
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Net.NetworkInterfaceExtension.IsActivated">
+            <summary>
+            True is Activated.
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Net.NetworkInterfaceExtension.IsOpen">
+            <summary>
+            Returns if the interface is open
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Net.NetworkInterfaceExtension.AssignedNetworkInterface">
+            <summary>
+            Returns the Network Interface Extension that is currently assigned to the TCP/IP stack.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Net.NetworkInterfaceExtension.NetworkAddressChangedEventHandler">
+            <summary>
+            NetworkAddressChangedEventHandler
+            </summary>
+            <param name="sender">sender</param>
+            <param name="e">e</param>
+        </member>
+        <member name="T:GHI.Premium.Net.SecurityMode">
+            <summary>
+            WiFi Security Mode
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.SecurityMode.Open">
+            <summary>
+            Open, No security or encryption
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.SecurityMode.WPA">
+            <summary>
+            WPA, WiFi Protected Access
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.SecurityMode.WPA2">
+            <summary>
+            WPA2, WiFi Protected Access II 
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.SecurityMode.WEP">
+            <summary>
+            WEP, Wired Equivalent Privacy 
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Net.NetworkType">
+            <summary>
+            WiFi Network Type
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkType.AdHoc">
+            <summary>
+            Ad-Hoc (IBSS).
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.NetworkType.AccessPoint">
+            <summary>
+            Wireless Access Point (Infrastructure).
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Net.WiFiNetworkInfo">
+            <summary>
+            WiFi Network Information. 
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.WiFiNetworkInfo.ChannelNumber">
+            <summary>
+            Channel Number.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.WiFiNetworkInfo.SecMode">
+            <summary>
+            Security Mode
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.WiFiNetworkInfo.RSSI">
+            <summary>
+            Received signal strength indication in -dB unit
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.WiFiNetworkInfo.SSID">
+            <summary>
+            Service set identifier (the WiFi network name)
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.WiFiNetworkInfo.networkType">
+            <summary>
+            Network Type
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Net.WiFiNetworkInfo.PhysicalAddress">
+            <summary>
+            Base station's MAC address.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiNetworkInfo.#ctor">
+            <summary>
+            AccessPointInfo Constructor.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiNetworkInfo.#ctor(GHI.Premium.Net.WiFiNetworkInfo)">
+            <summary>
+            Create a copy of  networkInfo.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiNetworkInfo.#ctor(System.UInt32,GHI.Premium.Net.SecurityMode,System.String,GHI.Premium.Net.NetworkType)">
+            <summary>
+            WiFiNetworkInfo Constructor.
+            </summary>
+            <param name="channelno">Channel Number, 0 = Auto</param>
+            <param name="security">Security Mode</param>
+            <param name="ssid">Service set identifier (The wifi network name)</param>
+            <param name="type">Network Type</param>
+        </member>
+        <member name="T:GHI.Premium.Net.WiFiRS9110">
+            <summary>
+            WiFi Driver for RS9110-N-11-22-04, RS9110-N-11-22-05 and RS9110-N-11-21-01 SPI-Based WiFi module
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiRS9110.Open">
+            <summary>
+            This methods opens the driver. This must be called before accessing any other member of this object.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiRS9110.Close">
+            <summary>
+            Closes the driver. 
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiRS9110.#ctor(Microsoft.SPOT.Hardware.SPI.SPI_module,Microsoft.SPOT.Hardware.Cpu.Pin,Microsoft.SPOT.Hardware.Cpu.Pin,Microsoft.SPOT.Hardware.Cpu.Pin,System.UInt32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="spi">SPI.SPI_module</param>
+            <param name="chipSelect">chipSelect GPIO</param>
+            <param name="externalInterrupt">externalInterrupt GPIO. Must support InterruptPort feature</param>
+            <param name="reset">Reset GPIO</param>
+            <param name="clockRateKhz">SPI Clock Speed</param>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiRS9110.Dispose">
+            <summary>
+            Disposes of the object
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiRS9110.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiRS9110.UpdateFirmware">
+            <summary>
+            This method is needed in rare cases when the RS9110 firmware is suspected of being corrupt.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiRS9110.Scan">
+            <summary>
+            scans all WiFi channel for searching for WiFi Network.
+            </summary>
+            <returns>An array of the found access point.</returns>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiRS9110.Scan(System.UInt32)">
+            <summary>
+            scans a specific WiFi channel.
+            </summary>
+            <param name="channel">Channel Number (0 to scan all the channels, 1-14 to scan in the specific channel).</param>
+            <returns>An array of the found access point.</returns>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiRS9110.Scan(System.String)">
+            <summary>
+            Searches for WiFi Network with specific name (SSID).
+            </summary>
+            <param name="SSID">SSID Service set identifier (the WiFi network name). String.Empty to scan for all networks in the range.</param>
+            <returns>An array of the found access point.</returns>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiRS9110.Scan(System.UInt32,System.String)">
+            <summary>
+            Searches for WiFi Network with specific name (SSID) at a specific WiFi channel.
+            </summary>
+            <param name="channel">Channel Number (0 to scan all the channels, 1-14 to scan in the specific channel).</param>
+            <param name="SSID">SSID Service set identifier (the WiFi network name). String.Empty to scan for all networks in the range.</param>
+            <returns>An array of the found access point.</returns>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiRS9110.Join(GHI.Premium.Net.WiFiNetworkInfo,System.String)">
+            <summary>
+            Join hostingNetwork
+            </summary>
+            <param name="hostingNetwork">Wireless network information (it is usually generated by the WiFi.Scan() method)</param>
+            <param name="PreSharedKey">equals "" for open networks. <br/>
+            With WPA or WPA2, it is a plain string pass phrase. For example:"password"<br/>
+            With WEP, Key1 should be use in HEX format in a string. For example: if the Key 1 is 0xE8430A5EDB then use this string "E8430A5EDB".<br/>
+            </param>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiRS9110.StartAdHocHost(System.String,GHI.Premium.Net.SecurityMode,System.String,System.UInt32)">
+            <summary>
+            This API creates Ad-Hoc hosing network to let other node connect peer-to-peer to this WiFi module.
+            </summary>
+            <param name="ssid">SSID of the access point</param>
+            <param name="security">Security Mode</param>
+            <param name="PreSharedKey">Preshared key or passphrase</param>
+            <param name="channelno">It states in which channel the network should be created.</param>
+        </member>
+        <member name="M:GHI.Premium.Net.WiFiRS9110.Disconnect">
+            <summary>
+             Disconnects WiFi after a successful connection.
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Net.WiFiRS9110.IsLinkConnected">
+            <summary>
+            Returns true if the wireless link is connected
+            </summary>
+        </member>
+        <member name="E:GHI.Premium.Net.WiFiRS9110.WirelessConnectivityChanged">
+            <summary>
+            Fires on wireless link changes
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Net.WiFiRS9110.WirelessConnectivityChangedEventHandler">
+            <summary>
+            WirelessConnectivityChangedEventHandler
+            </summary>
+            <param name="sender">sender</param>
+            <param name="e">WirelessConnectivityEventArgs</param>
+        </member>
+        <member name="T:GHI.Premium.Net.WiFiRS9110.WirelessConnectivityEventArgs">
+            <summary>
+            WirelessConnectivityEventArgs
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Net.WiFiRS9110.WirelessConnectivityEventArgs.IsConnected">
+            <summary>
+            Returns true when connected.
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Net.WiFiRS9110.WirelessConnectivityEventArgs.NetworkInformation">
+            <summary>
+            Returns WiFi NetworkInformation.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Net.EthernetBuiltIn">
+            <summary>
+            Built-in Ethernet driver (supported on SOM with Internal Ethernet PHY like EMX) This is not supported on G120. for G120 Ethernet support use EtherentENC28J60 class.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.EthernetBuiltIn.Open">
+            <summary>
+            This methods opens Ethernet driver. This must be called before accessing any other member of this object.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.EthernetBuiltIn.Close">
+            <summary>
+            The method closes Ethernet driver.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.EthernetBuiltIn.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.EthernetBuiltIn.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.EthernetBuiltIn.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="E:GHI.Premium.Net.EthernetBuiltIn.CableConnectivityChanged">
+            <summary>
+            Fires when Ethernet cable connectivity changes
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Net.EthernetBuiltIn.IsCableConnected">
+            <summary>
+            returns true when the cable is connected.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Net.EthernetBuiltIn.CableConnectivityChangedEventHandler">
+            <summary>
+            CableConnectivityChangedEventHandler
+            </summary>
+            <param name="sender">sender</param>
+            <param name="e">CableConnectivityEventArgs</param>
+        </member>
+        <member name="T:GHI.Premium.Net.EthernetBuiltIn.CableConnectivityEventArgs">
+            <summary>
+            CableConnectivityEventArgs
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Net.EthernetBuiltIn.CableConnectivityEventArgs.IsConnected">
+            <summary>
+            Returns true when connected.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Net.EthernetENC28J60">
+            <summary>
+            Ethernet Driver for ENC28J60 SPI-based Ethernet controller.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.EthernetENC28J60.Open">
+            <summary>
+            This methods opens Ethernet driver. This must be called before accessing any other member of this object.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.EthernetENC28J60.Close">
+            <summary>
+            The method closes Ethernet driver.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.EthernetENC28J60.#ctor(Microsoft.SPOT.Hardware.SPI.SPI_module,Microsoft.SPOT.Hardware.Cpu.Pin,Microsoft.SPOT.Hardware.Cpu.Pin,Microsoft.SPOT.Hardware.Cpu.Pin,System.UInt32)">
+            <summary>
+            Constructor. Only one object of this class cane be created.
+            </summary>
+            <param name="spi">SPI.SPI_module</param>
+            <param name="chipSelect">chipSelect GPIO</param>
+            <param name="externalInterrupt">externalInterrupt GPIO (Must support InterruptPort feature)</param>
+            <param name="reset">Reset GPIO</param>
+            <param name="clockRateKhz">SPI Clock Speed</param>
+        </member>
+        <member name="M:GHI.Premium.Net.EthernetENC28J60.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Net.EthernetENC28J60.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="E:GHI.Premium.Net.EthernetENC28J60.CableConnectivityChanged">
+            <summary>
+            Fires on Ethernet cable connectivity changes
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Net.EthernetENC28J60.IsCableConnected">
+            <summary>
+            returns true when the cable is connected.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Net.EthernetENC28J60.CableConnectivityChangedEventHandler">
+            <summary>
+            CableConnectivityChangedEventHandler
+            </summary>
+            <param name="sender">sender</param>
+            <param name="e">CableConnectivityEventArgs</param>
+        </member>
+        <member name="T:GHI.Premium.Net.EthernetENC28J60.CableConnectivityEventArgs">
+            <summary>
+            CableConnectivityEventArgs
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Net.EthernetENC28J60.CableConnectivityEventArgs.IsConnected">
+            <summary>
+            Returns true when connected.
+            </summary>
+        </member>
+    </members>
+</doc>

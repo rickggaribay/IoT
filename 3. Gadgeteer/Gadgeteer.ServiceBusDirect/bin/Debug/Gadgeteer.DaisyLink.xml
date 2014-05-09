@@ -1,0 +1,376 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gadgeteer.DaisyLink</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.DaisyLinkModule">
+            <summary>
+            Abstract class to provide common methods, properties, and events for DaisyLink modules
+            that can be chained together on the same socket.
+            </summary>
+            <remarks>
+            The <see cref="T:Gadgeteer.Modules.DaisyLinkModule"/> class is the base class for all DaisyLink modules
+            that are capable of being chained together on the same socket. When you use
+            chained modules, you instantiate each corresponding object
+            by providing the same socket to the object constructor.  
+            For DaisyLink modules (using type X or Y), pin 3 is for the DaisyLink neighbor bus, pin 4 is 
+            used for I2C SDA, pin 5 is used for I2C SCL. See the DaisyLink specification in Appendix 1 of the 
+            Microsoft .NET Gadgeteer Module Builder’s Guide for more details.
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.DaisyLinkOffset">
+            <summary>
+            The number of DaisyLink reserved registers in the address space. 
+            This is equivalent to the offset of the first register used by the module logic rather than DaisyLink.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.DaisyLinkVersionImplemented">
+            <summary>
+            The version number of the DaisyLink protocol implemented.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.ModuleAddress">
+            <summary>
+            Gets the address of this <see cref="T:Gadgeteer.Modules.DaisyLinkModule"/>.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.Manufacturer">
+            <summary>
+            Gets the manufacturer code for this <see cref="T:Gadgeteer.Modules.DaisyLinkModule"/>.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.ModuleType">
+            <summary>
+            Gets the manufacturer-specific module type code of this <see cref="T:Gadgeteer.Modules.DaisyLinkModule"/>.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.ModuleVersion">
+            <summary>
+            Gets the module version of this <see cref="T:Gadgeteer.Modules.DaisyLinkModule"/>.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.DaisyLinkVersion">
+            <summary>
+            Gets the daisy link version of this <see cref="T:Gadgeteer.Modules.DaisyLinkModule"/>.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.daisylink">
+            <summary>
+            The <see cref="T:Gadgeteer.Modules.DaisyLinkModule.DaisyLink"/> object associated  with this <see cref="T:Gadgeteer.Modules.DaisyLinkModule"/>.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.DaisyLinkModule.#ctor(System.Int32,System.Byte,System.Byte,System.Byte,System.Byte,System.Int32,System.String)">
+            <summary></summary>
+            <param name="socketNumber">The socket that has this module plugged into it.</param>
+            <param name="manufacturer">The manufacturer of the module.</param>
+            <param name="moduleType">The manufacturer-specific type code of the module.</param>
+            <param name="minModuleVersionSupported">The minimum acceptable firmware version for the module.</param>
+            <param name="maxModuleVersionSupported">The maximum acceptable firmware version for the module.</param>
+            <param name="clockRateKhz">The clock rate of the module.</param>
+            <param name="moduleName">The module name.</param>
+            <exception cref="T:System.Exception">
+            <list type="bullet">
+              <item>The daisy link version of the module on the chain is an unsupported version.</item>
+              <item>The module type specified by <paramref name="moduleType"/> does not match the type found on the chain.</item>
+              <item>The firmware version is not supported; it is less than <paramref name="minModuleVersionSupported"/> or greater than <paramref name="maxModuleVersionSupported"/>.</item>
+            </list>
+            </exception>
+        </member>
+        <member name="M:Gadgeteer.Modules.DaisyLinkModule.GetLengthOfChain(System.Int32)">
+            <summary>
+            Gets the number of DaisyLink modules on the chain at the specified socket number. 
+            This throws an exception if the socket number is invalid or if the socket does not support DaisyLink.  
+            If the socket is valid but there are no DaisyLink modules on the chain, it does not throw an exception but instead returns zero.
+            </summary>
+            <param name="socketNumber">The socket number.</param>
+            <returns>The number of DaisyLink modules attached to the chain from the specified socket number.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.DaisyLinkModule.GetModuleParameters(System.Int32,System.UInt32,System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            Gets the module type, module version number, and manufacturer for the DaisyLink module at a particular position on the chain.
+            This throws an exception if the socket number is invalid or if the socket does not support DaisyLink.  
+            </summary>
+            <param name="socketNumber">The socket number with the DaisyLink chain of devices.</param>
+            <param name="position">The position on the chain of the module to query (first module is at position one).</param>
+            <param name="manufacturer">Out parameter that returns the module manufacturer.</param>
+            <param name="type">Out parameter that returns the type of the module.</param>
+            <param name="version">Out parameter that returns the module version number.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.DaisyLinkModule.Read(System.Byte)">
+            <summary>
+            Reads a byte at the specified address from the DaisyLink module.
+            </summary>
+            <param name="memoryAddress">The address to read.</param>
+            <returns>The byte at <paramref name="memoryAddress"/>.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.DaisyLinkModule.WriteParams(System.Byte[])">
+            <summary>
+            Writes the specified parameter bytes to the DaisyLink module.
+            </summary>
+            <param name="writeBuffer">The bytes to write.</param>
+            <remarks>
+            This method uses the <b>params</b> keyword in order
+            to accept a variable number of bytes
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.DaisyLinkModule.Write(System.Byte[])">
+            <summary>
+            Writes the specified bytes to the DaisyLink module.
+            </summary>
+            <param name="writeBuffer">The bytes to write</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.DaisyLinkModule.WriteRead(System.Byte[],System.Int32,System.Int32,System.Byte[],System.Int32,System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+            Writes an array of bytes to the module hardware and then reads an array of bytes from the DaisyLink module.
+            </summary>
+            <param name="writeBuffer">The array of bytes to write to the device.</param>
+            <param name="writeOffset">The index of the first byte in the "writeBuffer" array to be written.</param>
+            <param name="writeLength">The number of bytes from the "writeBuffer" array to be written.</param>
+            <param name="readBuffer">The buffer that will hold the bytes read from the device.</param>
+            <param name="readOffset">The index of the first byte that will be written to the "readBuffer" array.</param>
+            <param name="readLength">The number of bytes that will be written to the "readBuffer" array.</param>
+            <param name="numWritten">The number of bytes actually written to the device.</param>
+            <param name="numRead">The number of bytes actually read from the device.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.DaisyLinkModule.PositionOnChain">
+            <summary>
+            Gets the position on the chain of this <see cref="T:Gadgeteer.Modules.DaisyLinkModule"/>.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.DaisyLinkModule.LengthOfChain">
+            <summary>
+            Gets the number of modules on the chain of this <see cref="T:Gadgeteer.Modules.DaisyLinkModule"/>.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.DaisyLinkModule.DaisyLinkSocketNumber">
+            <summary>
+            The mainboard socket number which this DaisyLink chain is plugged into.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.DaisyLinkModule.DaisyLinkInterrupt">
+            <summary>
+            Raised when a DaisyLink module raises an interrupt.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.DaisyLinkModule.DaisyLinkInterruptEventHandler">
+            <summary>
+            The delegate that is used for the <see cref="E:Gadgeteer.Modules.DaisyLinkModule.DaisyLinkInterrupt"/> event.
+            </summary>
+            <param name="sender">The DaisyLink module that raised the interrupt.</param>
+        </member>
+        <member name="T:Gadgeteer.Modules.DaisyLinkModule.DaisyLink">
+            <summary>
+            Represents the daisylink chain for a <see cref="T:Gadgeteer.Modules.DaisyLinkModule"/>.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.SoftwareI2C">
+            <summary>
+            Supports software I2C on any GPIO pins using socket type X or Y. 
+            </summary>
+            <remarks>
+            The module must include pull up resistors in the range 2.2kohm to 10kohm.  Hardware I2C (Type I, using Gadgeteer.Interfaces.I2CBus) modules are not cross-compatible with SoftwareI2C
+            unless they include switchable pull-ups (and the module code switches them in if it detects Type I is not present).
+            If the mainboard provides native code support for software I2C, this will be used, otherwise a managed code implementation of I2C will be used.
+            Only "standard mode" is supported (100 kbit/s maximum, though the speed may be slower). For a fast interface, use hardware I2C (Gadgeteer.Interfaces.I2CBus) or another bus type.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SoftwareI2C.#ctor(Gadgeteer.Socket,Gadgeteer.Socket.Pin,Gadgeteer.Socket.Pin,Gadgeteer.Modules.Module)">
+            <summary></summary>
+            <remarks>This automatically checks that the socket supports Type X or Y as appropriate, and reserves the SDA and SCL pins.
+            An exception will be thrown if there is a problem with these checks.</remarks>
+            <param name="socket">The socket for this software I2C device interface.</param>
+            <param name="sdaPin">The socket pin used for I2C data.</param>
+            <param name="sclPin">The socket pin used for I2C clock.</param>
+            <param name="module">The module using this I2C interface, which can be null if unspecified.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SoftwareI2C.WriteRead(System.Byte,System.Byte[],System.Int32,System.Int32,System.Byte[],System.Int32,System.Int32,System.Int32@,System.Int32@,Gadgeteer.Interfaces.SoftwareI2C.LengthErrorBehavior)">
+            <summary>
+            Writes an array of bytes and then reads an array of bytes from/to an I2C device.
+            </summary>
+            <param name="address">The bus address of the I2C device (bottom 7 bits only).</param>
+            <param name="writeBuffer">The array of data to write to the device..</param>
+            <param name="writeOffset">The index of the first byte in the "writeBuffer" array to be written.</param>
+            <param name="writeLength">The number of bytes from the "writeBuffer" array to be written.</param>
+            <param name="readBuffer">The array that will hold data read from the device.</param>
+            <param name="readOffset">The index of the first location in the "readBuffer" array to be written to.</param>
+            <param name="readLength">The number of bytes that will be written to the "readBuffer" array.</param>
+            <param name="numWritten">The number of bytes actually written to the device.</param>
+            <param name="numRead">The number of bytes actually read from the device.</param>
+            <param name="errorBehavior">Whether or not to throw an exception if the write/read does not complete.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SoftwareI2C.WriteRead(System.Byte,System.Byte[],System.Byte[],Gadgeteer.Interfaces.SoftwareI2C.LengthErrorBehavior)">
+            <summary>
+            Writes an array of bytes and then reads an array of bytes from/to an I2C device.
+            </summary>
+            <param name="address">The bus address of the I2C device (bottom 7 bits only).</param>
+            <param name="writeBuffer">The array of data to write to the device.</param>
+            <param name="readBuffer">The array that will hold data read from the device.</param>
+            <param name="errorBehavior">Whether or not to throw an exception if the write/read does not complete.</param>
+            <returns>The total number of bytes transferred in the transaction.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SoftwareI2C.Write(System.Byte,System.Byte[],Gadgeteer.Interfaces.SoftwareI2C.LengthErrorBehavior)">
+            <summary>
+            Writes an array of bytes to an I2C device.
+            </summary>
+            <param name="address">The address of the I2C device.</param>
+            <param name="writeBuffer">The array of bytes that will be written to the I2C device.</param>
+            <param name="errorBehavior">Whether or not to throw an exception if the write/read does not complete.</param>
+            <returns>The number of bytes written to the device.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SoftwareI2C.ReadRegister(System.Byte,System.Byte,Gadgeteer.Interfaces.SoftwareI2C.LengthErrorBehavior)">
+            <summary>
+            Reads a register from a I2C device using a memory map API.
+            </summary>
+            <param name="address">The address of the I2C device.</param>
+            <param name="register">The single byte to write to the device (normally the register address on the device).</param>
+            <param name="errorBehavior">Whether or not to throw an exception if the read does not complete.</param>
+            <returns>The single byte read from the device.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.SoftwareI2C.Read(System.Byte,System.Byte[],Gadgeteer.Interfaces.SoftwareI2C.LengthErrorBehavior)">
+            <summary>
+            Reads an array of bytes from an I2C device.
+            </summary>
+            <param name="address">The address of the I2C device.</param>
+            <param name="readBuffer">The array of bytes that will be read from the I2C device.</param>
+            <param name="errorBehavior">Whether or not to throw an exception if the read does not complete.</param>
+            <returns>The number of bytes read from the device.</returns>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.SoftwareI2C.ForceManagedSoftwareI2CImplementation">
+            <summary>
+            Defines whether new SoftwareI2C modules will be forced to use the managed implementation (slower) or will be allowed to use the native software I2C implementation if available on the mainboard (faster).  Default is false (native allowed).
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.SoftwareI2C.ForceManagedPullUps">
+            <summary>
+            Defines whether new SoftwareI2C modules will use processor pull ups on the IOs (useful if modules omit the mandatory pull ups).  Default is false (modules should provide pull ups).
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.SoftwareI2C.LengthErrorBehavior">
+            <summary>
+            This specifies possible options for handling length errors, i.e. when the specified number of bytes cannot be read or written.
+            Even if these are suppressed, exceptions may still be thrown for bus errors, e.g. if there is a timeout because the clock line is held low too long.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.SoftwareI2C.LengthErrorBehavior.ThrowException">
+            <summary>
+            Throw an exception if the right number of bytes is not written/read.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.SoftwareI2C.LengthErrorBehavior.SuppressException">
+            <summary>
+            Suppress exceptions if the right number of bytes is not written/read.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.GetDaisyLinkForSocket(Gadgeteer.Socket,Gadgeteer.Modules.DaisyLinkModule)">
+            <summary>
+            Returns the DaisyLink instance for a given DaisyLink compatible socket.  
+            If this is the first call to this method for a given socket, it creates a new DaisyLink instance, 
+            which causes the chain to be initialised using the DaisyLink protocol.
+            </summary>
+            <param name="socket">The socket where the DaisyLink chain of modules is plugged in.</param>
+            <param name="module">The daisylink module.</param>
+            <returns>The DaisyLink instance for that socket</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.ReserveNextDaisyLinkNodeAddress(Gadgeteer.Modules.DaisyLinkModule)">
+            <summary>
+            Reserves the next node address on this DaisyLink chain.
+            </summary>
+            <returns>The I2C address of the next node on this DaisyLink chain.</returns>
+            <exception cref="T:System.Exception">The chain is empty, or there is no more space on the chain for another node.</exception>
+        </member>
+        <member name="M:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.Initialize">
+            <summary>
+            Initializes the DaisyLink bus, resetting all devices on it and assigning them new addresses.  
+            Any existing GTM.DaisyLinkModule devices will no longer work, and they should be constructed again.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.SendResetPulse">
+            <summary>
+            Sends a reset pulse on the daisylink chain.  This resets all DaisyLink nodes to INIT state, that is, waiting for a DaisyLink message.
+            </summary>
+            <remarks>
+            It is recommended to reboot the mainboard after calling this method because communication to the DaisyLink nodes will fail.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.GetModuleParameters(System.UInt32,System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            Gets the module type, module version number, and manufacturer for the module at a particular position on the chain.
+            </summary>
+            <param name="position">The position on the chain of the module to query (zero offset).</param>
+            <param name="manufacturer">Out parameter that returns the module manufacturer.</param>
+            <param name="type">Out parameter that returns the type of the module.</param>
+            <param name="version">Out parameter that returns the module version number.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.GetDaisyLinkVersion(System.UInt32)">
+            <summary>
+            Gets the version of the DaisyLink interface for the module at a particular position on the chain.
+            </summary>
+            <param name="position">The position on the chain of the module to query (zero offset).</param>
+            <returns>The DaisyLink version number of the module.</returns>
+        </member>
+        <member name="P:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.Ready">
+            <summary>
+            Gets a value that indicates whether this <see cref="T:Gadgeteer.Modules.DaisyLinkModule.DaisyLink"/> is ready.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.NodeCount">
+            <summary>
+            Gets the number of nodes associated with this link.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.ReservedCount">
+            <summary>
+            Gets the count of reserved nodes.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.StartAddress">
+            <summary>
+            Gets the starting address of this link.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.Socket">
+            <summary>
+            The socket this DaisyLink chain is on.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.DaisyLinkRegister">
+            <summary>
+            Provides an enumeration of registers that are used to query the link node.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.DaisyLinkRegister.Address">
+            <summary>
+            The address of the node.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.DaisyLinkRegister.Config">
+            <summary>
+            The configuration byte:
+            bit 0:  0 = pull-ups disabled, 1 = pull-ups enabled
+            bit 1:  0 = function enabled,  1 = function disabled
+            bit 7:  0 = not interrupting,  1 = interrupt condition
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.DaisyLinkRegister.DaisyLinkVersion">
+            <summary>
+            The daisy link version of the node.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.DaisyLinkRegister.ModuleType">
+            <summary>
+            The module type associated with the node.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.DaisyLinkRegister.ModuleVersion">
+            <summary>
+            The module version associated with the node.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.DaisyLinkModule.DaisyLink.DaisyLinkRegister.Manufacturer">
+            <summary>
+            The module manufacturer associated with this note.
+            </summary>
+        </member>
+    </members>
+</doc>

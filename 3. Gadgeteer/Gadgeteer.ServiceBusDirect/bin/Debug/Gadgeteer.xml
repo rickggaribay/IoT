@@ -1,0 +1,3351 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gadgeteer</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.AnalogInput">
+            <summary>
+            Provides the analog input functionality.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces">
+            <summary>
+            This static class contains interfaces used by mainboards to provide functionalities on sockets to Gadgeteer.  
+            End users do not need to use this class directly and should normally use GTM.Modules to access functionality.
+            Module developers do not need to use this class directly and should normally use GT.Socket and GT.Interfaces to access the required functionality.
+            </summary>
+            <summary>
+            This static class contains interfaces used by mainboards to provide functionalities on sockets to Gadgeteer.  
+            End users do not need to use this class directly and should normally use GTM.Modules to access functionality.
+            Module developers do not need to use this class directly and should normally use GT.Socket and GT.Interfaces to access the required functionality.
+            </summary>
+            <summary>
+            This static class contains interfaces used by mainboards to provide functionalities on sockets to Gadgeteer.  
+            End users do not need to use this class directly and should normally use GTM.Modules to access functionality.
+            Module developers do not need to use this class directly and should normally use GT.Socket and GT.Interfaces to access the required functionality.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket">
+            <summary>
+            A class representing a socket, which may be on a mainboard or on an expansion module such as an SPI multiplexer.  
+            </summary>
+            <remarks>
+            This class is normally not directly used by application programs, who refer to sockets by their socket number. 
+            Modules should normally use this class and the GT.Interfaces classes to access functionality required to implement their APIs.
+            Mainboards and multiplexer modules providing sockets should use this class's SocketInterfaces subclass to declare functionalities provided on their sockets.
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Socket.AnalogInputIndirector">
+            <summary>
+            The <see cref="T:Gadgeteer.Socket.SocketInterfaces.AnalogInput"/> provider for this socket.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.DigitalInputIndirector">
+            <summary>
+            The <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalInput"/> provider for this socket.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.DigitalIOIndirector">
+            <summary>
+            The <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalIO"/> provider for this socket.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.DigitalOutputIndirector">
+            <summary>
+            The <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalOutput"/> provider for this socket.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.I2CBusIndirector">
+            <summary>
+            The <see cref="T:Gadgeteer.Socket.SocketInterfaces.I2CBus"/> provider for this socket.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.InterruptIndirector">
+            <summary>
+            The <see cref="T:Gadgeteer.Socket.SocketInterfaces.InterruptInput"/> provider for this socket.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.PwmOutputIndirector">
+            <summary>
+            The <see cref="T:Gadgeteer.Socket.SocketInterfaces.PwmOutput"/> provider for this socket.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SerialIndirector">
+            <summary>
+            The <see cref="T:Gadgeteer.Socket.SocketInterfaces.Serial"/> provider for this socket.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SpiIndirector">
+            <summary>
+            The <see cref="T:Gadgeteer.Socket.SocketInterfaces.Spi"/> provider for this socket.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.GetSocket(System.Int32,System.Boolean,Gadgeteer.Modules.Module,System.String)">
+            <summary>
+            Get the <see cref="T:Gadgeteer.Socket"/> corresponding to a socket number.
+            </summary>
+            <param name="socketNumber">The socket number</param>
+            <param name="throwExceptionIfSocketNumberInvalid">Whether to throw an <see cref="T:Gadgeteer.Socket.InvalidSocketException"/> if the socket does not exist.</param>
+            <param name="module">The module using this socket.</param>
+            <param name="socketLabel">The label on the socket, if there is more than one socket on the module (can be null).</param>
+            <returns>The socket corresponding to the provided socket number.</returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.ToString">
+            <summary>
+            Returns the Name of this socket.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.SupportsType(System.Char)">
+            <summary>
+            Determines whether the specified socket supports the given socket type
+            </summary>
+            <param name="type">The socket type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.EnsureTypeIsSupported(System.Char,Gadgeteer.Modules.Module)">
+            <summary>
+            Checks that a given socket type is supported, and throws an <see cref="T:Gadgeteer.Socket.InvalidSocketException"/> if not. Optionally specifies the module which requires this type, resulting in a better error message.
+            </summary>
+            <param name="type">The socket type required.</param>
+            <param name="module">The module requiring this socket type (can be null).</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.EnsureTypeIsSupported(System.Char[],Gadgeteer.Modules.Module)">
+            <summary>
+            Checks that one of a given set of socket types is supported, and throws an <see cref="T:Gadgeteer.Socket.InvalidSocketException"/> if not. Optionally specifies the module which requires this type, resulting in a better error message.
+            </summary>
+            <param name="types">The array of socket types required (any one of these is sufficient).</param>
+            <param name="module">The module requiring this socket type (can be null).</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.ReservePin(Gadgeteer.Socket.Pin,Gadgeteer.Modules.Module)">
+            <summary>
+            Tells GadgeteerCore that a pin is being used on this socket.
+            This is called by Gadgteeer.Interface classes automatically.  Gadgeteer.Modules which do not use a Gadgeteer.Interface helper class in using a pin should call this directly.
+            Note that Gadgeteer allows mainboard pins to be reused across multiple sockets, so the reservation check also checks if the pin is used on a different socket where the pin is shared.
+            </summary>
+            <param name="pin">The socket pin being used</param>
+            <param name="module">The module using the socket pin (can be null, but if it is not null a more useful error message will be generated).</param>
+            <returns></returns>
+        </member>
+        <member name="F:Gadgeteer.Socket.UnnumberedPin">
+            <summary>
+            A CPU pin which has no number, and for which reservation does not need to be tracked.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.UnspecifiedPin">
+            <summary>
+            An unspecified CPU pin (e.g. for a socket which does not use this pin).
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketNumber">
+            <summary>
+            The socket number corresponding to this socket.  On mainboards, this is a positive number and is printed on the board itself. 
+            For module-provided sockets (i.e. sockets you plug other modules into) this is an automatically generated negative number.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.Name">
+            <summary>
+            The name of the socket.  This is shown to users in any socket-related error messages generated by Gadgeteer Core.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.CpuPins">
+            <summary>
+            Array of pins used by the socket.  This is always of size 11, with index [1] to [10] being the relevant Cpu.Pin for the Socket.Pin.
+            Index 0 is unused.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SupportedTypes">
+            <summary>
+            The supported types of this socket.  
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SPIModule">
+            <summary>
+            The SPI_module corresponding to this socket.  This is Socket.SPIMissing if there is no SPI module on this socket.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SerialPortName">
+            <summary>
+            Returns the serial port name (e.g. "COM1") associated with a particular socket. 
+            </summary>
+            <returns>The serial port name</returns>
+        </member>
+        <member name="P:Gadgeteer.Socket.PWM7">
+            <summary>
+            Provides access to pulse width modulation (PWM) functionality on a socket pin 7. 
+            </summary>
+            <returns>An instance of the Cpu.PWMChannel enumeration, which should be PWM_NONE if there is no PWM support.</returns>
+        </member>
+        <member name="P:Gadgeteer.Socket.PWM8">
+            <summary>
+            Provides access to pulse width modulation (PWM) functionality on a socket pin 8. 
+            </summary>
+            <returns>An instance of the Cpu.PWMChannel enumeration, which should be PWM_NONE if there is no PWM support on this socket pin.</returns>
+        </member>
+        <member name="P:Gadgeteer.Socket.PWM9">
+            <summary>
+            Provides access to pulse width modulation (PWM) functionality on a socket pin 9. 
+            </summary>
+            <returns>An instance of the Cpu.PWMChannel enumeration, which should be PWM_NONE if there is no PWM support on this socket pin.</returns>
+        </member>
+        <member name="P:Gadgeteer.Socket.AnalogInput3">
+            <summary>
+            Provides access to analog input functionality on a socket's pin 3.
+            </summary>
+            <returns>An instance of the Cpu.AnalogChannel enumeration, which should be ANALOG_NONE if there is no Analog input support on this socket pin.</returns>
+        </member>
+        <member name="P:Gadgeteer.Socket.AnalogInput4">
+            <summary>
+            Provides access to analog input functionality on a socket's pin 4.
+            </summary>
+            <returns>An instance of the Cpu.AnalogChannel enumeration, which should be ANALOG_NONE if there is no Analog input support on this socket pin.</returns>
+        </member>
+        <member name="P:Gadgeteer.Socket.AnalogInput5">
+            <summary>
+            Provides access to analog input functionality on a socket's pin 5.
+            </summary>
+            <returns>An instance of the Cpu.AnalogChannel enumeration, which should be ANALOG_NONE if there is no Analog input support on this socket pin.</returns>
+        </member>
+        <member name="P:Gadgeteer.Socket.AnalogOutput">
+            <summary>
+            Provides access to analog output functionality on a socket. 
+            </summary>
+            <remarks>
+            Relies on native or hardware support for analog output provided by the mainboard manufacturer.
+            </remarks>
+            <returns>An instance of the SocketInterfaces.AnalogOutput class, which provides access to underlying analog output functionality.</returns>
+        </member>
+        <member name="P:Gadgeteer.Socket.NativeI2CWriteRead">
+            <summary>
+            NativeI2C functionality provided by the socket.  Null if not available on this socket.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.Unused">
+            <summary>
+            A special socket number indicating that a module socket is not used.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.Pin">
+            <summary>
+            An enumeration of socket pins.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.Pin.One">
+            <summary>
+            Socket pin 1
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.Pin.Two">
+            <summary>
+            Socket pin 2
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.Pin.Three">
+            <summary>
+            Socket pin 3
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.Pin.Four">
+            <summary>
+            Socket pin 4
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.Pin.Five">
+            <summary>
+            Socket pin 5
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.Pin.Six">
+            <summary>
+            Socket pin 6
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.Pin.Seven">
+            <summary>
+            Socket pin 7
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.Pin.Eight">
+            <summary>
+            Socket pin 8
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.Pin.Nine">
+            <summary>
+            Socket pin 9
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.Pin.Ten">
+            <summary>
+            Socket pin 10
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.PinMissingException">
+            <summary>
+            An exception raised when a socket pin which is unspecified by the socket provider is used.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.InvalidSocketException">
+            <summary>
+            An exception raised when an invalid socket is specified, e.g. a socket incompatible with the functionality required. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.InvalidSocketException.#ctor(System.String)">
+            <summary>
+            Generates a new invalid socket exception
+            </summary>
+            <param name="message">The exception cause</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.InvalidSocketException.ThrowIfOutOfRange(Gadgeteer.Socket.Pin,Gadgeteer.Socket.Pin,Gadgeteer.Socket.Pin,System.String,Gadgeteer.Modules.Module)">
+            <summary>
+            Throws an <see cref="T:Gadgeteer.Socket.InvalidSocketException"/> if a pin number is not in the specified range.
+            </summary>
+            <param name="pin">The pin number to test.</param>
+            <param name="from">The lowest valid pin number.</param>
+            <param name="to">The highest valid pin number.</param>
+            <param name="iface">The requesting interface.</param>
+            <param name="module">The requesting module.</param>
+            <exception cref="T:Gadgeteer.Socket.InvalidSocketException">The <paramref name="pin"/> is out of the range specified by <paramref name="from"/> and <paramref name="to"/>.</exception>
+            <remarks>
+            This method helps lowering the footprint and should be called when implementing a socket interface.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Socket.InvalidSocketException.FunctionalityException(Gadgeteer.Socket,System.String)">
+            <summary>
+            Returns an <see cref="T:Gadgeteer.Socket.InvalidSocketException"/> with functionality error message.
+            </summary>
+            <param name="socket">The socket that has the error.</param>
+            <param name="iface">The interface that is causing the error.</param>
+            <returns>An <see cref="T:Gadgeteer.Socket.InvalidSocketException"/> with functionality error message.</returns>
+            <remarks>
+            This method helps lowering the footprint and should be called when implementing a socket interface.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Socket.InvalidSocketException.#ctor(System.String,System.Exception)">
+            <summary>
+            Generates a new invalid socket exception
+            </summary>
+            <param name="message">The exception cause</param>
+            <param name="e">The underlying exception</param>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketImmutableAfterRegistrationException">
+            <summary>
+            This exception is thrown when a socket which is already registered with GadgeteerCore is then modified.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces">
+            <summary>
+            This static class contains interfaces used by mainboards to provide functionalities on sockets to Gadgeteer.  
+            End users do not need to use this class directly and should normally use GTM.Modules to access functionality.
+            Module developers do not need to use this class directly and should normally use GT.Socket and GT.Interfaces to access the required functionality.
+            </summary>
+            <summary>
+            This static class contains interfaces used by mainboards to provide functionalities on sockets to Gadgeteer.  
+            End users do not need to use this class directly and should normally use GTM.Modules to access functionality.
+            Module developers do not need to use this class directly and should normally use GT.Socket and GT.Interfaces to access the required functionality.
+            </summary>
+            <summary>
+            This static class contains interfaces used by mainboards to provide functionalities on sockets to Gadgeteer.  
+            End users do not need to use this class directly and should normally use GTM.Modules to access functionality.
+            Module developers do not need to use this class directly and should normally use GT.Socket and GT.Interfaces to access the required functionality.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.CreateNumberedSocket(System.Int32)">
+            <summary>
+            Creates a new <see cref="T:Gadgeteer.Socket"/> object specifying the socket number.
+            </summary>
+            <remarks>
+            This should be used by the mainboard's constructor to create socket instances,
+            which should then configure the socket properties as appropriate, and then call <see cref="M:Gadgeteer.Socket.SocketInterfaces.RegisterSocket(Gadgeteer.Socket)"/>
+            NB the socket name is fixed to be the same as the socket number.
+            </remarks>
+            <param name="socketNumber">The mainboard socket number</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.CreateUnnumberedSocket(System.String)">
+            <summary>
+            Creates a new <see cref="T:Gadgeteer.Socket"/> object specifying the socket name.
+            </summary>
+            <remarks>
+            This should be used by module constructors to create socket instances if they provide sockets to other modules.  
+            The module constructor should then configure the socket properties as appropriate, and then call <see cref="M:Gadgeteer.Socket.SocketInterfaces.RegisterSocket(Gadgeteer.Socket)"/>
+            A socketNumber is auto-assigned.
+            </remarks>
+            <param name="name">The socket's name</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.RegisterSocket(Gadgeteer.Socket)">
+            <summary>
+            Registers a socket.  Should be used by mainboards and socket-providing modules during initialization.
+            </summary>
+            <param name="socket">The socket to register</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.SetAnalogInputFactors(Gadgeteer.Socket,System.Double,System.Double,System.Int32)">
+            <summary>
+            Set the scale and offset used by <see cref="M:Microsoft.SPOT.Hardware.AnalogInput.Read"/> to transform the raw value into a voltage between 0 and 3.3V, and the precision in bits.
+            </summary>
+            <param name="scale">The multiplicative scale factor.</param>
+            <param name="offset">The additive offset.</param>
+            <param name="precisionInBits">The number of bits precision by this analog input socket.</param>
+            <param name="socket">The socket being configured.</param>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SPIMissing">
+            <summary>
+            A value indicating that a socket has no associated SPI bus
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.AnalogOutput">
+            <summary>
+            Provides access to a socket's analog output functionality.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.AnalogOutput.SetVoltage(System.Double)">
+            <summary>
+            Sets the voltage output by this analog output.
+            </summary>
+            <param name="value">The voltage to output</param>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.AnalogOutput.MinOutputVoltage">
+            <summary>
+            Specifies the minimum voltage that this analog output supports.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.AnalogOutput.MaxOutputVoltage">
+            <summary>
+            Specifies the maximum voltage that this analog output supports.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.AnalogOutput.Active">
+            <summary>
+            A property to control whether the analog output functionality on this socket is active or not.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.AnalogInput">
+            <summary>
+            Provides the analog input functionality.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.AnalogInput.ReadVoltage">
+            <summary>
+            Reads the current analog input value as a voltage between 0 and 3.3V.
+            </summary>
+            <returns>The current analog value in volts.</returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.AnalogInput.ReadProportion">
+            <summary>
+            Reads the current analog input value as a proportion from 0.0 to 1.0 of the maximum value (3.3V).
+            </summary>
+            <returns>The analog input value from 0.0-1.0</returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.AnalogInput.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.AnalogInput.IsActive">
+            <summary>
+            Gets or sets the active state of the analog input.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.DigitalInput">
+            <summary>
+            Provides the digital input functionality.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.DigitalInput.Read">
+            <summary>
+            Reads a Boolean value at the interface port input. 
+            </summary>
+            <returns>A Boolean value that represents the current value of the port, either 0 or 1.</returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.DigitalInput.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.DigitalIO">
+            <summary>
+            Provides the digital input and output functionality.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.DigitalIO.Write(System.Boolean)">
+            <summary>
+            Sets the interface to <see cref="F:Gadgeteer.Socket.SocketInterfaces.IOMode.Output"/> and writes the specified value.
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.DigitalIO.Read">
+            <summary>
+            Sets the interface to <see cref="F:Gadgeteer.Socket.SocketInterfaces.IOMode.Input"/> and reads a value.
+            </summary>
+            <returns>A Boolean value read from the interface.</returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.DigitalIO.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.DigitalIO.Mode">
+            <summary>
+            Gets or sets the mode for the digital input/output interface.
+            </summary>
+            <value>
+            <list type="bullet">
+            <item><see cref="F:Gadgeteer.Socket.SocketInterfaces.IOMode.Input"/> if the interface is currently set for input operations.</item>
+            <item><see cref="F:Gadgeteer.Socket.SocketInterfaces.IOMode.Output"/> if the interface is currently set for ouput operations.</item>
+            </list>
+            </value>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.DigitalOutput">
+            <summary>
+            Provides the digital output functionality.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.DigitalOutput.Write(System.Boolean)">
+            <summary>
+            Writes a value to the interface port output. 
+            </summary>
+            <param name="state">The value to be written to the port output.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.DigitalOutput.Read">
+            <summary>
+            Reads a Boolean value at the interface port input.
+            </summary>
+            <returns>The current value of the port (either 0 or 1).</returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.DigitalOutput.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.I2CBus">
+            <summary>
+            Provides the I2C functionality.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.I2CBus.Execute(Microsoft.SPOT.Hardware.I2CDevice.I2CTransaction[],System.Int32)">
+            <summary>
+            Performs a series of I2C transactions.
+            </summary>
+            <param name="transactions">The list of transactions to perform.</param>
+            <param name="millisecondsTimeout">The amount of time, in milliseconds, that the system will wait before resuming execution of the transaction.</param>
+            <returns>The number of bytes of data transferred in the transaction.</returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.I2CBus.Write(System.Byte[],System.Int32)">
+            <summary>
+            Writes an array of bytes to the I2C device.
+            </summary>
+            <param name="writeBuffer">The array of bytes that will be sent to the I2C device.</param>
+            <param name="millisecondsTimeout">The amount of time, in milliseconds, that the system will wait before resuming execution of the transaction.</param>
+            <returns>The number of bytes of data transferred in the transaction.</returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.I2CBus.Read(System.Byte[],System.Int32)">
+            <summary>
+            Reads an array of bytes from the device into a specified read buffer.
+            </summary>
+            <param name="readBuffer">The array of bytes that will contain the data read from the I2C device.</param>
+            <param name="millisecondsTimeout">The amount of time, in milliseconds, that the system will wait before resuming execution of the transaction.</param>
+            <returns>The number of bytes of data transferred in the transaction.</returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.I2CBus.WriteRead(System.Byte[],System.Byte[],System.Int32)">
+            <summary>
+             Writes an array of bytes to the I2C device, and reads an array of bytes from the device into a specified read buffer.
+            </summary>
+            <param name="writeBuffer">The array of bytes that will be sent to the I2C device.</param>
+            <param name="readBuffer">The array of bytes that will contain the data read from the I2C device.</param>
+            <param name="millisecondsTimeout">The amount of time, in milliseconds, that the system will wait before resuming execution of the transaction.</param>
+            <returns>The number of bytes of data transferred in the transaction.</returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.I2CBus.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.I2CBus.Address">
+            <summary>
+            Gets or sets the address of the <see cref="T:Gadgeteer.Socket.SocketInterfaces.I2CBus"/> device.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.InterruptInput">
+            <summary>
+            Provides the interrupt input functionality.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.InterruptInput.Read">
+            <summary>
+            Reads a Boolean value at the InterruptInput interface port input.
+            </summary>
+            <returns>A Boolean value that indicates the current value of the port as either 0 or 1).</returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.InterruptInput.OnInterruptFirstSubscribed">
+            <summary>
+            Called when the first handler is subscribed to the <see cref="E:Gadgeteer.Socket.SocketInterfaces.InterruptInput.Interrupt"/> event.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.InterruptInput.OnInterruptLastUnsubscribed">
+            <summary>
+            Called when the last handler is unsubsrcibed from the <see cref="E:Gadgeteer.Socket.SocketInterfaces.InterruptInput.Interrupt"/> event.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.InterruptInput.RaiseInterrupt(System.Boolean)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Socket.SocketInterfaces.InterruptInput.Interrupt"/> event.
+            </summary>
+            <param name="value"><b>true</b> if the the value received from the interrupt is greater than zero; otherwise, <b>false</b>.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.InterruptInput.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Socket.SocketInterfaces.InterruptInput.Interrupt">
+            <summary>
+            Raised when the <see cref="T:Gadgeteer.Socket.SocketInterfaces.InterruptInput"/> interface detects an interrupt.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.PwmOutput">
+            <summary>
+            Provides the PWM output functionality.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.PwmOutput.Set(System.Double,System.Double)">
+            <summary>
+            Sets the frequency and duty cycle of the <see cref="T:Gadgeteer.Socket.SocketInterfaces.PwmOutput"/> interface and starts the PWM signal.
+            </summary>
+            <param name="frequency">Required frequency in Hertz.</param>
+            <param name="dutyCycle">Duty cycle from 0-1.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.PwmOutput.Set(System.UInt32,System.UInt32,Gadgeteer.Socket.SocketInterfaces.PwmScaleFactor)">
+            <summary>
+            Sets the period and high time of the <see cref="T:Gadgeteer.Interfaces.PWMOutput"/> interface and starts the PWM signal.
+            </summary>
+            <param name="period">Period of the signal in units specified <paramref name="factor"/>.</param>
+            <param name="highTime">High time of the signal in units specified by <paramref name="factor"/>.</param>
+            <param name="factor">The units of <paramref name="period"/> and <paramref name="highTime"/>.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.PwmOutput.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.PwmOutput.IsActive">
+            <summary>
+            Gets or sets a Boolean value that indicates whether the PWM interface is active, <b>true</b> if active otherwise <b>false</b>.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.Spi">
+            <summary>
+            Provides the SPI functionality.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Spi.WriteRead(System.Byte[],System.Int32,System.Int32,System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Writes an array of bytes to the interface, and reads an array of bytes from the interface into a specified location in the read buffer.
+            </summary>
+            <param name="writeBuffer">The buffer whose contents will be written to the interface.</param>
+            <param name="writeOffset">The offset in <paramref name="writeBuffer" /> to start write data from.</param>
+            <param name="writeLength">The number of elements in <paramref name="writeBuffer" /> to write.</param>
+            <param name="readBuffer">The buffer that will store the data that is read from the interface.</param>
+            <param name="readOffset">The offset in <paramref name="readBuffer" /> to start read data from.</param>
+            <param name="readLength">The number of elements in <paramref name="readBuffer" /> to fill.</param>
+            <param name="startReadOffset">The offset in time, measured in transacted elements from <paramref name="writeBuffer" />, when to start reading back data into <paramref name="readBuffer" />.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Spi.WriteRead(System.UInt16[],System.Int32,System.Int32,System.UInt16[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Writes an array of unsigned values to the interface, and reads an array of unsigned values from the interface into a specified location in the read buffer.
+            </summary>
+            <param name="writeBuffer">The buffer whose contents will be written to the interface.</param>
+            <param name="writeOffset">The offset in <paramref name="writeBuffer" /> to start write data from.</param>
+            <param name="writeLength">The number of elements in <paramref name="writeBuffer" /> to write.</param>
+            <param name="readBuffer">The buffer that will store the data that is read from the interface.</param>
+            <param name="readOffset">The offset in <paramref name="readBuffer" /> to start read data from.</param>
+            <param name="readLength">The number of elements in <paramref name="readBuffer" /> to fill.</param>
+            <param name="startReadOffset">The offset in time, measured in transacted elements from <paramref name="writeBuffer" />, when to start reading back data into <paramref name="readBuffer" />.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Spi.WriteRead(System.Byte[],System.Byte[],System.Int32)">
+            <summary>
+            Writes an array of bytes to the SPI interface, and reads an array of bytes from the interface into a 
+            specified location in the read buffer.
+            </summary>
+            <param name="writeBuffer">The buffer that will write to the interface.</param>
+            <param name="readBuffer">The buffer that will store the data that is read from the interface.</param>
+            <param name="readOffset">
+             The offset in time, measured in transacted elements from <paramref name="writeBuffer"/>, 
+             to start reading data into.<paramref name="readBuffer"/>.
+            </param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Spi.WriteRead(System.UInt16[],System.UInt16[],System.Int32)">
+            <summary>
+            Writes an array of bytes to the SPI interface, and reads an array of 
+            bytes from the interface into a specified location in the read buffer. 
+            </summary>
+            <param name="writeBuffer">The buffer that will write to the interface.</param>
+            <param name="readBuffer">The buffer that will store the data that is read from the interface.</param>
+            <param name="readOffset">
+             The offset in time, measured in transacted elements from <paramref name="writeBuffer"/>, 
+             to start reading data into <paramref name="readBuffer"/>.
+            </param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Spi.WriteRead(System.Byte[],System.Byte[])">
+            <summary>
+             Writes an array of bytes to the interface, and reads an array of bytes from the interface.
+            </summary>
+            <param name="writeBuffer">The buffer that will write to the interface.</param>
+            <param name="readBuffer">The buffer that will store the data that is read from the interface.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Spi.WriteRead(System.UInt16[],System.UInt16[])">
+            <summary>
+            Writes an array of unsigned values to the SPI interface, and reads an array of unsigned values from the interface.
+            </summary>
+            <param name="writeBuffer">The buffer that will write to the interface.</param>
+            <param name="readBuffer">The buffer that will store the data that is read from the interface.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Spi.Write(System.Byte[])">
+            <summary>
+            Writes an array of bytes to the SPI interface.  This is a synchronous call; it will not return until the bytes are written out.
+            </summary>
+            <param name="writeBuffer">The buffer that will write to the interface.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Spi.Write(System.UInt16[])">
+            <summary>
+            Writes an array of unsigned values to the SPI interface. This is a synchronous call; it will not return until the bytes are written out.
+            </summary>
+            <param name="writeBuffer">The buffer that will write to the interface.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Spi.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Spi.Configuration">
+            <summary>
+            Gets or sets the configuration of this <see cref="T:Gadgeteer.Socket.SocketInterfaces.Spi"/> interface.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.AnalogInputIndirector">
+            <summary>
+            Represents the method that provides indirected <see cref="T:Gadgeteer.Socket.SocketInterfaces.AnalogInput"/> interface for a socket.
+            </summary>
+            <param name="socket">The socket.</param>
+            <param name="pin">The analog input pin to use.</param>
+            <param name="module">The module using the socket, which can be null if unspecified.</param>
+            <returns>An <see cref="T:Gadgeteer.Socket.SocketInterfaces.AnalogInput"/> interface.</returns>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.AnalogOutputIndirector">
+            <summary>
+            Represents the method that provides indirected <see cref="T:Gadgeteer.Socket.SocketInterfaces.AnalogOutput"/> interface for a socket.
+            </summary>
+            <param name="socket">The analog output capable socket.</param>
+            <param name="pin">The pin to assign to the analog output.</param>
+            <param name="module">The module using this analog output interface, which can be null if unspecified.</param>
+            <returns>An <see cref="T:Gadgeteer.Socket.SocketInterfaces.AnalogOutput"/> interface.</returns>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.DigitalInputIndirector">
+            <summary>
+            Represents the method that provides indirected <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalInput"/> interface for a socket.
+            </summary>
+            <param name="socket">The socket for the digital input interface.</param>
+            <param name="pin">The pin used by the digital input interface.</param>
+            <param name="glitchFilterMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.GlitchFilterMode"/> enumeration that specifies 
+             whether to enable the glitch filter on this digital input interface.
+            </param>
+            <param name="resistorMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.ResistorMode"/> enumeration that establishes a default state for the digital input interface. N.B. .NET Gadgeteer mainboards are only required to support ResistorMode.PullUp on interruptable GPIOs and are never required to support ResistorMode.PullDown; consider putting the resistor on the module itself.
+            </param>
+            <param name="module">The module using this interface, which can be null if unspecified.</param>
+            <returns>An <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalInput"/> interface.</returns>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.DigitalIOIndirector">
+            <summary>
+            Represents the method that provides indirected <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalIO"/> interface for a socket.
+            </summary>
+            <param name="socket">The socket for the digital input/output interface.</param>
+            <param name="pin">The pin used by the digital input/output interface.</param>
+            <param name="initialState">
+             The initial state to set on the digital input/output interface port.  
+             This value becomes effective as soon as the port is enabled as an output port.
+            </param>
+            <param name="glitchFilterMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.GlitchFilterMode"/> enumeration that specifies 
+             whether to enable the glitch filter on this digital input/output interface.
+            </param>
+            <param name="resistorMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.ResistorMode"/> enumeration that establishes a default state for the digital input/output interface. N.B. .NET Gadgeteer mainboards are only required to support ResistorMode.PullUp on interruptable GPIOs and are never required to support ResistorMode.PullDown; consider putting the resistor on the module itself.
+            </param>
+            <param name="module">The module using this interface, which can be null if unspecified.</param>
+            <returns>An <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalIO"/> interface.</returns>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.DigitalOutputIndirector">
+            <summary>
+            Represents the method that provides indirected <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalOutput"/> interface for a socket.
+            </summary>
+            <param name="socket">The socket for the digital output interface.</param>
+            <param name="pin">The pin used by the digital output interface.</param>
+            <param name="initialState">The initial state to place on the digital output interface port.</param>
+            <param name="module">The module using this interface (which can be null if unspecified).</param>
+            <returns>An <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalOutput"/> interface.</returns>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.I2CBusIndirector">
+            <summary>
+            Represents the method that provides indirected <see cref="T:Gadgeteer.Socket.SocketInterfaces.I2CBus"/> interface for a socket.
+            </summary>
+            <param name="address">The address for the I2C device.</param>
+            <param name="clockRateKhz">The clock rate, in kHz, used when communicating with the I2C device.</param>
+            <param name="socket">The socket for this I2C device interface.</param>
+            <param name="module">The module using this I2C interface, which can be null if unspecified.</param>
+            <returns>An <see cref="T:Gadgeteer.Socket.SocketInterfaces.I2CBus"/> interface.</returns>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.InterruptInputIndirector">
+            <summary>
+            Represents the method that provides indirected <see cref="T:Gadgeteer.Socket.SocketInterfaces.InterruptInput"/> interface for a socket.
+            </summary>
+            <param name="socket">The socket for the interrupt input interface.</param>
+            <param name="pin">The pin used by the interrupt input interface.</param>
+            <param name="glitchFilterMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.GlitchFilterMode"/> enumeration that specifies 
+             whether to enable the glitch filter on this interrupt input interface.
+            </param>
+            <param name="resistorMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.ResistorMode"/> enumeration that establishes a default state for the interrupt input interface. N.B. .NET Gadgeteer mainboards are only required to support ResistorMode.PullUp on interruptable GPIOs and are never required to support ResistorMode.PullDown; consider putting the resistor on the module itself.
+            </param>
+            <param name="interruptMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.InterruptMode"/> enumeration that establishes the requisite conditions 
+             for the interface port to generate an interrupt.
+            </param>
+            <param name="module">The module using this interrupt input interface, which can be null if unspecified.</param>
+            <returns>An <see cref="T:Gadgeteer.Socket.SocketInterfaces.InterruptInput"/> interface.</returns>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.PwmOutputIndirector">
+            <summary>
+            Represents the method that provides indirected <see cref="T:Gadgeteer.Socket.SocketInterfaces.PwmOutput"/> interface for a socket.
+            </summary>
+            <param name="socket">The socket that supports pulse width modulation (PWM) output.</param>
+            <param name="pin">The pin on the socket that supports PWM.</param>
+            <param name="invert">Whether to invert the output voltage.</param>
+            <param name="module">The module using this PWM output interface, which can be null if unspecified.</param>
+            <returns>An <see cref="T:Gadgeteer.Socket.SocketInterfaces.PwmOutput"/> interface.</returns>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.SerialIndirector">
+            <summary>
+            Represents the method that provides indirected <see cref="T:Gadgeteer.Socket.SocketInterfaces.Serial"/> interface for a socket.
+            </summary>
+            <param name="baudRate">The baud rate for the serial port.</param>
+            <param name="parity">A value from the <see cref="T:Gadgeteer.Socket.SocketInterfaces.SerialParity"/> enumeration that specifies 
+            the parity for the port.</param>
+            <param name="stopBits">A value from the <see cref="T:Gadgeteer.Socket.SocketInterfaces.SerialStopBits"/> enumeration that specifies 
+            the stop bits for the port.</param>
+            <param name="dataBits">The number of data bits.</param>
+            <param name="socket">The socket for this serial interface.</param>
+            <param name="hardwareFlowControlRequirement">Specifies whether the module must use hardware flow control, will use hardware flow control if available, or does not use hardware flow control.</param>
+            <param name="module">The module using this interface (which can be null if unspecified).</param>
+            <returns>An <see cref="T:Gadgeteer.Socket.SocketInterfaces.Serial"/> interface.</returns>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.SpiIndirector">
+            <summary>
+            Represents the method that provides indirected <see cref="T:Gadgeteer.Socket.SocketInterfaces.Spi"/> interface for a socket.
+            </summary>
+            <param name="socket">The socket for this SPI interface.</param>
+            <param name="spiConfiguration">The SPI configuration.</param>
+            <param name="sharingMode">The sharing mode.</param>
+            <param name="chipSelectSocket">The chip select socket to use.</param>
+            <param name="chipSelectSocketPin">The chip select pin to use on the chip select socket.</param>
+            <param name="busySocket">The busy socket to use.</param>
+            <param name="busySocketPin">The busy pin to use on the busy socket.</param>
+            <param name="module">The module using this interface (which can be null if unspecified).</param>
+            <returns>An <see cref="T:Gadgeteer.Socket.SocketInterfaces.Spi"/> interface.</returns>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.NativeI2CWriteReadDelegate">
+            <summary>
+            Delegate for mainboards to provide custom native/hardware I2C support. 
+            </summary>
+            <param name="socket">The socket.</param>
+            <param name="sda">The socket pin for the SDA signal.</param>
+            <param name="scl">The socket pin for the SCL signal.</param>
+            <param name="address">The address to which to send the result.</param>
+            <param name="write">The data buffer to write.</param>
+            <param name="writeOffset">The offset in the buffer where writing begins (this can be null if no data is to be written).</param>
+            <param name="writeLen">The number of bytes of data to write.</param>
+            <param name="read">The data buffer that data is put into after a read operation (this can be null if no data is to be read).</param>
+            <param name="readOffset">The offset to start writing data after a read operation.</param>
+            <param name="readLen">The amount of data to read.</param>
+            <param name="numWritten">The number of bytes actually written and acknowledged.</param>
+            <param name="numRead">The number of bytes actually read.</param>
+            <returns>Returns true if the whole transaction succeeds, otherwise false.</returns>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.IOMode">
+            <summary>
+            Represents the possible modes of a digital input/output interface.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.IOMode.Input">
+            <summary>
+            The interface is set for input operations.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.IOMode.Output">
+            <summary>
+            The interface is set for output operations.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.PwmScaleFactor">
+            <summary>
+            Provides scale factor values for duration and period.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.PwmScaleFactor.Milliseconds">
+            <summary>
+            Milliseconds.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.PwmScaleFactor.Microseconds">
+            <summary>
+            Microseconds.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.PwmScaleFactor.Nanoseconds">
+            <summary>
+            Nanoseconds.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.SerialParity">
+            <summary>
+            Specifies the parity bit for a <see cref="T:Gadgeteer.Socket.SocketInterfaces.Serial"/> interface. 
+            </summary>
+            <remarks>
+            <para>
+             Use this enumeration when setting the <see cref="T:Gadgeteer.Socket.SocketInterfaces.SerialParity"/> property for a serial port connection.
+            </para>
+            <para>
+             Parity is an error-checking procedure in which the number of 1s must always be the same—either even or odd—for each 
+             group of bits that is transmitted without error. In modem-to-modem communications, parity is often one of the parameters 
+             that must be agreed upon by sending parties and receiving parties before transmission can take place.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SerialParity.Even">
+            <summary>
+            Sets the parity bit so that the count of bits set is an even number.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SerialParity.Odd">
+            <summary>
+            Sets the parity bit so that the count of bits set is an odd number.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SerialParity.Mark">
+            <summary>
+            Leaves the parity bit set to 1.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SerialParity.Space">
+            <summary>
+            Leaves the parity bit set to 0.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SerialParity.None">
+            <summary>
+            No parity check occurs.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.SerialStopBits">
+            <summary>
+            Specifies the number of stop bits used on the <see cref="T:Gadgeteer.Socket.SocketInterfaces.Serial"/> object. 
+            </summary>
+            <remarks>
+            <para>
+             This enumeration specifies the number of stop bits to use. Stop bits separate each unit of 
+             data on an asynchronous serial connection. 
+             They are also sent continuously when no data is available for transmission.
+            </para>
+            <para>
+            The <b>None</b> option is not supported. Setting the <see cref="T:Gadgeteer.Socket.SocketInterfaces.SerialStopBits"/> property 
+            to <b>None</b> raises an ArgumentOutOfRangeException.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SerialStopBits.None">
+            <summary>
+            No stop bits are used. This value is not supported. Setting the <see cref="T:Gadgeteer.Socket.SocketInterfaces.SerialStopBits"/> property 
+            to <b>None</b> raises an ArgumentOutOfRangeException.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SerialStopBits.One">
+            <summary>
+            One stop bit is used.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SerialStopBits.OnePointFive">
+            <summary>
+            1.5 stop bits are used.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SerialStopBits.Two">
+            <summary>
+            Two stop bit are used.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.HardwareFlowControl">
+            <summary>
+            Specifies whether the <see cref="T:Gadgeteer.Socket.SocketInterfaces.Serial"/> module requires hardware flow control. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.HardwareFlowControl.NotRequired">
+            <summary>
+            The module does not require hardware flow control.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.HardwareFlowControl.UseIfAvailable">
+            <summary>
+            The module will use hardware flow control if available.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.HardwareFlowControl.Required">
+            <summary>
+            The module must have hardware flow control and will not function without it.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.InterruptEventHandler">
+            <summary>
+            Represents the delegate used for the <see cref="E:Gadgeteer.Socket.SocketInterfaces.InterruptInput.Interrupt"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Socket.SocketInterfaces.InterruptInput"/> object that raised the event.</param>
+            <param name="value"><b>true</b> if the the value received from the interrupt is greater than zero; otherwise, <b>false</b>.</param>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.SerialDataReceivedEventHandler">
+            <summary>
+            Represents the method to handle the <see cref="E:Gadgeteer.Socket.SocketInterfaces.Serial.DataReceived"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Socket.SocketInterfaces.Serial"/> object that raised the event.</param>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.SerialLineReceivedEventHandler">
+            <summary>
+            Represents the method to handle the <see cref="E:Gadgeteer.Socket.SocketInterfaces.Serial.LineReceived"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Socket.SocketInterfaces.Serial"/> object that raised the event.</param>
+            <param name="line">The received line of data as string.</param>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.SpiConfiguration">
+            <summary>
+            Represents the configuration for an <see cref="T:Microsoft.SPOT.Hardware.SPI"/> interface.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SpiConfiguration.IsChipSelectActiveHigh">
+            <summary>
+            The chip select active state (read-only).
+            </summary>
+            <value>
+             The active state for the chip-select port. If <b>true</b>, the chip-select port will be 
+             set to high when accessing the chip; 
+             if <b>false</b>, the chip-select port will be set to low when accessing the chip.
+            </value>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SpiConfiguration.ChipSelectSetupTime">
+            <summary>
+            The chip-select setup time (read-only).
+            </summary>
+            <value>
+             The amount of time (in milliseconds) that will elapse between the time at which the device is selected and the time at which 
+             the clock and the clock data transmission will start.
+            </value>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SpiConfiguration.ChipSelectHoldTime">
+            <summary>
+            The chip-select hold time (read-only).
+            </summary>
+            <value>
+             The amount of time (in milliseconds) that the chip-select port must remain in the active state before the device is unselected, 
+             or the amount of time (in milliseconds) that the chip-select will remain in the active state after the data read/write transaction 
+             has been completed.
+            </value>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SpiConfiguration.IsClockIdleHigh">
+            <summary>
+            The clock idle state (read-only).
+            </summary>
+            <value>
+             The idle state of the clock. If <b>true</b>, the SPI clock signal will be set to high while the device is idle; 
+             if <b>false</b>, the serial peripheral interface (SPI) clock signal will be set to low while the device is idle. 
+             The idle state occurs whenever the chip is not selected.
+            </value>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SpiConfiguration.IsClockSamplingEdgeRising">
+            <summary>
+            Gets the sampling clock edge (read-only).
+            </summary>
+            <value>
+             The sampling clock edge. If <b>true</b>, data is sampled on the serial peripheral interface (SPI) clock rising edge; 
+             if <b>false</b>, the data is sampled on the SPI clock falling edge.
+            </value>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SpiConfiguration.ClockRateKHz">
+            <summary>
+            Gets the clock rate, in kHz (read-only).
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SpiConfiguration.IsBusyActiveHigh">
+            <summary>
+            The busy pin active state (read-only).
+            </summary>
+            <value>
+             The active state for the busy port. If <b>true</b>, the SPI will wait while the busy signal is 
+             held high during transactions; if <b>false</b>, it will wait while the busy signal is held low.
+            </value>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.SpiConfiguration.#ctor(System.Boolean,System.UInt32,System.UInt32,System.Boolean,System.Boolean,System.UInt32,System.Boolean)">
+            <summary></summary>
+            <param name="chipSelectActiveHigh">
+             The active state for the chip-select port. If <b>true</b>, the chip-select port will be set to high when 
+             accessing the chip; if <b>false</b>, the chip select port will be set to low when accessing the chip.
+            </param>
+            <param name="chipSelectSetupTime">
+             The amount of time (in milliseconds) that will elapse between the time at which the device is selected and the time at which 
+             the clock and the clock data transmission will start.
+            </param>
+            <param name="chipSelectHoldTime">
+             The amount of time (in milliseconds) that the chip select port must remain in the active state before the device is unselected, 
+             or the amount of time (in milliseconds) that the chip select will remain in the active state after the data read/write transaction 
+             has been completed.
+            </param>
+            <param name="clockIdleHigh">
+             The idle state of the clock. If <b>true</b>, the serial peripheral interface (SPI) clock signal will be set to high while the device is idle; 
+             if <b>false</b>, the SPI clock signal will be set to low while the device is idle. The idle state occurs whenever 
+             the chip is not selected.
+            </param>
+            <param name="clockSamplingEdgeRising">
+             The sampling clock edge. If <b>true</b>, data is sampled on the SPI clock rising edge; 
+             if <b>false</b>, the data is sampled on the SPI clock falling edge.
+            </param>
+            <param name="clockRateKHz">The SPI clock rate in kHz.</param>
+            <param name="busyActiveHigh">
+             The active state for the busy port. If <b>true</b>, the SPI will wait while the busy signal is 
+             held high during transactions; if <b>false</b>, it will wait while the busy signal is held low.
+            </param>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.SpiSharing">
+            <summary>
+            Provides values to specify the sharing mode for an SPI instance.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SpiSharing.Exclusive">
+            <summary>
+            Exclusive, no sharing allowed.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SpiSharing.Shared">
+            <summary>
+            Sharing is allowed.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Socket.SocketInterfaces.SpiSharing.NoMoreAllowed">
+            <summary>
+            No more interfaces may share.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Socket.SocketInterfaces.Serial">
+            <summary>
+            Provides the serial port functionality.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.Open">
+            <summary>
+            Opens a new serial port connection. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.Close">
+            <summary>
+            Closes the port connection, and sets the <see cref="P:Gadgeteer.Socket.SocketInterfaces.Serial.IsOpen"/> property to <b>false</b>.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.Flush">
+            <summary>
+            Sends any data waiting in the 'send' buffer and clears the buffer.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.ReadByte">
+            <summary>
+            Reads a byte from the serial port.
+            </summary>
+            <returns>The byte read from the port as an integer value.</returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads a number of bytes from the serial port input buffer and writes those bytes 
+            to a byte array at the specified offset. 
+            </summary>
+            <param name="buffer">The byte[] array to write the input to.</param>
+            <param name="offset">The offset in the <paramref name="buffer"/> array to begin writing.</param>
+            <param name="count">The number of bytes to read.</param>
+            <returns>The number of bytes read.</returns>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.DiscardInBuffer">
+            <summary>
+            Discards data from the serial driver's 'receive' buffer. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.Write(System.Byte[])">
+            <summary>
+            Writes a variable number of bytes to the serial port using data from a buffer. 
+            </summary>
+            <param name="data">The data to write as a byte[] array.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.Write(System.String)">
+            <summary>
+            Writes the specified text to the serial port.
+            </summary>
+            <param name="text">The text to write.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.WriteLine(System.String)">
+            <summary>
+            Writes the specified text and the value of <see cref="P:Gadgeteer.Socket.SocketInterfaces.Serial.NewLine"/> to the serial port.
+            </summary>
+            <param name="text">The text to write.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a specified number of bytes to the serial port using data from a buffer. 
+            </summary>
+            <param name="buffer">The byte[] array that contains the data to write to the port.</param>
+            <param name="offset">The zero-based byte offset of the <paramref name="buffer"/> parameter 
+            at which to begin copying bytes to the port.</param>
+            <param name="count">The number of bytes to write.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.DiscardOutBuffer">
+            <summary>
+            Discards data from the serial driver's 'send' buffer. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.OnDataReceivedFirstSubscribed">
+            <summary>
+            Called when the first handler subscribes to the <see cref="E:Gadgeteer.Socket.SocketInterfaces.Serial.DataReceived"/> event.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.OnDataReceivedLastUnsubscribed">
+            <summary>
+            Called when the last handler unsubsrcibes from the <see cref="E:Gadgeteer.Socket.SocketInterfaces.Serial.DataReceived"/> event.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.RaiseDataReceived">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Socket.SocketInterfaces.Serial.DataReceived"/> event.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.OnLineReceivedFirstSubscribed">
+            <summary>
+            Called when the first handler subscribes to the <see cref="E:Gadgeteer.Socket.SocketInterfaces.Serial.LineReceived"/> event.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.OnLineReceivedLastUnsubscribed">
+            <summary>
+            Called when the last handled unsubscribes forom the <see cref="E:Gadgeteer.Socket.SocketInterfaces.Serial.LineReceived"/> event.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.RaiseLineReceived(System.String)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Socket.SocketInterfaces.Serial.LineReceived"/> event.
+            </summary>
+            <param name="line">The received line of data.</param>
+        </member>
+        <member name="M:Gadgeteer.Socket.SocketInterfaces.Serial.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Serial.PortName">
+            <summary>
+            Gets the port name associated with this serial interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Serial.BaudRate">
+            <summary>
+            Gets or sets the baud rate of this serial interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Serial.Parity">
+            <summary>
+            Gets or sets the parity of this serial interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Serial.StopBits">
+            <summary>
+            Gets or sets the stop bits of this serial interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Serial.DataBits">
+            <summary>
+            Gets or sets the number of data bits of this serial interface. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Serial.IsUsingHardwareFlowControl">
+            <summary>
+            Gets a Boolean value that indicates whether the serial interface is using hardware flow control.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Serial.NewLine">
+            <summary>
+            Gets or sets the new line string for this serial interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Serial.Encoding">
+            <summary>
+            Gets or sets the <see cref="P:Gadgeteer.Socket.SocketInterfaces.Serial.Encoding"/> for this serial interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Serial.IsOpen">
+            <summary>
+            Gets a Boolean value indicating the open or closed status of the <see cref="T:Gadgeteer.Socket.SocketInterfaces.Serial"/> object. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Serial.ReadTimeout">
+            <summary>
+            Gets or sets the number of milliseconds before a time-out occurs when a read operation does not finish. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Serial.BytesToRead">
+            <summary>
+            Gets the number of bytes of data in the 'receive' buffer. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Serial.WriteTimeout">
+            <summary>
+            Gets or sets the number of milliseconds before a time-out occurs when a write operation does not finish. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Socket.SocketInterfaces.Serial.BytesToWrite">
+            <summary>
+            Gets the number of bytes of data in the 'send' buffer. 
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Socket.SocketInterfaces.Serial.DataReceived">
+            <summary>
+            Raised when the serial port signals that data has been received. 
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Socket.SocketInterfaces.Serial.LineReceived">
+            <summary>
+            Raised when a complete line of data has been received.
+            </summary>
+            <remarks>
+            Any incomplete lines read will be discarded.
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.AnalogInput">
+            <summary>
+            Represents analog input on a single pin.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.AnalogInput.#ctor(Gadgeteer.Socket,Gadgeteer.Socket.Pin,Gadgeteer.Modules.Module)">
+            <summary></summary>
+            <remarks>This automatically checks that the socket supports Type A, and reserves the pin used.
+            An exception will be thrown if there is a problem with these checks.</remarks>
+            <param name="socket">The socket.</param>
+            <param name="pin">The analog input pin to use.</param>
+            <param name="module">The module using the socket, which can be null if unspecified.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.AnalogInput.ReadVoltage">
+            <summary>
+            Reads the current analog input value as a voltage between 0 and 3.3V.
+            </summary>
+            <returns>The current analog value in volts.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.AnalogInput.ReadProportion">
+            <summary>
+            Reads the current analog input value as a proportion from 0.0 to 1.0 of the maximum value (3.3V).
+            </summary>
+            <returns>The analog input value from 0.0-1.0</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.AnalogInput.op_Explicit(Gadgeteer.Interfaces.AnalogInput)~Gadgeteer.Socket.SocketInterfaces.AnalogInput">
+            <summary>
+            Returns the <see cref="T:Gadgeteer.Socket.SocketInterfaces.AnalogInput"/> for an <see cref="T:Gadgeteer.Interfaces.AnalogInput"/> interface.
+            </summary>
+            <param name="this">An instance of <see cref="T:Gadgeteer.Interfaces.AnalogInput"/>.</param>
+            <returns>The <see cref="T:Gadgeteer.Socket.SocketInterfaces.AnalogInput"/> for <paramref name="this"/>.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.AnalogInput.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.AnalogInput.Active">
+            <summary>
+            Gets or sets the active state of the analog input.
+            </summary>
+            <returns>A Boolean value, true if the analogue input is active, otherwise false.</returns>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.AnalogOutput">
+            <summary>
+            Represents analog output on a single pin.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.AnalogOutput.socket">
+            <summary>
+            Represents the analog output port.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.AnalogOutput.#ctor(Gadgeteer.Socket,Gadgeteer.Socket.Pin,Gadgeteer.Modules.Module)">
+            <summary></summary>
+            <remarks>This automatically checks that the socket supports Type O, and reserves the pin.
+            An exception will be thrown if there is a problem with these checks.</remarks>
+            <param name="socket">The analog output capable socket.</param>
+            <param name="pin">The pin to assign to the analog output.</param>
+            <param name="module">The module using this analog output interface, which can be null if unspecified.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.AnalogOutput.Set(System.Double)">
+            <summary>
+            Sets the voltage of the analog output.
+            </summary>
+            <param name="voltage">A double value that represents the voltage to which
+            the analogue output will be set.</param>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.AnalogOutput.MinOutputVoltage">
+            <summary>
+            Gets the minimum output voltage of the analog output. 
+            </summary>
+            <returns>A double value that represents the minimum output voltage.</returns>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.AnalogOutput.MaxOutputVoltage">
+            <summary>
+            Gets the maximum output voltage of the analog output.
+            </summary>
+            <returns>A double value that represents the maximum output voltage.</returns>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.AnalogOutput.Active">
+            <summary>
+            Gets or sets the active state of the analog output.
+            </summary>
+            /// <returns>A Boolean value, true if the analogue output is active, otherwise false.</returns>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.NativeDigitalInput._port">
+            <summary>
+            Represents the input port for the digital input.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.DigitalInput">
+            <summary>
+            Represents a digital input on a single pin.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalInput.#ctor(Gadgeteer.Socket,Gadgeteer.Socket.Pin,Gadgeteer.Interfaces.GlitchFilterMode,Gadgeteer.Interfaces.ResistorMode,Gadgeteer.Modules.Module)">
+            <summary></summary>
+            <param name="socket">The socket for the digital input interface.</param>
+            <param name="pin">The pin used by the digital input interface.</param>
+            <param name="glitchFilterMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.GlitchFilterMode"/> enumeration that specifies 
+             whether to enable the glitch filter on this digital input interface.
+            </param>
+            <param name="resistorMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.ResistorMode"/> enumeration that establishes a default state for the digital input interface. N.B. .NET Gadgeteer mainboards are only required to support ResistorMode.PullUp on interruptable GPIOs and are never required to support ResistorMode.PullDown; consider putting the resistor on the module itself.
+            </param>
+            <param name="module">The module using this interface, which can be null if unspecified.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalInput.Read">
+            <summary>
+            Reads a Boolean value at the interface port input. 
+            </summary>
+            <returns>A Boolean value that represents the current value of the port, either 0 or 1.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalInput.op_Explicit(Gadgeteer.Interfaces.DigitalInput)~Gadgeteer.Socket.SocketInterfaces.DigitalInput">
+            <summary>
+            Returns the <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalInput"/> for a <see cref="T:Gadgeteer.Interfaces.DigitalInput"/> interface.
+            </summary>
+            <param name="this">An instance of <see cref="T:Gadgeteer.Interfaces.DigitalInput"/>.</param>
+            <returns>The <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalInput"/> for <paramref name="this"/>.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalInput.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.DigitalIO">
+            <summary>
+            Represents digital input/output on a single pin.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalIO.#ctor(Gadgeteer.Socket,Gadgeteer.Socket.Pin,System.Boolean,Gadgeteer.Interfaces.GlitchFilterMode,Gadgeteer.Interfaces.ResistorMode,Gadgeteer.Modules.Module)">
+            <summary></summary>
+            <param name="socket">The socket for the digital input/output interface.</param>
+            <param name="pin">The pin used by the digital input/output interface.</param>
+            <param name="initialState">
+             The initial state to set on the digital input/output interface port.  
+             This value becomes effective as soon as the port is enabled as an output port.
+            </param>
+            <param name="glitchFilterMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.GlitchFilterMode"/> enumeration that specifies 
+             whether to enable the glitch filter on this digital input/output interface.
+            </param>
+            <param name="resistorMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.ResistorMode"/> enumeration that establishes a default state for the digital input/output interface. N.B. .NET Gadgeteer mainboards are only required to support ResistorMode.PullUp on interruptable GPIOs and are never required to support ResistorMode.PullDown; consider putting the resistor on the module itself.
+            </param>
+            <param name="module">The module using this interface, which can be null if unspecified.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalIO.Write(System.Boolean)">
+            <summary>
+            Sets the interface to <see cref="T:Gadgeteer.Interfaces.DigitalIO.IOModes">IOModes.Output</see>
+            and writes the specified value.
+            </summary>
+            <param name="state">The value to write.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalIO.Read">
+            <summary>
+            Sets the interface to <see cref="T:Gadgeteer.Interfaces.DigitalIO.IOModes">IOModes.Input</see>
+            and reads a value.
+            </summary>
+            <returns>A Boolean value read from the interface.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalIO.op_Explicit(Gadgeteer.Interfaces.DigitalIO)~Gadgeteer.Socket.SocketInterfaces.DigitalIO">
+            <summary>
+            Returns the <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalIO"/> for a <see cref="T:Gadgeteer.Interfaces.DigitalIO"/> interface.
+            </summary>
+            <param name="this">An instance of <see cref="T:Gadgeteer.Interfaces.DigitalIO"/>.</param>
+            <returns>The <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalIO"/> for <paramref name="this"/>.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalIO.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.DigitalIO.IOMode">
+            <summary>
+            Gets or sets the mode for the digital input/output interface.
+            </summary>
+            <value>
+            <list type="bullet">
+            <item><see cref="T:Gadgeteer.Interfaces.DigitalIO.IOModes">IOModes.Input</see> if the interface is currently set for input operations.</item>
+            <item><see cref="T:Gadgeteer.Interfaces.DigitalIO.IOModes">IOModes.Output</see> if the interface is currently set for ouput operations.</item>
+            </list>
+            </value>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.DigitalIO.IOModes">
+            <summary>
+            Represents the possible modes of a digital input/output interface.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.DigitalIO.IOModes.Input">
+            <summary>
+            The interface is set for input operations.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.DigitalIO.IOModes.Output">
+            <summary>
+            The interface is set for output operations.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.DigitalOutput">
+            <summary>
+            Represents digital output on a single pin.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalOutput.#ctor(Gadgeteer.Socket,Gadgeteer.Socket.Pin,System.Boolean,Gadgeteer.Modules.Module)">
+            <summary></summary>
+            <param name="socket">The socket for the digital output interface.</param>
+            <param name="pin">The pin used by the digital output interface.</param>
+            <param name="initialState">The initial state to place on the digital output interface port.</param>
+            <param name="module">The module using this interface (which can be null if unspecified).</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalOutput.Write(System.Boolean)">
+            <summary>
+            Writes a value to the interface port output. 
+            </summary>
+            <param name="state">The value to be written to the port output.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalOutput.Read">
+            <summary>
+            Reads a Boolean value at the interface port input. 
+            </summary>
+            <returns>The current value of the port (either 0 or 1).</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalOutput.op_Explicit(Gadgeteer.Interfaces.DigitalOutput)~Gadgeteer.Socket.SocketInterfaces.DigitalOutput">
+            <summary>
+            Returns the <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalOutput"/> for a <see cref="T:Gadgeteer.Interfaces.DigitalOutput"/> interface.
+            </summary>
+            <param name="this">An instance of <see cref="T:Gadgeteer.Interfaces.DigitalOutput"/>.</param>
+            <returns>The <see cref="T:Gadgeteer.Socket.SocketInterfaces.DigitalOutput"/> for <paramref name="this"/>.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.DigitalOutput.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.I2CBus">
+            <summary>
+            Represents a device on an Inter-Integrated Circuit (I2C) multi-drop 2-wire bus.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.I2CBus.#ctor(Gadgeteer.Socket,System.UInt16,System.Int32,Gadgeteer.Modules.Module)">
+            <summary></summary>
+            <remarks>This automatically checks that the socket supports Type I, and reserves the SDA and SCL pins.
+            An exception will be thrown if there is a problem with these checks.</remarks>
+            <param name="address">The address for the I2C device.</param>
+            <param name="clockRateKhz">The clock rate, in kHz, used when communicating with the I2C device.</param>
+            <param name="socket">The socket for this I2C device interface.</param>
+            <param name="module">The module using this I2C interface, which can be null if unspecified.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.I2CBus.Write(System.Byte[],System.Int32)">
+            <summary>
+            Writes an array of bytes to the I2C device.
+            </summary>
+            <param name="writeBuffer">The array of bytes that will be sent to the I2C device.</param>
+            <param name="timeout">The amount of time, in milliseconds, that the system will wait before resuming execution of the transaction.</param>
+            <returns>The number of bytes of data transferred in the transaction.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.I2CBus.Read(System.Byte[],System.Int32)">
+            <summary>
+            Reads an array of bytes from the device into a specified read buffer.
+            </summary>
+            <param name="readBuffer">The array of bytes that will contain the data read from the I2C device.</param>
+            <param name="timeout">The amount of time, in milliseconds, that the system will wait before resuming execution of the transaction.</param>
+            <returns>The number of bytes of data transferred in the transaction.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.I2CBus.WriteRead(System.Byte[],System.Byte[],System.Int32)">
+            <summary>
+             Writes an array of bytes to the I2C device, and reads an array of bytes from the device into a specified read buffer.
+            </summary>
+            <param name="writeBuffer">The array of bytes that will be sent to the I2C device.</param>
+            <param name="readBuffer">The array of bytes that will contain the data read from the I2C device.</param>
+            <param name="timeout">The amount of time, in milliseconds, that the system will wait before resuming execution of the transaction.</param>
+            <returns>The number of bytes of data transferred in the transaction.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.I2CBus.Execute(Microsoft.SPOT.Hardware.I2CDevice.I2CTransaction[],System.Int32)">
+            <summary>
+            Performs a series of I2C transactions. 
+            </summary>
+            <remarks>
+            This is a more advanced API for when <see cref="M:Gadgeteer.Interfaces.I2CBus.Write(System.Byte[],System.Int32)"/>, <see cref="M:Gadgeteer.Interfaces.I2CBus.Read(System.Byte[],System.Int32)"/> and <see cref="M:Gadgeteer.Interfaces.I2CBus.WriteRead(System.Byte[],System.Byte[],System.Int32)"/> do not suffice. You may wish to use <see cref="M:Microsoft.SPOT.Hardware.I2CDevice.CreateWriteTransaction(System.Byte[])"/> and <see cref="M:Microsoft.SPOT.Hardware.I2CDevice.CreateReadTransaction(System.Byte[])"/> to create the transactions.
+            </remarks>
+            <param name="transactions">The list of transactions to perform.</param>
+            <param name="timeout">The amount of time, in milliseconds, that the system will wait before resuming execution of the transaction.</param>
+            <returns>The number of bytes successfully transacted.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.I2CBus.op_Explicit(Gadgeteer.Interfaces.I2CBus)~Gadgeteer.Socket.SocketInterfaces.I2CBus">
+            <summary>
+            Returns the <see cref="T:Gadgeteer.Socket.SocketInterfaces.I2CBus"/> for an <see cref="T:Gadgeteer.Interfaces.I2CBus"/>.
+            </summary>
+            <param name="this">An instance of <see cref="T:Gadgeteer.Interfaces.I2CBus"/>.</param>
+            <returns>The <see cref="T:Gadgeteer.Socket.SocketInterfaces.I2CBus"/> for <paramref name="this"/>.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.I2CBus.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.I2CBus.Address">
+            <summary>
+            Gets or sets the address of the <see cref="T:Gadgeteer.Interfaces.I2CBus"/> device.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.ResistorMode">
+            <summary>
+            Specifies the resistor modes for various ports.  N.B. .NET Gadgeteer mainboards are only required to support ResistorMode.PullUp on interruptable GPIOs and are never required to support ResistorMode.PullDown; consider putting the resistor on the module itself.
+            </summary>
+            <remarks>
+            <para>
+             A value from this enumeration can be used when creating the following types of interfaces:
+            </para>
+            <list type="bullet">
+             <item><see cref="T:Gadgeteer.Interfaces.DigitalInput"/></item>
+             <item><see cref="T:Gadgeteer.Interfaces.DigitalIO"/></item>
+             <item><see cref="T:Gadgeteer.Interfaces.InterruptInput"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.ResistorMode.Disabled">
+            <summary>
+            A value that disables the resistor functionality. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.ResistorMode.PullUp">
+            <summary>
+            A value that enables the resistor functionality in pull-up mode. N.B. .NET Gadgeteer mainboards are only required to support ResistorMode.PullUp on interruptable GPIOs and are never required to support ResistorMode.PullDown; consider putting the resistor on the module itself.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.ResistorMode.PullDown">
+            <summary>
+            A value that enables the resistor functionality in pull-down mode. N.B. .NET Gadgeteer mainboards are only required to support ResistorMode.PullUp on interruptable GPIOs and are never required to support ResistorMode.PullDown; consider putting the resistor on the module itself.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.InterruptMode">
+            <summary>
+            Provides an enumeration of the values used to set the port interrupt mode. 
+            </summary>
+            <remarks>
+            <para>
+             A value from this enumeration can be used when creating the following types of interfaces:
+            </para>
+            <list type="bullet">
+             <item><see cref="T:Gadgeteer.Interfaces.InterruptInput"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.InterruptMode.RisingEdge">
+            <summary>
+            A value that sets the port so that its interrupt is triggered on the rising edge.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.InterruptMode.FallingEdge">
+            <summary>
+            A value that sets the port so that its interrupt is triggered when the input level is low.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.InterruptMode.RisingAndFallingEdge">
+            <summary>
+            A value that sets the port so that its interrupt is triggered on both the rising and falling edges.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.GlitchFilterMode">
+            <summary>
+            Provides an enumeration of values used to set glitch filter mode on or off.
+            </summary>
+            <remarks>
+            <para>
+             A value from this enumeration can be used when creating the following types of interfaces:
+            </para>
+            <list type="bullet">
+             <item><see cref="T:Gadgeteer.Interfaces.DigitalInput"/></item>
+             <item><see cref="T:Gadgeteer.Interfaces.DigitalIO"/></item>
+             <item><see cref="T:Gadgeteer.Interfaces.InterruptInput"/></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.GlitchFilterMode.On">
+            <summary>
+            Glitch filter mode is on.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.GlitchFilterMode.Off">
+            <summary>
+            Glitch filter mode is off.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.InterruptInput">
+            <summary>
+            Represents interrupt input on a single pin not bound to a specific <see cref="T:Gadgeteer.Socket"/>.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Interfaces.InterruptInput.SynchronousUnsafeEventInvocation">
+            <summary>
+            Gets or sets a value that determines how the <see cref="E:Gadgeteer.Interfaces.InterruptInput.Interrupt"/> event is raised.
+            </summary>
+            <remarks>
+            An interrupt may occur on a thread other than the application thread. 
+            When <see cref="F:Gadgeteer.Interfaces.InterruptInput.SynchronousUnsafeEventInvocation"/> is <b>false</b> (the default),
+            the <see cref="E:Gadgeteer.Interfaces.InterruptInput.Interrupt"/> event, which is raised in response to the interrupt on the interface,
+            is not raised immediately, instead it is queued for raising on the application's dispatcher thread.  However, 
+            when <see cref="F:Gadgeteer.Interfaces.InterruptInput.SynchronousUnsafeEventInvocation"/> is <b>true</b>, the 
+            <see cref="E:Gadgeteer.Interfaces.InterruptInput.Interrupt"/> event is raised immediately on the same thread that generated the interrupt.  
+            This results in faster interrupt processing and may be useful to respond to realtime events, but extra care 
+            must be taken when using this facility to be thread-safe, i.e. to handle issues such as locking, 
+            atomic reading/writing of streams/files, deadlock avoidance, etc.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.InterruptInput.#ctor(Gadgeteer.Socket,Gadgeteer.Socket.Pin,Gadgeteer.Interfaces.GlitchFilterMode,Gadgeteer.Interfaces.ResistorMode,Gadgeteer.Interfaces.InterruptMode,Gadgeteer.Modules.Module)">
+            <summary></summary>
+            <param name="socket">The socket for the interrupt input interface.</param>
+            <param name="pin">The pin used by the interrupt input interface.</param>
+            <param name="glitchFilterMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.GlitchFilterMode"/> enumeration that specifies 
+             whether to enable the glitch filter on this interrupt input interface.
+            </param>
+            <param name="resistorMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.ResistorMode"/> enumeration that establishes a default state for the interrupt input interface. N.B. .NET Gadgeteer mainboards are only required to support ResistorMode.PullUp on interruptable GPIOs and are never required to support ResistorMode.PullDown; consider putting the resistor on the module itself.
+            </param>
+            <param name="interruptMode">
+             A value from the <see cref="T:Gadgeteer.Interfaces.InterruptMode"/> enumeration that establishes the requisite conditions 
+             for the interface port to generate an interrupt.
+            </param>
+            <param name="module">The module using this interrupt input interface, which can be null if unspecified.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.InterruptInput.Read">
+            <summary>
+            Reads a Boolean value at the InterruptInput interface port input. 
+            </summary>
+            <returns>A Boolean value that indicates the current value of the port as either 0 or 1).</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.InterruptInput.OnInterruptEvent(Gadgeteer.Interfaces.InterruptInput,System.Boolean)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Interfaces.InterruptInput.Interrupt"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Interfaces.InterruptInput"/> object that raised the event.</param>
+            <param name="value"><b>true</b> if the the value received from the interrupt is greater than zero; otherwise, <b>false</b>.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.InterruptInput.op_Explicit(Gadgeteer.Interfaces.InterruptInput)~Gadgeteer.Socket.SocketInterfaces.InterruptInput">
+            <summary>
+            Returns the <see cref="T:Gadgeteer.Socket.SocketInterfaces.InterruptInput"/> for an <see cref="T:Gadgeteer.Interfaces.InterruptInput"/> interface.
+            </summary>
+            <param name="this">An instance of <see cref="T:Gadgeteer.Interfaces.InterruptInput"/>.</param>
+            <returns>The <see cref="T:Gadgeteer.Socket.SocketInterfaces.InterruptInput"/> for <paramref name="this"/>.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.InterruptInput.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Interfaces.InterruptInput.Interrupt">
+            <summary>
+            Raised when the InterruptInput interface detects an interrupt.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.InterruptInput.InterruptEventHandler">
+            <summary>
+            Represents the delegate used for the <see cref="E:Gadgeteer.Interfaces.InterruptInput.Interrupt"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Interfaces.InterruptInput"/> object that raised the event.</param>
+            <param name="value"><b>true</b> if the the value received from the interrupt is greater than zero; otherwise, <b>false</b>.</param>
+        </member>
+        <member name="T:Gadgeteer.Interfaces.PWMOutput">
+            <summary>
+            Represents pulse width modulation (PWM) output using a single socket pin.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.PWMOutput.#ctor(Gadgeteer.Socket,Gadgeteer.Socket.Pin,System.Boolean,Gadgeteer.Modules.Module)">
+            <summary>
+            </summary>
+            <remarks>This automatically checks that the socket supports Type P, and reserves the pin.
+            An exception will be thrown if there is a problem with these checks.</remarks>
+            <param name="socket">The socket that supports pulse width modulation (PWM) output.</param>
+            <param name="pin">The pin on the socket that supports PWM.</param>
+            <param name="invert">Whether to invert the output voltage.</param>
+            <param name="module">The module using this PWM output interface, which can be null if unspecified.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.PWMOutput.Set(System.Int32,System.Double)">
+            <summary>
+            Sets the frequency and duty cycle of the <see cref="T:Gadgeteer.Interfaces.PWMOutput"/> interface and starts the PWM signal.
+            </summary>
+            <param name="frequency">Required frequency in Hertz.</param>
+            <param name="dutyCycle">Duty cycle from 0-1.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.PWMOutput.SetPulse(System.UInt32,System.UInt32)">
+            <summary>
+            Sets the period and high time of the <see cref="T:Gadgeteer.Interfaces.PWMOutput"/> interface and starts the PWM signal.
+            </summary>
+            <param name="period_ns">Period of the signal in nanoseconds.</param>
+            <param name="highTime_ns">High time of the signal in nanoseconds.</param>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.PWMOutput.op_Explicit(Gadgeteer.Interfaces.PWMOutput)~Gadgeteer.Socket.SocketInterfaces.PwmOutput">
+            <summary>
+            Returns the <see cref="T:Gadgeteer.Socket.SocketInterfaces.PwmOutput"/> for a <see cref="T:Gadgeteer.Interfaces.PWMOutput"/> interface.
+            </summary>
+            <param name="this">An instance of <see cref="T:Gadgeteer.Interfaces.PWMOutput"/>.</param>
+            <returns>The <see cref="T:Gadgeteer.Socket.SocketInterfaces.PwmOutput"/> for <paramref name="this"/>.</returns>
+        </member>
+        <member name="M:Gadgeteer.Interfaces.PWMOutput.Dispose">
+            <summary>
+            Releases all resources used by the interface.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Interfaces.PWMOutput.Active">
+            <summary>
+            Gets or sets a Boolean value that indicates whether the PWM interface is active, <b>true</b> if active
+            otherwise <b>false</b>.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.Module">
+            <summary>
+            Abstract class to provide common methods, properties, and events for modules.
+            </summary>
+            <remarks>
+            All module classes derive from this class, either directly or indirectly. Classes that represent
+            a module that can be chained together with other modules on the same socket
+            derive from <see cref="T:Gadgeteer.Modules.DaisyLinkModule"/>,
+            which dervies from this class.
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.modules">
+            <summary>
+            Stores a list of modules so that they will not be garbage collected even if user code stops referring to them. (Because some modules are interrupt-driven, they can receive events even then.)
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.#ctor">
+            <summary></summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.ToString">
+            <summary>
+            Returns the name of this module class as a string.
+            </summary>
+            <returns>The name of this module class as a string.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DebugPrint(System.String)">
+            <summary>
+            If <see cref="P:Gadgeteer.Modules.Module.DebugPrintEnabled"/> is <b>true</b>, prints the name of this module and a specified message to the debug output window.
+            </summary>
+            <param name="message">The message to append to the name of this module.</param>
+            <remarks>
+             If <see cref="P:Gadgeteer.Modules.Module.DebugPrintEnabled"/> is <b>false</b>, the default, calling this method has no effect.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.ErrorPrint(System.String)">
+            <summary>
+            Prints the name of this module and a specified error message to the debug output window.
+            </summary>
+            <param name="message">The message to append to the name of this module.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.Module.Mainboard">
+            <summary>
+            Gets a reference to the Mainboard API used by the current Gadgeteer Program.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.Module.DebugPrintEnabled">
+            <summary>
+            Gets or sets a value that determines whether debug printing is enabled.
+            </summary>
+            <remarks>
+             If this property is <b>false</b>, the default, calling the <see cref="M:Gadgeteer.Modules.Module.DebugPrint(System.String)"/> method has no effect.
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Modules.Module.DisplayModule">
+            <summary>
+            Abstract class to provide common methods, properties, and events for a display device.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.Paint(Microsoft.SPOT.Bitmap)">
+            <summary>
+            When overridden in a derived class, renders display data on the display device.
+            </summary>
+            <param name="bitmap">The <see cref="T:Microsoft.SPOT.Bitmap"/> object to render on the display.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SetLCDRotation(Gadgeteer.Modules.Module.DisplayModule.LCDRotation)">
+            <summary>
+            Sets the LCD rotation to use.  This must be called before WPF is used.
+            </summary>
+            <param name="rotation">The rotation to use.</param>
+            <returns>true if this rotation is supported, false otherwise.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.#ctor(Gadgeteer.Modules.Module.DisplayModule.WPFRenderOptions)">
+            <summary></summary>
+            <param name="wpfrenderoptions">
+            A value from the <see cref="T:Gadgeteer.Modules.Module.DisplayModule.WPFRenderOptions"/> enumeration that specifies
+            whether the WPF output from a <see cref="P:Gadgeteer.Modules.Module.DisplayModule.WPFWindow"/> is sent to the LCD controller or intercepted to send to an SPI display.
+            </param>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.lcdPinsUsedAsIOs">
+            <summary>
+            The default configuration of the LCD controller when pins are used as IOs.  NB using 128x128 since that's an oft-used OLED display resolution, and avoids a reboot if an OLED is used.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.LCDControllerPinReuse">
+            <summary>
+            Called when a pin otherwise used for the LCD controller is reserved for another module
+            We have to ensure the LCD controller pins are disabled so they can be reused
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SetLCDConfig(Gadgeteer.Mainboard.LCDConfiguration)">
+            <summary>
+            Sets the display configuration.  This must be called by all display module constructors (even ones not using LCD displays)
+            </summary>
+            <param name="displayConfig">The display configuration.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphics">
+            <summary>
+            Gets the <see cref="T:Gadgeteer.Modules.SimpleGraphics"/> object for this display module.
+            </summary>
+            <remarks>
+            The <see cref="T:Gadgeteer.Modules.SimpleGraphics"/> object enables you to display text and simple shapes. 
+            If your application requires more complex display capabilities, you can access the display
+            via the <see cref="P:Gadgeteer.Modules.Module.DisplayModule.WPFWindow"/> property.
+            </remarks>
+        </member>
+        <member name="P:Gadgeteer.Modules.Module.DisplayModule.WPFWindow">
+            <summary>
+            Gets the Windows Presentation Foundation (WPF) window associated with this display.
+            </summary>
+            <remarks>
+            This property enables you to access a WPF window and perform more complex display layouts and tasks 
+            such as adding a <see cref="T:Microsoft.SPOT.Presentation.Controls.StackPanel"/> or other WPF controls
+            that are included in the Microsoft .NET Micro Framework.
+             When using this property, you must reference it at least once before creating any 
+             <see cref="T:Microsoft.SPOT.Presentation.UIElement"/> objects that you want to place in the window. 
+             Otherwise, the .NET Micro Framework will throw a <see cref="T:System.NullReferenceException"/>.
+            </remarks>
+        </member>
+        <member name="P:Gadgeteer.Modules.Module.DisplayModule.Width">
+            <summary>
+            When overridden in a derived class, gets the width of the display module.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.Module.DisplayModule.Height">
+            <summary>
+            When overridden in a derived class, gets the height of the display module.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.Module.DisplayModule.LCDRotation">
+            <summary>
+            An enumeration of possible LCD rotations
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.LCDRotation.Normal">
+            <summary>
+            Normal way up
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.LCDRotation.Clockwise90Degrees">
+            <summary>
+            Rotated clockwise by 90 degrees
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.LCDRotation.UpsideDown">
+            <summary>
+            Upside-down
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.LCDRotation.Counterclockwise90Degrees">
+            <summary>
+            Rotated counterclockwise by 90 degrees
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.Module.DisplayModule.WPFRenderOptions">
+            <summary>
+            Provides an enumeration of possible values for creating 
+            the <see cref="P:Gadgeteer.Modules.Module.DisplayModule.WPFWindow"/> property.
+            </summary>
+            <remarks>
+            A value from this enumeration is used internally by the Gadgeteer
+            core library when creating a display device object.
+            This allows non-natively-supported displays (e.g. SPI displays) to use the <see cref="P:Gadgeteer.Modules.Module.DisplayModule.WPFWindow"/>
+            property.
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.WPFRenderOptions.Intercept">
+            <summary>
+            Rendering is intercepted to send to non-LCD display (e.g. SPI displays)
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.WPFRenderOptions.Ignore">
+            <summary>
+            Rendering is not intercepted, the LCD controller sends output to the display
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface">
+            <summary>
+            Provides access to display tasks such as displaying text, simple shapes, and images.
+            </summary>
+            <remarks>
+            <para>
+             A <see cref="P:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphics"/> object enables you to perform simple display tasks
+             such as displaying text, simple shapes, and images.
+            </para>
+            <para>
+             You cannot create a <see cref="P:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphics"/> object directly. Access this object 
+             via the <see cref="P:Gadgeteer.Modules.DisplayModule.SimpleGraphics"/> property
+             of a <see cref="T:Gadgeteer.Modules.DisplayModule"/> object.
+            </para>
+            <para>
+             If your application requires more complex layout or display tasks, consider using
+             the <see cref="P:Gadgeteer.Modules.DisplayModule.WPFWindow"/> property, instead.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Redraw">
+            <summary>
+            Redraws the display.
+            </summary>
+            <remarks>
+            Use this method in conjunction with the <see cref="P:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.AutoRedraw"/> property to improve
+            performance when displaying mutiple shapes or lines of text at the same time. When 
+            <see cref="P:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.AutoRedraw"/> is <b>false</b>, display operations do not render until
+            you call this method. 
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.ClearNoRedraw">
+            <summary>
+            Clears the display, but does not redraw it.
+            </summary>
+            <seealso cref="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Redraw"/>
+            <seealso cref="P:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.AutoRedraw"/>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Clear">
+            <summary>
+            Clears the display and (if <see cref="P:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.AutoRedraw"/> is <b>true</b>), redraws it.
+            </summary>
+            <seealso cref="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.ClearNoRedraw"/>
+            <seealso cref="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Redraw"/>
+            <seealso cref="P:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.AutoRedraw"/>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayText(System.String,Microsoft.SPOT.Font,Gadgeteer.Color,System.UInt32,System.UInt32)">
+            <summary>
+            Displays the specified text.
+            </summary>
+            <param name="text">The text to display.</param>
+            <param name="font">The font to use for the text display.</param>
+            <param name="color">The color of the text.</param>
+            <param name="x">The X cooridinate to begin the text display.</param>
+            <param name="y">The Y cooridinate to begin the text display.</param>
+            <remarks>
+            This method displays text at the specified screen location. 
+            If the text is too long for the display, it will be clipped.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayTextInRectangle(System.String,System.UInt32,System.UInt32,System.UInt32,System.UInt32,Gadgeteer.Color,Microsoft.SPOT.Font,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.TextAlign,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.WordWrap,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Trimming,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.ScaleText)">
+            <summary>
+            Displays the specified text within the specified rectangular region.
+            </summary>
+            <param name="text">The text to display.</param>
+            <param name="x">The X cooridinate of the rectangular region.</param>
+            <param name="y">The Y cooridinate of the rectangular region.</param>
+            <param name="width">The width of the rectangular region.</param>
+            <param name="height">The height of the rectangular region.</param>
+            <param name="color">The text color.</param>
+            <param name="font">The text font.</param>
+            <param name="textAlignment">A value from the <see cref="T:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.TextAlign"/> enumeration that specifies how to align the text within the rectangular region.</param>
+            <param name="wordWrap">A value from the <see cref="T:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.WordWrap"/> enumeration that specifies how to wrap the text within the rectangular region.</param>
+            <param name="trimming">A value from the <see cref="T:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Trimming"/> enumeration that specifies how to trim excess text.</param>
+            <param name="scaleTextToFit">A value from the <see cref="T:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.ScaleText"/> enumeration that specifies how the text should be scaled.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayTextInRectangle(System.String,System.UInt32,System.UInt32,System.UInt32,System.UInt32,Gadgeteer.Color,Microsoft.SPOT.Font,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.TextAlign)">
+            <summary>
+            Displays the specified text within the specified rectangular region.
+            </summary>
+            <param name="text">The text to display.</param>
+            <param name="x">The X cooridinate of the rectangular region.</param>
+            <param name="y">The Y cooridinate of the rectangular region.</param>
+            <param name="width">The width of the rectangular region.</param>
+            <param name="height">The height of the rectangular region.</param>
+            <param name="color">The text color.</param>
+            <param name="font">The text font.</param>
+            <param name="textAlignment">A value from the <see cref="T:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.TextAlign"/> enumeration that specifies how to align the text within the rectangular region.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayTextInRectangle(System.String,System.UInt32,System.UInt32,System.UInt32,System.UInt32,Gadgeteer.Color,Microsoft.SPOT.Font)">
+            <summary>
+            Displays the specified text within the specified rectangular region.
+            </summary>
+            <param name="text">The text to display.</param>
+            <param name="x">The X cooridinate of the rectangular region.</param>
+            <param name="y">The Y cooridinate of the rectangular region.</param>
+            <param name="width">The width of the rectangular region.</param>
+            <param name="height">The height of the rectangular region.</param>
+            <param name="color">The text color.</param>
+            <param name="font">The text font.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayEllipse(Gadgeteer.Color,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Displays an ellipse.
+            </summary>
+            <param name="outlineColor">The color of the ellipse outline.</param>
+            <param name="x">The X cooridinate of the center of the ellipse.</param>
+            <param name="y">The Y cooridinate of the center of the ellipse.</param>
+            <param name="xRadius">The radius value for Y.</param>
+            <param name="yRadius">The radius value for X.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayRectangle(Gadgeteer.Color,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,Gadgeteer.Color,System.UInt32,System.UInt32,Gadgeteer.Color,System.UInt32,System.UInt32,System.UInt16)">
+            <summary>
+            Displays a rectangle.
+            </summary>
+            <param name="outlineColor">The color for the outline of the rectangle.</param>
+            <param name="thicknessOutline">The thickness of the outline.</param>
+            <param name="x">The X coordinate for the top left corner of the rectangle.</param>
+            <param name="y">The Y coordinate for the top left corner of the rectangle.</param>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+            <param name="xCornerRadius">The X dimension corner radius, or zero for none.</param>
+            <param name="yCornerRadius">The Y dimension corner radius, or zero for none.</param>
+            <param name="colorGradientStart">The color to begin the background gradient.</param>
+            <param name="xGradientStart">The X cooridinate to begin the background gradient.</param>
+            <param name="yGradientStart">The Y cooridinate to begin the background gradient.</param>
+            <param name="colorGradientEnd">The color to end the background gradient.</param>
+            <param name="xGradientEnd">The X cooridinate to end the background gradient.</param>
+            <param name="yGradientEnd">The Y cooridinate to end the background gradient.</param>
+            <param name="opacity">The opacity of the rectangle, 0 (transparent)..256 (opaque).</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayRectangle(Gadgeteer.Color,System.UInt32,Gadgeteer.Color,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Displays a rectangle.
+            </summary>
+            <param name="outlineColor">The color for the outline of the rectangle.</param>
+            <param name="thicknessOutline">The thickness of the outline.</param>
+            <param name="fillColor">The color to fill the rectangle with.</param>
+            <param name="x">The X coordinate for the top left corner of the rectangle.</param>
+            <param name="y">The Y coordinate for the top left corner of the rectangle.</param>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayRectangle(Gadgeteer.Color,System.UInt32,Gadgeteer.Color,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt16)">
+            <summary>
+            Displays a rectangle.
+            </summary>
+            <param name="outlineColor">The color for the outline of the rectangle.</param>
+            <param name="thicknessOutline">The thickness of the outline.</param>
+            <param name="fillColor">The color to fill the rectangle with.</param>
+            <param name="x">The X coordinate for the top left corner of the rectangle.</param>
+            <param name="y">The Y coordinate for the top left corner of the rectangle.</param>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+            <param name="opacity">The opacity of the rectangle, 0 (transparent)..256 (opaque).</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayRectangle(Gadgeteer.Color,System.UInt32,Gadgeteer.Color,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt16)">
+            <summary>
+            Displays a rectangle.
+            </summary>
+            <param name="outlineColor">The color for the outline of the rectangle.</param>
+            <param name="thicknessOutline">The thickness of the outline.</param>
+            <param name="fillColor">The color to fill the rectangle with.</param>
+            <param name="x">The X coordinate for the top left corner of the rectangle.</param>
+            <param name="y">The Y coordinate for the top left corner of the rectangle.</param>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+            <param name="cornerRadius">The corner radius to be applied in both the X and Y dimensions.</param>
+            <param name="opacity">The opacity of the rectangle, 0 (transparent)..256 (opaque).</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayLine(Gadgeteer.Color,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Displays a line.
+            </summary>
+            <param name="color">The color of the line.</param>
+            <param name="thickness">The thickness of the line.</param>
+            <param name="x0">The x-coordinate location of the line's starting point.</param>
+            <param name="y0">The y-coordinate location of the line's starting point.</param>
+            <param name="x1">The x-coordinate location of the line's ending point.</param>
+            <param name="y1">The y-coordinate location of the line's ending point.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.GetPixel(System.Int32,System.Int32)">
+            <summary>
+            Retrieves the pixel color at a specified location on the display.
+            </summary>
+            <param name="x">The x-coordinate of the location where pixel color is to be retrieved.</param>
+            <param name="y">The y-coordinate of the location where pixel color is to be retrieved.</param>
+            <returns>The pixel color at the specified location.</returns>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.SetPixel(Gadgeteer.Color,System.UInt32,System.UInt32)">
+            <summary>
+            Sets a specified pixel to the specified color.
+            </summary>
+            <param name="color">The color to set the pixel to.</param>
+            <param name="x">The X cooridinate of the pixel.</param>
+            <param name="y">The Y cooridinate of the pixel.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayImage(Microsoft.SPOT.Bitmap,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Displays a <see cref="T:Microsoft.SPOT.Bitmap"/> image on the screen.
+            </summary>
+            <param name="bitmap">The <see cref="T:Microsoft.SPOT.Bitmap"/> object to display.</param>
+            <param name="x">Horizontal position of the left edge of the bitmap on the display.</param>
+            <param name="y">Vertical position of the top edge of the bitmap on the display.</param>
+            <param name="xSrc">Source X coordinate. Use this parameter to specify cropping from the left edge of the image. Use 0 to display full image.</param>
+            <param name="ySrc">Source Y coordinate. Use this parameter to specify cropping from the top edge of the image. Use 0 to display full image.</param>
+            <param name="width">Source width. Use this parameter to specify cropping to the right of the image. Use bitmap.Width to display full image.</param>
+            <param name="height">Source height. Use this parameter to specify cropping to the right of the image. Use bitmap.Height to display full image.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayImage(Microsoft.SPOT.Bitmap,System.UInt32,System.UInt32)">
+            <summary>
+            Displays a <see cref="T:Microsoft.SPOT.Bitmap"/> image on the screen.
+            </summary>
+            <param name="bitmap">The <see cref="T:Microsoft.SPOT.Bitmap"/> object to display</param>
+            <param name="x">Horizontal position of the left edge of the bitmap on the display.</param>
+            <param name="y">Vertical position of the top edge of the bitmap on the display.</param>   
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayImage(Gadgeteer.Picture,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Displays a <see cref="T:Gadgeteer.Picture"/> image on the screen.
+            </summary>
+            <param name="picture">The <see cref="T:Gadgeteer.Picture"/> to display.</param>
+            <param name="x">Horizontal position of the left edge of the image on the display.</param>
+            <param name="y">Vertical position of the top edge of the image on the display.</param>
+            <param name="xSrc">Source X coordinate. Use this parameter to specify cropping from the left edge of the image. Use 0 to display full image.</param>
+            <param name="ySrc">Source Y coordinate. Use this parameter to specify cropping from the top edge of the image. Use 0 to display full image.</param>
+            <param name="width">Source width. Use this parameter to specify cropping to the right of the image.</param>
+            <param name="height">Source height. Use this parameter to specify cropping to the right of the image.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayImage(Gadgeteer.Picture,System.UInt32,System.UInt32)">
+            <summary>
+            Displays a <see cref="T:Gadgeteer.Picture"/> image on the screen.
+            </summary>
+            <param name="picture">The <see cref="T:Gadgeteer.Picture"/> to display.</param>
+            <param name="x">Horizontal position of the left edge of the bitmap on the display.</param>
+            <param name="y">Vertical position of the top edge of the bitmap on the display.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayImage(System.String,Microsoft.SPOT.Bitmap.BitmapImageType,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+             Displays an image from a file on the screen.
+            </summary>
+            <param name="filePath">The path to the image file.</param>
+            <param name="imageType">The type of image contained in <paramref name="filePath"/>.</param>
+            <param name="x">Horizontal position of the left edge of the image on the display.</param>
+            <param name="y">Vertical position of the top edge of the image on the display.</param>
+            <param name="xSrc">Source X coordinate. Use this parameter to specify cropping from the left edge of the image. Use 0 to display full image.</param>
+            <param name="ySrc">Source Y coordinate. Use this parameter to specify cropping from the top edge of the image. Use 0 to display full image.</param>
+            <param name="width">Source width. Use this parameter to specify cropping to the right of the image. Use bitmap.Width to display full image.</param>
+            <param name="height">Source height. Use this parameter to specify cropping to the right of the image. Use bitmap.Height to display full image.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayImage(System.String,Microsoft.SPOT.Bitmap.BitmapImageType,System.UInt32,System.UInt32)">
+            <summary>
+             Displays an image from a file on the screen.
+            </summary>
+            <param name="filePath">The path to the image file.</param>
+            <param name="imageType">The type of image contained in <paramref name="filePath"/>.</param>
+            <param name="x">Horizontal position of the left edge of the image on the display.</param>
+            <param name="y">Vertical position of the top edge of the image on the display.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.AutoRedraw">
+            <summary>
+            Gets or sets a value that indicates whether the display should automatcially refresh
+            after it has been issued a drawing command.
+            </summary>
+            <remarks>
+            Set this property to <b>false</b> and use the <see cref="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Redraw"/> method to improve
+            performance when displaying mutiple shapes or lines of text at the same time. When 
+            <see cref="P:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.AutoRedraw"/> is <b>false</b>, display operations do not render until
+            you call the <see cref="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Redraw"/> method. 
+            </remarks>
+        </member>
+        <member name="P:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Height">
+            <summary>
+            Gets the height of this display.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Width">
+            <summary>
+            Gets the width of this display.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.BackgroundColor">
+            <summary>
+            Gets or sets the background color for the display.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.TextAlign">
+            <summary>
+            Provides an enumeration that specifies how text will be aligned.
+            </summary>
+            <remarks>
+            The values of this enumeration are used when calling 
+            the <see cref="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayTextInRectangle(System.String,System.UInt32,System.UInt32,System.UInt32,System.UInt32,Gadgeteer.Color,Microsoft.SPOT.Font,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.TextAlign,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.WordWrap,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Trimming,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.ScaleText)">DisplayTextInRectangle</see> method.
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.TextAlign.Center">
+            <summary>
+            The text is aligned in the center of the specified rectangular region.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.TextAlign.Left">
+            <summary>
+            The text is aligned on the left of the specified rectangular region.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.TextAlign.Right">
+            <summary>
+            The text is aligned on the right of the specified rectangular region.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Trimming">
+            <summary>
+            Provides an enumeration that specifies how text will be trimmed.
+            </summary>
+            <remarks>
+            The values of this enumeration are used when calling 
+            the <see cref="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayTextInRectangle(System.String,System.UInt32,System.UInt32,System.UInt32,System.UInt32,Gadgeteer.Color,Microsoft.SPOT.Font,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.TextAlign,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.WordWrap,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Trimming,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.ScaleText)">DisplayTextInRectangle</see> method.
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Trimming.WordEllipsis">
+            <summary>
+            Trimming occurs a word boundary, followed by an ellipsis mark.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Trimming.CharacterEllipsis">
+            <summary>
+            Trimming occurs a character boundary, followed by an ellipsis mark.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.WordWrap">
+            <summary>
+            Provides an enumeration that specifies how text will be wrapped.
+            </summary>
+            <remarks>
+            The values of this enumeration are used when calling 
+            the <see cref="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayTextInRectangle(System.String,System.UInt32,System.UInt32,System.UInt32,System.UInt32,Gadgeteer.Color,Microsoft.SPOT.Font,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.TextAlign,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.WordWrap,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Trimming,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.ScaleText)">DisplayTextInRectangle</see> method.
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.WordWrap.None">
+            <summary>
+            Do not use word wrap.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.WordWrap.Wrap">
+            <summary>
+            Use word wrap.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.ScaleText">
+            <summary>
+            Provides an enumeration that specifies how text will be scaled.
+            </summary>
+            <remarks>
+            The values of this enumeration are used when calling 
+            the <see cref="M:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.DisplayTextInRectangle(System.String,System.UInt32,System.UInt32,System.UInt32,System.UInt32,Gadgeteer.Color,Microsoft.SPOT.Font,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.TextAlign,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.WordWrap,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Trimming,Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.ScaleText)">DisplayTextInRectangle</see> method.
+            </remarks>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.ScaleText.None">
+            <summary>
+            If neccessary, the height of the rectangular region will be expanded to accomodate the text.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.ScaleText.ScaleToFit">
+            <summary>
+            The height of the rectangular region will not be expanded to accomodate text that is too long.
+            In this case, the value of the <see cref="T:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface.Trimming"/> enumeration determines how the excess text
+            is treated.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.Module.NetworkModule">
+            <summary>
+            Abstract class to provide common methods, properties, and events for a network module.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.NetworkModule.NetworkAvailablityBlocking">
+            <summary>
+            The network availability thread synchronization object associated with this network.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.NetworkModule._networkAvailable">
+            <summary>
+            Cached value of whether the network was previously available or not.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.NetworkModule.#ctor">
+            <summary></summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.NetworkModule._useDHCP">
+            <summary>
+            Specifies whether this network connection uses the Dynamic Host Configuration Protocol (DHCP).
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.NetworkModule.UseDHCP">
+            <summary>
+            Instructs the network connection to use the Dynamic Host Configuration Protocol (DHCP)
+            to obtain its IP configuration.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.NetworkModule.UseStaticIP(System.String,System.String,System.String,System.String[])">
+            <summary>
+            Instructs the network connection to use a static Internet Protocol (IP) configuration.
+            </summary>
+            <param name="IPAddress">The IP address.</param>
+            <param name="SubnetMask">The subnet mask.</param>
+            <param name="GatewayAddress">The IP address for the default gateway.</param>
+            <param name="DnsAddresses">The IP address of each Domain Name Server (DNS) that this network connection can use.</param>
+            <remarks>
+            Pass <b>null</b> to <paramref name="DnsAddresses"/> to disable static DNS. 
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.NetworkModule.UseStaticIP(System.String,System.String,System.String)">
+            <summary>
+            Instructs the network connection to use a static Internet Protocol (IP) configuration.
+            </summary>
+            <param name="IPAddress">The IP address.</param>
+            <param name="SubnetMask">The subnet mask.</param>
+            <param name="GatewayAddress">The IP address for the default gateway.</param>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.NetworkModule._needDHCP">
+            <summary>
+            Gets or sets the dynamic host configuration protocol (DHCP) thread syncronization object associated with this network.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.NetworkModule.DHCPThread">
+            <summary>
+            Monitors changes in network configuration to enable dynamic host configuration protocol (DHCP) or renew the DHCP lease.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.Module.NetworkModule.OnNetworkEvent(Gadgeteer.Modules.Module.NetworkModule,Gadgeteer.Modules.Module.NetworkModule.NetworkState)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.Module.NetworkModule.NetworkUp"/> or <see cref="E:Gadgeteer.Modules.Module.NetworkModule.NetworkDown"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.Module.NetworkModule"/> that raised the event.</param>
+            <param name="state">The state of the network.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.Module.NetworkModule.IsNetworkUp">
+            <summary>
+            Gets a value that indicates whether the network connection is up.
+            </summary>
+            <remarks>
+            <para>
+             When this property is <b>true</b>, the network connection is connected 
+             (<see cref="P:Gadgeteer.Modules.Module.NetworkModule.IsNetworkConnected"/> is <b>true</b>) and IP settings are configured (either statically or using DHCP as requested).
+            </para>
+            <note>
+             When this property is <b>true</b>, it does not necessarily mean 
+             that the network connection is functional. The IP configuration
+             for the network connection may be invalid for the network that it is connected to.
+            </note>
+            </remarks>
+        </member>
+        <member name="P:Gadgeteer.Modules.Module.NetworkModule.NetworkSettings">
+            <summary>
+            Gets a NetworkInterface object that describes the settings associated with this network module.
+            </summary>
+            <remarks>
+            The derived class should set this once on initialization (to disambiguate between multiple network interfaces, by using the physical address provided).
+            </remarks>
+        </member>
+        <member name="P:Gadgeteer.Modules.Module.NetworkModule.IsNetworkConnected">
+            <summary>
+            Gets a value that indicates whether this network is connected.
+            </summary>
+            <remarks>
+            Derived classes override this property to return a value that indicates
+            whether the media state is connected. This does not necessarily mean 
+            that the network connection is functional.
+            </remarks>
+        </member>
+        <member name="E:Gadgeteer.Modules.Module.NetworkModule.NetworkUp">
+            <summary>
+            Raised when network is connected and configured for Internet Proctocol (IP) communication tasks. 
+            </summary>
+            <remarks>
+            <para>
+             Handle this event to perform tasks associated with the network state.
+             This event is raised when <see cref="T:Gadgeteer.Modules.Module.NetworkModule.NetworkState"/> changes from
+             <b>NetworkState.Down</b> to <b>NetworkState.Up</b>.  
+             If the network is up when you add an event handler, the event is raised immediately on the new handler.
+            </para> 
+            <note>
+             When this event is raised, it does not necessarily mean that the network connection is functional. 
+             The IP configuration for the network connection may be invalid for the network that it is connected to.
+            </note>
+            </remarks>
+        </member>
+        <member name="E:Gadgeteer.Modules.Module.NetworkModule.NetworkDown">
+            <summary>
+            Raised when the network connection is not able to perform network communication tasks.
+            </summary>
+            <remarks>
+            Handle this event to perform tasks associated with the network state.
+            This event is raised when <see cref="T:Gadgeteer.Modules.Module.NetworkModule.NetworkState"/> changes from
+            <b>NetworkState.Up</b> to <b>NetworkState.Down</b>. 
+            If the network is down when you add an event handler, the event is raised immediately on the new handler.
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Modules.Module.NetworkModule.NetworkState">
+            <summary>
+            Represents the state of a network connection. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.NetworkModule.NetworkState.Up">
+            <summary>
+            The network connection is properly configured 
+            and able to perform network communication tasks.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.Module.NetworkModule.NetworkState.Down">
+            <summary>
+            The network connection is down. This might indicate an invalid configuration
+            for the connection or disconnected media.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.Module.NetworkModule.NetworkEventHandler">
+            <summary>
+            Represents the delegate that is used to raise 
+            the <see cref="E:Gadgeteer.Modules.Module.NetworkModule.NetworkUp"/> and <see cref="E:Gadgeteer.Modules.Module.NetworkModule.NetworkDown"/> events.
+            </summary>
+            <param name="sender">The network module that raised the event.</param>
+            <param name="state">The state of the network.</param>
+        </member>
+        <member name="T:Gadgeteer.Networking.Placeholder">
+            <summary>
+            This placeholder only exists to set up the Gadgeteer.Networking namespace, and should be ignored.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Mainboard">
+            <summary>
+            This abstract class allows the Gadgeteer libraries to access the functionality provided by mainboards.  Every Gadgeteer program uses a single mainboard accessed by Program.Mainboard.  
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Mainboard.GetStorageDeviceVolumeNames">
+            <summary>
+            Allows mainboards to support storage device mounting/umounting.  This provides modules with a list of storage device volume names supported by the mainboard. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Mainboard.MountStorageDevice(System.String)">
+            <summary>
+            Functionality provided by mainboard to mount storage devices, given the volume name of the storage device (see <see cref="M:Gadgeteer.Mainboard.GetStorageDeviceVolumeNames"/>).
+            This should result in a <see cref="E:Microsoft.SPOT.IO.RemovableMedia.Insert"/> event if successful.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Mainboard.UnmountStorageDevice(System.String)">
+            <summary>
+            Functionality provided by mainboard to ummount storage devices, given the volume name of the storage device (see <see cref="M:Gadgeteer.Mainboard.GetStorageDeviceVolumeNames"/>).
+            This should result in a <see cref="E:Microsoft.SPOT.IO.RemovableMedia.Eject"/> event if successful.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Mainboard.SetProgrammingMode(Gadgeteer.Mainboard.ProgrammingInterface)">
+            <summary>
+            Sets the programming interface that will be used to program the mainboard.
+            </summary>
+            <param name="programmingInterface"></param>
+        </member>
+        <member name="M:Gadgeteer.Mainboard.SetLCDConfiguration(Gadgeteer.Mainboard.LCDConfiguration)">
+            <summary>
+            Sets the LCD controller configuration to use.
+            </summary>
+            <remarks>
+            Should throw an ArgumentException if there is no LCD functionality on this mainboard, except if Mainboard_LCDConfiguration.HeadlessConfig (or null) is provided.
+            </remarks>
+            <param name="lcdConfig">the LCD configuration to use</param>
+        </member>
+        <member name="M:Gadgeteer.Mainboard.SetLCDRotation(Gadgeteer.Modules.Module.DisplayModule.LCDRotation)">
+            <summary>
+            Configures rotation in the LCD controller.
+            </summary>
+            <param name="rotation">The LCD rotation to use</param>
+            <returns>true if the rotation is supported</returns>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.NativeBitmapConverter">
+            <summary>
+            Native bitmap conversion functionality provided by the mainboard.  Null if not available on this mainboard.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.NativeBitmapCopyToSpi">
+            <summary>
+            Native bitmap to SPI functionality provided by the mainboard. Null if not available on this mainboard.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Mainboard.SetDebugLED(System.Boolean)">
+            <summary>
+            Sets the debug light emiting diode (LED) on or off.  If there is no debug LED, this method returns without setting the out parameter.
+            </summary>
+            <param name="on">true if the debug LED should be on.</param>
+        </member>
+        <member name="M:Gadgeteer.Mainboard.PostInit">
+            <summary>
+            Called after the initialization of the user's program, after the ProgramStarted method and field initializations, but before the Dispatcher is started.
+            This can be used by the mainboard driver to do tasks that need to occur after modules are initialized.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Mainboard.MainboardName">
+            <summary>
+            The name of this mainboard, which is automatically printed to the debug stream at startup.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Mainboard.MainboardVersion">
+            <summary>
+            The version of this mainboard, which is automatically printed to the debug stream at startup.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Mainboard.BitmapConvertBPP">
+            <summary>
+            A delegate for serial peripheral interface (SPI) display support, which marshals an RGB byte array into a target byte array, e.g. encoded as 16-bit color.
+            </summary>
+            <param name="bitmapBytes">The array of bitmap bytes.</param>
+            <param name="pixelBytes">The array of video bytes, which should be sized accordingly.</param>
+            <param name="bpp">The encoding to use.</param>
+        </member>
+        <member name="T:Gadgeteer.Mainboard.BitmapCopyToSpi">
+            <summary>
+            A delegate for serial peripheral interface (SPI) display support, which copies Bitmap data to an SPI bus.
+            </summary>
+            <param name="bitmap">The source bitmap.</param>
+            <param name="config">The SPI configuration the display uses.</param>
+            <param name="xSrc">The x-coordinate location of the upper-left corner of the rectangular area in the source bitmap from which the specified pixels are to be copied.</param>
+            <param name="ySrc">The y-coordinate location of the upper-left corner of the rectangular area in the source bitmap from which the specified pixels are to be copied.</param>
+            <param name="width">The width of the rectangular block of pixels to be copied.</param>
+            <param name="height">The height of the rectangular block of pixels to be copied.</param>
+            <param name="bpp">The encoding to use.</param>
+        </member>
+        <member name="T:Gadgeteer.Mainboard.LCDConfiguration">
+            <summary>
+            Specifies the properties of a liquid crystal display (LCD) module.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.HeadlessConfig">
+            <summary>
+            The HeadlessConfig property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.LCDControllerEnabled">
+            <summary>
+            Indicates whether the LCD is enabled.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.Width">
+            <summary>
+            The width property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.Height">
+            <summary>
+            The height property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.PixelClockDivider">
+            <summary>
+            The PixelClockDivider property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.PriorityEnable">
+            <summary>
+            The PriorityEnable property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.OutputEnableIsFixed">
+            <summary>
+            The OutputEnableIsFixed property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.OutputEnablePolarity">
+            <summary>
+            The OutputEnablePolarity of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.HorizontalSyncPolarity">
+            <summary>
+            The HorizontalSyncPolarity property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.VerticalSyncPolarity">
+            <summary>
+            The VerticalSyncPolarity property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.PixelPolarity">
+            <summary>
+            The PixelPolarity property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.HorizontalSyncPulseWidth">
+            <summary>
+            The HorizontalSyncPulseWidth property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.HorizontalBackPorch">
+            <summary>
+            The HorizontalBackPorch property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.HorizontalFrontPorch">
+            <summary>
+            The HorizontalFrontPorch property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.VerticalSyncPulseWidth">
+            <summary>
+            The VerticalSyncPulseWidth property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.VerticalBackPorch">
+            <summary>
+            The VerticalBackPorch property of the LCD.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.LCDConfiguration.VerticalFrontPorch">
+            <summary>
+            The VerticalFrontPorch property of the LCD.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Mainboard.BPP">
+            <summary>
+            Specifies the number of bits per LCD pixel and the format of those bits.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.BPP.BPP16_BGR_BE">
+            <summary>
+            16 bits per pixel, 5 for red, 6 for green, 5 for blue in this order, big endian.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Mainboard.ProgrammingInterface">
+            <summary>
+            Represents the available interfaces for the programming mode.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.ProgrammingInterface.Serial_COM1">
+            <summary>
+            The first serial communication port (COM1).
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.ProgrammingInterface.Serial_COM2">
+            <summary>
+            The second serial communication port (COM2).
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.ProgrammingInterface.Serial_COM3">
+            <summary>
+            The third serial communication port (COM3).
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.ProgrammingInterface.Serial_COM4">
+            <summary>
+            The fourth serial communication port (COM4).
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.ProgrammingInterface.USB">
+            <summary>
+            USB communication port.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Mainboard.ProgrammingInterface.Network">
+            <summary>
+            Network communication port.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.NamespaceDoc">
+             <summary>
+             <para>
+             This reference supports the .NET Gadgeteer core assemblies for the .NET Micro Framework version 4.2. 
+             These open-source classes support implementation of devices with embedded microcontrollers. 
+             The Gadgeteer namespace contains classes that access the functionality of mainboards, 
+             sockets, timers, storage devices, and images.
+             </para>
+             <para>
+            The Gadgeteer namespace contains three other namespaces:
+            <list type="bullet">
+            <item><see cref="N:Gadgeteer.Interfaces"/> - Supports commonly used input/output protocols.</item>
+            <item><see cref="N:Gadgeteer.Modules"/> - Includes the base class for .NET Gadgeteer compatible modules, 
+            including display modules and network modules. Most classes in the <see cref="N:Gadgeteer.Modules"/> 
+            namespace are abstract and implemented by module manufacturers. 
+            Users of modules in production should use the F1 documentation available in the 
+            .NET Gadgeteer Designer (select a module on the visual design surface and push the F1 key). 
+            An exception that is not abstract is the <see cref="T:Gadgeteer.Modules.Module.DisplayModule.SimpleGraphicsInterface"/> 
+            class that supports tasks such as displaying text, simple shapes, and images by display 
+            modules.</item>
+            <item><see cref="N:Gadgeteer.Networking"/> - Supports Web services, client applications, 
+            and Web requests and responses.
+            </item>
+            </list>
+             </para>
+             <para>
+             See also, version 4.1 of the .NET Gadgeteer core reference.
+             </para>
+             </summary> 
+        </member>
+        <member name="T:Gadgeteer.Interfaces.NamespaceDoc">
+            <summary>
+            The <see cref="N:Gadgeteer.Interfaces"/> namespace is primarily for manufacturers building 
+            mainboards and modules. See the the readme.txt file included with the
+            mainboard and module builder templates for more information about implementing these classes.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.NamespaceDoc">
+            <summary>
+            <para>
+            Most of the classes in the <see cref="N:Gadgeteer.Modules"/> namespace are abstract and implemented by manufacturers
+            of Gadgeteer modules. Users of modules in production should use the F1 documentation available in the .NET Gadgeteer Designer.
+            Select a module on the visual design surface and push the F1 key.</para>
+            <para>
+            An exception is the <see cref="T:Gadgeteer.Modules.SimpleGraphics"/> class that supports tasks such as displaying text, 
+            simple shapes, and images by display modules.</para>
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Networking.NamespaceDoc">
+            <summary>
+            The Gadgeteer.Networking namespace contains the Web Client and Web Server classes
+            that are used by <c>.NET Gadgeteer</c> modules and mainboards in implementing <c>.NET Gadgeteer</c> devices.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Program">
+            <summary>
+            Represents the main program for a Microsoft .NET Gadgeteer application.
+            </summary>
+            <remarks>
+            The main program of your Microsoft .NET Gadgeteer application must derive from this class, and call the <see cref="M:Gadgeteer.Program.Run"/> method, which starts the Gadgeteer dispatcher.  
+            Before a <see cref="T:Gadgeteer.Program"/> is instantiated, the <see cref="P:Gadgeteer.Program.Mainboard"/> static variable must be set.
+            These tasks are normally done using a project template to provide an easy-to-follow structure for end user code.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Program.#ctor">
+            <summary></summary>
+        </member>
+        <member name="M:Gadgeteer.Program.Run">
+            <summary>
+            Starts the application, invoking the dispatcher to handle events and timers. This call does not return.
+            </summary>
+            <exception cref="T:System.Exception">An attempt was made to call this method more than once.</exception>
+        </member>
+        <member name="M:Gadgeteer.Program.PulseDebugLED">
+            <summary>
+            Pulses the mainboard's debug LED, if present.  Note that there may be more than one LED on the mainboard. One labelled "PWR" will always be on when the mainboard is powered.  The debug LED is labelled "LED" (if present).
+            This method also writes "PulseDebugLED called" on the debug print output.
+            </summary>
+            <remarks>
+            The Debug LED can also be turned on/off using the <see cref="P:Gadgeteer.Program.Mainboard"/> interface directly.  
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Program.BeginInvoke(System.Delegate,System.Object[])">
+            <summary>
+            Executes a specified delegate on the thread on which a particular 
+            <see cref="T:Microsoft.SPOT.Dispatcher"/> object (dispatcher) was created. 
+            </summary>
+            <param name="method">A delegate to a method which is pushed into the dispatcher's event queue.</param>
+            <param name="args">The object array to be passed as arguments to the delegate.</param>
+            <remarks>
+            This static method is used internally by Gadgeteer interfaces and modules to raise events on your application thread.
+            You should not call this method directly.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Program.CheckAndInvoke(System.Delegate,System.Delegate,System.Object[])">
+            <summary>
+            Validates, and then executes a specified delegate on the dispatcher thread.
+            </summary>
+            <param name="eventTriggered">An application-specific event delegate, or <b>null</b> if none have been assigned.</param>
+            <param name="onEvent">An interface or module delegate that raises an event.</param>
+            <param name="args">The object array to be passed as arguments to the delegate.</param>
+            <returns>
+             <b>true</b> if the calling thread is the thread associated with dispatcher, otherwise <b>false</b>. 
+            </returns>
+            <remarks>
+            This static method is used by Gadgeteer interfaces and modules to raise events on your application thread.
+            Apps should not need to call this method directly.  See the module template for an example of the correct pattern for using this method.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Program.Reboot">
+            <summary>
+            Reboots the device immediately.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Program.Mainboard">
+            <summary>
+            This property provides access to the Mainboard API.  This is normally not necessary for an end user program.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Program.Invoke">
+            <summary>
+            Adding a handler to this event causes the dispatcher to run that handler once.  
+            </summary>
+            <remarks>
+            This provides a simple alternative to using <see cref="M:Gadgeteer.Program.BeginInvoke(System.Delegate,System.Object[])"/> although it does not allow arguments to be passed to the method invoked.  
+            Simply typing <code>Invoke += [tab][tab]</code> from within an app's Program.cs (or <code>GT.Program.Invoke += [tab][tab]</code> otherwise) causes a method to be created which is immediately invoked.  
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Program.InvokeEventHandler">
+            <summary>
+            A delegate for the <see cref="M:Gadgeteer.Program.InvokeEventHandler.Invoke"/> event.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Timer">
+            <summary>
+            Provides a timer to enable periodic status checks or actions, or a one-off stopwatch.
+            </summary>
+            <remarks>
+            This class wraps the <see cref="T:Microsoft.SPOT.DispatcherTimer"/> class to provide 
+            a simpler API for your Gadgeteer application.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Timer.#ctor(System.TimeSpan)">
+            <summary></summary>
+            <param name="interval">The interval for the timer.</param>
+        </member>
+        <member name="M:Gadgeteer.Timer.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="intervalMilliseconds">The interval for the timer.</param>
+        </member>
+        <member name="M:Gadgeteer.Timer.#ctor(System.TimeSpan,Gadgeteer.Timer.BehaviorType)">
+            <summary></summary>
+            <param name="interval">The interval for the timer.</param>
+            <param name="behavior">The behavior for the timer (run once or continuously).</param>
+        </member>
+        <member name="M:Gadgeteer.Timer.#ctor(System.Int32,Gadgeteer.Timer.BehaviorType)">
+            <summary></summary>
+            <param name="intervalMilliseconds">The interval for the timer.</param>
+            <param name="behavior">The behavior for the timer (run once or continuously).</param>
+        </member>
+        <member name="M:Gadgeteer.Timer.Start">
+            <summary>
+            Starts the dispatch timer.
+            </summary>
+            <remarks>
+            When you create a <see cref="T:Gadgeteer.Timer"/> object, by default it is not started
+            (that is, <see cref="P:Gadgeteer.Timer.IsRunning"/> is <b>false</b>). When you want to use the timer,
+            you must first call this method.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Timer.Stop">
+            <summary>
+            Stops the dispatch timer.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Timer.Restart">
+            <summary>
+            Restarts the timer
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Timer.GetHashCode">
+            <summary>
+            Gets a hash code for this object
+            </summary>
+            <returns>The hash code</returns>
+        </member>
+        <member name="M:Gadgeteer.Timer.GetMachineTime">
+            <summary>
+            Gets the hardware uptime, i.e. the time interval since the hardware was powered on.
+            </summary>
+            <returns>The hardware uptime.</returns>
+        </member>
+        <member name="P:Gadgeteer.Timer.Behavior">
+            <summary>
+             The behavior of this timer - whether to run once or run continuously.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Timer.IsRunning">
+            <summary>
+            Gets a value that indicates whether this timer is running.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Timer.Interval">
+            <summary>
+            Gets the interval that was assigned to this timer.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Timer.Tick">
+            <summary>
+            Raised after each timer interval specified by <see cref="P:Gadgeteer.Timer.Interval"/>.
+            </summary>
+            <remarks>
+            This event is raised when the timer is running, that is <see cref="P:Gadgeteer.Timer.IsRunning"/> is <b>true</b>.
+            Handle this event to perform periodic actions.
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Timer.BehaviorType">
+            <summary>
+            An enumeration of timer behaviours
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Timer.BehaviorType.RunOnce">
+            <summary>
+            Run once when started, and then stop, so a single Tick event is generated.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Timer.BehaviorType.RunContinuously">
+            <summary>
+            Run continually after being started, so Tick events are generated periodically.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Timer.TickEventHandler">
+            <summary>
+            Represents the delegate that is used for the <see cref="E:Gadgeteer.Timer.Tick"/> event.
+            </summary>
+            <param name="timer">The timer associated with the tick.</param>
+        </member>
+        <member name="T:Gadgeteer.Color">
+            <summary>
+            Represents colors that can be used in your Gadgeteer application.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.R">
+            <summary>
+            Gets or sets the red component of this color structure.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.G">
+            <summary>
+            Gets or sets the green component of this color structure.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.B">
+            <summary>
+            Gets or sets the blue component of this color structure.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Color.#ctor(System.Byte,System.Byte,System.Byte)">
+            <summary></summary>
+            <param name="r">The red component of the color.</param>
+            <param name="g">The green component of the color.</param>
+            <param name="b">The blue component of the color.</param>
+        </member>
+        <member name="M:Gadgeteer.Color.#ctor(Microsoft.SPOT.Presentation.Media.Color)">
+            <summary></summary>
+            <param name="spotcolor">The color.</param>
+        </member>
+        <member name="M:Gadgeteer.Color.FromRGB(System.Byte,System.Byte,System.Byte)">
+            <summary>Returns a new <see cref="T:Gadgeteer.Color"/> structure with the specified color components.</summary>
+            <param name="R">The red component of the color.</param>
+            <param name="G">The green component of the color.</param>
+            <param name="B">The blue component of the color.</param>
+            <returns>A new <see cref="T:Gadgeteer.Color"/> structure with the specified color components.</returns>
+        </member>
+        <member name="M:Gadgeteer.Color.op_Implicit(Gadgeteer.Color)~Microsoft.SPOT.Presentation.Media.Color">
+            <summary>
+            Enables a <see cref="T:Gadgeteer.Color"/> structure to be implicitly cast as 
+            a <see cref="T:Microsoft.SPOT.Presentation.Media.Color">Microsoft.SPOT.Presentation.Media.Color</see>
+            enumeration.
+            </summary>
+            <param name="color">The <see cref="T:Gadgeteer.Color"/> to cast.</param>
+            <returns>
+            An implicit value from the 
+            <see cref="T:Microsoft.SPOT.Presentation.Media.Color">Microsoft.SPOT.Presentation.Media.Color</see>
+            enumeration.
+            </returns>
+        </member>
+        <member name="M:Gadgeteer.Color.op_Implicit(Microsoft.SPOT.Presentation.Media.Color)~Gadgeteer.Color">
+            <summary>
+            Enables a value from the <see cref="T:Microsoft.SPOT.Presentation.Media.Color">Microsoft.SPOT.Presentation.Media.Color</see>
+            enumeration to be cast as a <see cref="T:Gadgeteer.Color"/> structure.
+            </summary>
+            <param name="spotcolor">A <see cref="T:Microsoft.SPOT.Presentation.Media.Color">Microsoft.SPOT.Presentation.Media.Color</see> value.</param>
+            <returns>A <see cref="T:Gadgeteer.Color"/> structure.</returns>
+        </member>
+        <member name="F:Gadgeteer.Color.Black">
+            <summary>
+            Gets the color Black.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.Blue">
+            <summary>
+            Gets the color Blue.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.Brown">
+            <summary>
+            Gets the color Brown.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.Cyan">
+            <summary>
+            Gets the color Cyan.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.DarkGray">
+            <summary>
+            Gets the color Dark Gray.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.Gray">
+            <summary>
+            Gets the color Gray.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.Green">
+            <summary>
+            Gets the color Green.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.LightGray">
+            <summary>
+            Gets the color Light Gray.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.Magenta">
+            <summary>
+            Gets the color Magenta.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.Orange">
+            <summary>
+            Gets the color Orange.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.Purple">
+            <summary>
+            Gets the color Purple.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.Red">
+            <summary>
+            Gets the color Red.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.White">
+            <summary>
+            Gets the color White.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Color.Yellow">
+            <summary>
+            Gets the color Yellow.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Color.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="M:Gadgeteer.Color.Equals(System.Object)">
+            <summary>
+            Determines whether a specified instance (object) of is equal to the current object of that class.
+            </summary>
+            <param name="obj">The object you want to compare with the current object.</param>
+            <returns><b>true</b> if the specified object is equal to the current object; otherwise, <b>false</b>.</returns>
+        </member>
+        <member name="M:Gadgeteer.Color.op_Equality(Gadgeteer.Color,Gadgeteer.Color)">
+            <summary>
+            Overloaded equality operator.
+            </summary>
+            <param name="lhs">Left operand.</param>
+            <param name="rhs">Right operand.</param>
+            <returns><b>true</b> if <paramref name="lhs"/> and <paramref name="rhs"/> are equal; otherwise, <b>false</b>.</returns>
+        </member>
+        <member name="M:Gadgeteer.Color.op_Inequality(Gadgeteer.Color,Gadgeteer.Color)">
+            <summary>
+            Overloaded inequality operator.
+            </summary>
+            <param name="lhs">Left operand.</param>
+            <param name="rhs">Right operand.</param>
+            <returns><b>true</b> if <paramref name="lhs"/> and <paramref name="rhs"/> are not equal; otherwise, <b>false</b>.</returns>
+        </member>
+        <member name="M:Gadgeteer.Color.ToString">
+            <summary>
+            Returns a string that represents the current instance of the <see cref="T:Gadgeteer.Color"/> class. 
+            </summary>
+            <returns>A string that represents the current object.</returns>
+            <remarks>
+            This method returns a human-readable text string that is culture-sensitive.
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Picture">
+            <summary>
+            Represents a picture encoded in a JPEG, GIF or BMP format. 
+            </summary>
+            <remarks>
+            <see cref="T:Gadgeteer.Picture"/> encapsulates a byte array containing the image data, 
+            and provides a method to create a <see cref="T:Microsoft.SPOT.Bitmap"/> from the data.
+            A <see cref="T:Gadgeteer.Picture"/> object can be explicitly cast to a <see cref="T:Microsoft.SPOT.Bitmap"/>.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Picture.#ctor(System.Byte[],Gadgeteer.Picture.PictureEncoding)">
+            <summary></summary>
+            <param name="pictureData">The picture data as a byte array.</param>
+            <param name="encoding">The picture encoding format.</param>
+        </member>
+        <member name="M:Gadgeteer.Picture.op_Explicit(Gadgeteer.Picture)~Microsoft.SPOT.Bitmap">
+            <summary>
+            Enables a <see cref="T:Gadgeteer.Picture"/> object to be explicitly cast as a <see cref="T:Microsoft.SPOT.Bitmap"/>.
+            </summary>
+            <param name="picture">A <see cref="T:Gadgeteer.Picture"/> object to convert into a <see cref="T:Microsoft.SPOT.Bitmap"/>.</param>
+            <returns>A new <see cref="T:Microsoft.SPOT.Bitmap"/> object.</returns>
+            <remarks>
+            <note>This operator returns a new <see cref="T:Microsoft.SPOT.Bitmap"/> object.</note>
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Picture.MakeBitmap">
+            <summary>
+            Creates and returns a new <see cref="T:Microsoft.SPOT.Bitmap"/> object based on the picture data.
+            </summary>
+            <returns>The picture as an uncompressed <see cref="T:Microsoft.SPOT.Bitmap"/> object.</returns>
+        </member>
+        <member name="P:Gadgeteer.Picture.PictureData">
+            <summary>
+            Gets the picture data as a byte array.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Picture.Encoding">
+            <summary>
+            Gets the picture encoding format.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Picture.PictureEncoding">
+            <summary>
+            Represents the encoding of a <see cref="T:Gadgeteer.Picture"/> object.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Picture.PictureEncoding.GIF">
+            <summary>
+            Encoded in GIF format.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Picture.PictureEncoding.JPEG">
+            <summary>
+            Encoded in JPEG format.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Picture.PictureEncoding.BMP">
+            <summary>
+            Encoded in BMP format.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.StorageDevice">
+            <summary>
+            Encapsulates the <see cref="P:Gadgeteer.StorageDevice.Volume"/> information and the <see cref="P:Gadgeteer.StorageDevice.RootDirectory"/> of a storage device.  
+            Provides wrappers for useful functions in System.IO.File and System.IO.Directory static classes, for ease of API discovery.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.#ctor(Microsoft.SPOT.IO.VolumeInfo)">
+            <summary></summary>
+            <param name="volumeInfo">The volume information for this storage device.</param>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.ListRootDirectoryFiles">
+            <summary>
+            Gets a list of files in the root directory of this <see cref="T:Gadgeteer.StorageDevice"/>.
+            </summary>
+            <returns>An array of file names.</returns>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.ListFiles(System.String)">
+            <summary>
+            Gets a list of files in the specified path of this <see cref="T:Gadgeteer.StorageDevice"/>.
+            </summary>
+            <param name="path">The path to get the list of files for.</param>
+            <returns>An array of file names.</returns>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.ListRootDirectorySubdirectories">
+            <summary>
+            Gets a list of directories in the root directory of this <see cref="T:Gadgeteer.StorageDevice"/>.
+            </summary>
+            <returns>An array of directory names.</returns>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.ListDirectories(System.String)">
+            <summary>
+            Gets a list of directories in the specified directory of this <see cref="T:Gadgeteer.StorageDevice"/>.
+            </summary>
+            <param name="path">The directory path to get a list of directories for, relative to the storage device root directory.</param>
+            <returns>&gt;An array of directory names.</returns>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.LoadBitmap(System.String,Microsoft.SPOT.Bitmap.BitmapImageType)">
+            <summary>
+            Gets an image object from the specified file.
+            </summary>
+            <param name="filePath">The path to file that contains the image, relative to the storage device root directory.</param>
+            <param name="imageType">The type of image contained in the file.</param>
+            <returns>The image.</returns>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.WriteFile(System.String,System.Byte[])">
+            <summary>
+            Creates a new file, writes the specified byte array to the file, and then closes the file. If the target file already exists, it is overwritten.
+            </summary>
+            <param name="filePath">The file to write to, relative to the storage device root directory.</param>
+            <param name="fileData">The bytes to write to the file.</param>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.ReadFile(System.String)">
+            <summary>
+            Opens a binary file, reads the contents of the file into a byte array, and then closes the file. 
+            </summary>
+            <param name="filePath">The file to open for reading, relative to the storage device root directory.</param>
+            <returns>A byte array containing the contents of the file.</returns>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.Open(System.String,System.IO.FileMode,System.IO.FileAccess)">
+            <summary>
+            Opens a FileStream on the specified path, having the specified mode with read, write, or read/write access. 
+            </summary>
+            <param name="filePath">The file to open, relative to the storage device root directory.</param>
+            <param name="mode">
+             A <see cref="T:System.IO.FileMode"/> value that specifies whether a file is created if one does not exist, 
+             and determines whether the contents of existing files are retained or overwritten.
+            </param>
+            <param name="access">A <see cref="T:System.IO.FileAccess"/> value that specifies the operations that can be performed on the file.</param>
+            <returns>A FileStream on the specified path, having the specified mode with read, write, or read/write access.</returns>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.OpenRead(System.String)">
+            <summary>
+            Opens an existing file for reading.
+            </summary>
+            <param name="filePath">The file to be opened for reading, relative to the storage device root directory.</param>
+            <returns>A read-only FileStream on the specified path.</returns>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.OpenWrite(System.String)">
+            <summary>
+            Opens an existing file for writing.
+            </summary>
+            <param name="filePath">The file to be opened for writing, relative to the storage device root directory.</param>
+            <returns>A read/write FileStream on the specified path.</returns>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.Delete(System.String)">
+            <summary>
+            Delete a file under this storage device.
+            </summary>
+            <param name="filePath">The path to the file to delete, relative to the storage device root directory.</param>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.CreateDirectory(System.String)">
+            <summary>
+            Makes a subdirectory under this storage device.
+            </summary>
+            <param name="directoryPath">The path to the directory to create, relative to the storage device root directory.</param>
+        </member>
+        <member name="M:Gadgeteer.StorageDevice.DeleteDirectory(System.String,System.Boolean)">
+            <summary>
+            Delete a directory under this storage device.
+            </summary>
+            <param name="dirPath">The path to the directory to delete, relative to the storage device root directory.</param>
+            <param name="recursive">Whether the deletion is recursive (optional, default false)</param>
+        </member>
+        <member name="P:Gadgeteer.StorageDevice.Volume">
+            <summary>
+            Gets the volume information associated with this <see cref="T:Gadgeteer.StorageDevice"/>.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.StorageDevice.RootDirectory">
+            <summary>
+            Gets the root directory for this <see cref="T:Gadgeteer.StorageDevice"/>.
+            </summary>
+        </member>
+    </members>
+</doc>

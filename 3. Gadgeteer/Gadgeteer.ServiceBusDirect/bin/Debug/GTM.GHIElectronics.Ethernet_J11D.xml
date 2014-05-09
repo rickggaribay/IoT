@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.Ethernet_J11D</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.Ethernet_J11D">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Modules.GHIElectronics.Ethernet_J11D.Interface">
+            <summary>
+            The class that will be used to interface with the ethernet module. This member will handle everything from initialization to joining networks.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Ethernet_J11D.#ctor(System.Int32)">
+            <summary>
+            An Ethernet_ENC28 module for Microsoft .NET Gadgeteer
+            </summary>
+            <param name="socketNumber"></param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.Ethernet_J11D.UseThisNetworkInterface">
+            <summary>
+            Instructs the Mainboard to use this module for all network communication, and assigns the networking stack to this module.
+            </summary>
+            <remarks>
+            This function is only needed if more than one network module is being used simultaneously. If not, this function should not be used.
+            </remarks>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.Ethernet_J11D.IsNetworkConnected">
+            <summary>
+            Gets a value that indicates whether this ethernet module is physically connected to a network device.
+            </summary>
+            <remarks>
+            <para>
+             This property enables you to determine if the <see cref="T:Gadgeteer.Modules.GHIElectronics.Ethernet_J11D"/> module is
+             physically connected to a network device, such as a router. 
+             When this property is <b>true</b>, it does not necessarily mean that the network connection is usable. 
+             You must also check the <see cref="P:Microsoft.Gadgeteer.Modules.NetworkModule.IsNetworkUp"/> property. 
+             <see cref="P:Microsoft.Gadgeteer.Modules.NetworkModule.IsNetworkUp"/> returns <b>true</b> 
+             if the network connection is both connected and configured for Internet Proctocol (IP) communication tasks. 
+            </para>
+            <note>
+             When <see cref="P:Microsoft.Gadgeteer.Modules.NetworkModule.IsNetworkUp"/> is <b>true</b>, it does not necessarily mean 
+             that the network connection is functional. The IP configuration
+             for the network connection may be invalid for the network that it is connected to.
+            </note>
+            </remarks>
+        </member>
+    </members>
+</doc>

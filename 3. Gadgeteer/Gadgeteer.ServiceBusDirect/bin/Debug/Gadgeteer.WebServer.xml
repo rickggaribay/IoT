@@ -1,0 +1,535 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gadgeteer.WebServer</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Networking.BinaryResponseTemplate">
+            <summary>
+            Internal class used as a template for http responses. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.BinaryResponseTemplate.ContentType">
+            <summary>
+            The content type of the body content. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.BinaryResponseTemplate.refreshAfter">
+            <summary>
+            The refresh interval.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.BinaryResponseTemplate.#ctor(System.String,System.Byte[],System.UInt32)">
+            <summary>
+            Constructor that prepares the response.
+            </summary>
+            <param name="ContentType">The content type to be published.</param>
+            <param name="refreshAfter">Specifies the refresh interval of the web page.</param>
+            <param name="Content">The binary response data.</param>
+        </member>
+        <member name="P:Gadgeteer.Networking.BinaryResponseTemplate.Content">
+            <summary>
+            the body content to be returned. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.BinaryResponseTemplate.Header">
+            <summary>
+            The header content to be returned. 
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Networking.Body">
+            <summary>
+            Specifies the body of the Http request as a byte array.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.Body.RawContent">
+            <summary>
+            Gets the posted data as a byte[] array.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.Body.ContentType">
+            <summary>
+            Gets the content type of the incoming data. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.Body.Text">
+            <summary>
+            Gets the incoming posted data as text, or returns null.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.Body.Picture">
+            <summary>
+            Gets the incoming posted data as a picture, or returns null.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.Body.Stream">
+            <summary>
+            Gets the posted data as a stream, or returns null.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Networking.Responder">
+            <summary>
+            Class used to respond to web requests. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.Responder.Respond(Gadgeteer.Picture)">
+            <summary>
+            Updates the data with which the web event responds and sets the correct MIME type. 
+            </summary>
+            <param name="picture">Picture to be published. </param>
+        </member>
+        <member name="M:Gadgeteer.Networking.Responder.Respond(System.IO.Stream)">
+            <summary>
+            Updates the data with which the web event responds and sets the correct MIME type. 
+            </summary>
+            <param name="audioStream">An audio/mp3 stream to be published. </param>
+        </member>
+        <member name="M:Gadgeteer.Networking.Responder.Respond(System.String)">
+            <summary>
+            Updates the data with which the web event responds and sets the correct MIME type.  
+            </summary>
+            <param name="text">The plain/text to be published.</param>
+        </member>
+        <member name="M:Gadgeteer.Networking.Responder.Respond(System.Byte[],System.String)">
+            <summary>
+             Updates the data with which the WebEvent responds. The MIME type can be set manually.
+            </summary>
+            <param name="data">The data to be streamed. </param>
+            <param name="ContentType">The MIME type of the outgoing data.</param>
+        </member>
+        <member name="F:Gadgeteer.Networking.Responder.UrlParameters">
+            <summary>
+            Parameters appended to the URL. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.Responder.GetParameterValueFromURL(System.String)">
+            <summary>
+            Gets the value of the specified url parameter or null.
+            </summary>
+            <param name="name">A string that identifies the name of the parameter.</param>
+            <returns>The value of the parameter.</returns>
+        </member>
+        <member name="F:Gadgeteer.Networking.Responder._Body">
+            <summary>
+            Internal Body element to cache the object instead of creating it each time. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.Responder.GetHeaderField(System.String)">
+            <summary>
+            Gets the value of the specified header field or null.
+            </summary>
+            <param name="name">A string that identifies the name of the header field.</param>
+            <returns>The value of the specified header field.</returns>
+        </member>
+        <member name="F:Gadgeteer.Networking.Responder.BodyContent">
+            <summary>
+            The content of the message.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.Responder.MethodAsString">
+            <summary>
+            Internal paramater which keeps track of the http method.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.Responder.headerFields">
+            <summary>
+            Tracks all header fields sent by the client. This can be accessed with the GetHeaderField method.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.Responder.receivedList">
+            <summary>
+            Stores the incoming data. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.Responder.contentLength">
+            <summary>
+            Intenral parameter to store the cotnent length of the incoming data. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.Responder.headerProcessed">
+            <summary>
+            Indicates whether the header section was found in an incoming request. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.Responder.parse(System.Byte[])">
+            <summary>
+            Parses the request and fills in the request properties. 
+            </summary>
+            <param name="buffer">Binary data to parse.</param>
+            <returns>A Boolean value that indicates whether the request was parsed successfully.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.Responder.ProcessHeader">
+            <summary>
+            Extracts data from the header and fills in corresponding properties.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.Responder.FindHeaderSection(System.Byte[])">
+            <summary>
+            Indicates whether the header end was reached. 
+            </summary>
+            <param name="rawArray">Binary data received so far. </param>
+            <returns>A Boolean value that indicates whether the end of the header was found or not. </returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.Responder.ReceivedListToByteArray(System.Collections.ArrayList,System.Int32)">
+            <summary>
+            Computes a byte[] array based on the first parameter. 
+            </summary>
+            <param name="receivedList">An <see cref="T:System.Collections.ArrayList"/> object containing received data in a byte[] format.</param>
+            <param name="size">The number of bytes received.</param>
+            <returns>A byte[] array that contains all data from the receivedList parameter. </returns>
+        </member>
+        <member name="P:Gadgeteer.Networking.Responder.Responded">
+            <summary>
+            Whether or not this web responder has been responded to.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.Responder.HttpMethod">
+            <summary>
+            Gets the Http method as specified by the <see cref="P:Gadgeteer.Networking.Responder.HttpMethod"/> enumeration.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.Responder.HeaderData">
+            <summary>
+            The header content of the message.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.Responder.Path">
+            <summary>
+            The path of the addressed web event. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.Responder.HTTPVersion">
+            <summary>
+            The http version.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.Responder.ClientEndpoint">
+            <summary>
+            The client's IP address.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.Responder.ContentType">
+            <summary>
+            The content type of the incoming request. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.Responder.Body">
+            <summary>
+            Wraps the content for PUT and POST requests.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Networking.WebEvent">
+            <summary>
+             Provides functionality to update a resource for path and to respond to incoming requests. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebEvent.Path">
+            <summary>
+            The path the WebEvent listens on. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebEvent.manager">
+            <summary>
+            An internal manager object that ensures that only one server per interface can be used. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebEvent.refreshAfter">
+            <summary>
+            Internal paramater that specifies the auto refresh interval on which a client will request the data agent.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebEvent.#ctor(System.String)">
+            <summary>
+             Creates a WebEvent with the given path.
+            </summary>
+            <param name="path">A string that identifies the event when an http request is received.</param>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebEvent.#ctor">
+            <summary>
+            Creates a default WebEvent.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebEvent.GetWebEventId">
+            <summary>
+            Gets the internal id of the <see cref="T:Gadgeteer.Networking.WebEvent"/> resource. This id is based on the resource path http method. 
+            The Id is unique and identifies a <see cref="T:Gadgeteer.Networking.WebEvent"/>.  
+            </summary>
+            <returns>A string that contains the id.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebEvent.OnWebEventReceived(System.String,Gadgeteer.Networking.WebServer.HttpMethod,Gadgeteer.Networking.Responder)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Networking.WebEvent.WebEventReceived"/> event.
+            </summary>
+            <param name="responder">Contains request data sent by the the client and functionality to respond to the request.</param>
+            <param name="method">The incoming http method. </param>
+            <param name="path">The path of the requested resource.</param>
+        </member>
+        <member name="P:Gadgeteer.Networking.WebEvent.ResponseData">
+            <summary>
+             Represents the binary data that will be sent to the client when the web event was requested. Set by user via the Respond methods. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.WebEvent.ContentType">
+            <summary>
+            The content type of the data.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.WebEvent.URL">
+            <summary>
+            Gets the full URL of the service. 
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Networking.WebEvent.WebEventReceived">
+            <summary>
+             The event that is raised when a custom handler is requested.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Networking.WebEvent.ReceivedWebEventHandler">
+            <summary>
+             Delegate method that is called to handle the event when a web resource is requested.
+             </summary>
+             <param name="responder">Contains request data sent by the the client and functionality to respond to the request.</param>
+             <param name="method">The incoming http method. </param>
+             <param name="path">The path of the requested resource.</param>
+        </member>
+        <member name="T:Gadgeteer.Networking.WebServer">
+            <summary>
+            Represents a Web Server used in a Microsoft .NET Gadgeteer application.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServer._port">
+            <summary>
+            Standard port that the server runs on if the user does not specify another one. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServer.StartLocalServer(System.String,System.Int32)">
+            <summary>
+             Starts the web server and configures the network for the specified port.  
+            </summary>
+            <param name="ipAddress">Ip address of the server</param>
+            <param name="port">An <see cref="T:System.int"/> that specifies a port on which the web server runs.</param>
+            <remarks>
+             The server starts automatically when a resource is shared and the network interface is 
+             up. If this does not happen, stop the server before sharing data. 
+             </remarks>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServer.StopLocalServer">
+            <summary>
+             Stops the server and removes all added resources.  
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServer.SetupWebEvent(System.String)">
+            <summary>
+            Creates a path on the server so that an http GET request can be processed.
+            Specifies a path of the form: http://{IP}:{port}/{path}.
+            </summary>
+            <param name="path">The path used to identify a resource.</param>
+            <returns>A <see cref="T:GTM.NetworkModule.WebEvent"/> object that is used to update data and respond to incoming requests.
+            </returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServer.SetupWebEvent(System.String,System.UInt32)">
+            <summary>
+            Creates a path to a resource on the server so that a http GET requests can be processed.
+            Specifies the path of the form: http://{IP}:{port}/{path}.
+            </summary>
+            <param name="path">The path used to identify a resource.</param>
+            <param name="refreshAfter">Specifies the refresh interval in seconds.</param>
+            <returns>A <see cref="T:Gadgeteer.Networking.WebEvent"/> object that is used to update data and respond to incoming requests.
+            </returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServer.DisableWebEvent(Gadgeteer.Networking.WebEvent)">
+            <summary>
+             Stops and removes a single resource. If the resource is requesterd again, the server will return the default page. 
+            </summary>
+            <param name="webEvent">The <see cref="T:Gadgeteer.Networking.WebEvent"/> to be stopped</param>
+            <returns>The result of the operation, <b>true</b> if the resource is found and removed, otherwise <b>false</b>.</returns>
+        </member>
+        <member name="P:Gadgeteer.Networking.WebServer.DefaultEvent">
+            <summary>
+            Gets the default <see cref="T:Gadgeteer.Networking.WebEvent"/>.
+            </summary>
+            <remarks>
+            You can use the default WebEvent to handle requests for non-existing paths.
+            </remarks>
+        </member>
+        <member name="T:Gadgeteer.Networking.WebServer.HttpMethod">
+            <summary>
+             Enum that represents supported http methods.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServer.HttpMethod.POST">
+            <summary>
+            Http POST method.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServer.HttpMethod.GET">
+            <summary>
+            Http GET method.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServer.HttpMethod.DELETE">
+            <summary>
+            Http DELETE method.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServer.HttpMethod.PUT">
+            <summary>
+            Http PUT method.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Networking.WebServerManager">
+            <summary>
+            Internal server manager.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServerManager.server">
+            <summary>
+            The internal server object.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServerManager.serverManager">
+            <summary>
+            Manager is handled as a singleton so that only one server is created and managed by one manager. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServerManager.WebEvents">
+            <summary>
+             Hashtable to store and manage web events.
+             </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServerManager.#ctor">
+            <summary>
+            An internal constructor that is hidden to ensure that the GetInstance method is used 
+            and to realize the singleton pattern.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServerManager.GetInstance">
+            <summary>
+            Gets the WebServerManager instance, which is handled as a singleton. 
+            </summary>
+            <returns>The <see cref="T:GTM.NetworkModule.WebServerManager"/> instance</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServerManager.GetPort">
+            <summary>
+            Gets the server port. 
+            </summary>
+            <returns>The server port. </returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServerManager.StartServer(System.String,System.Int32)">
+            <summary>
+            Starts the server. 
+            </summary>
+            <param name="ipAddress">The IP address the server will run on.</param>
+            <param name="Port">The port the server will run on.</param>
+            <returns>A string that contains the server IP address.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServerManager.StopAll">
+            <summary>
+            Stops the server and all services. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServerManager.AddWebEvent(Gadgeteer.Networking.WebEvent)">
+            <summary>
+            Adds a new web event to the server.
+            </summary>
+            <param name="webEvent">The web event and corresponding data that the server will handle.</param>
+            <returns>A Boolean value that indicates whether the <see cref="T:Gadgeteer.Networking.WebEvent"/> could be added, <b>true</b> if added, 
+            <b>false</b>, if webEvent already exists. </returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServerManager.Stop(Gadgeteer.Networking.WebEvent)">
+            <summary>
+            Stops and removes the given <see cref="T:Gadgeteer.Networking.WebEvent"/>.
+            </summary>
+            <param name="webEvent">The <see cref="T:Gadgeteer.Networking.WebEvent"/> to stop.</param>
+            <returns>Returns <b>true</b> if the <see cref="T:Gadgeteer.Networking.WebEvent"/> exists and can be removed, <b>false</b> if <see cref="T:Gadgeteer.Networking.WebEvent"/>
+            does not exist or cannot be stopped.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServerManager.ServerIsRunning">
+            <summary>
+            Indicates whether the server is running.
+            </summary>
+            <returns>Returns <b>true</b> if the server is running, otherwise <b>false</b>.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServerManager.GetWebEventById(System.String)">
+            <summary>
+            Gets a <see cref="T:Gadgeteer.Networking.WebEvent"/> by its id.
+            </summary>
+            <param name="id">the <see cref="T:Gadgeteer.Networking.WebEvent"/> id.</param>
+            <returns>The <see cref="T:Gadgeteer.Networking.WebEvent"/> for the specified id.</returns>
+        </member>
+        <member name="P:Gadgeteer.Networking.WebServerManager.DefaultEvent">
+            <summary>
+            a default template which is displayed if a requested site does not exists 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.WebServerManager.Timeout">
+            <summary>
+            The threshold in milliseconds when a timeout shall be sent or received. Default is 60 seconds.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.WebServerManager.ServerAddress">
+            <summary>
+            The address of the server.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Networking.WebServerManager.Server">
+            <summary>
+            Internal subclass that encapsulates the server implementation.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServerManager.Server.Port">
+            <summary>
+            The port of the locally running server.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServerManager.Server.IsRunning">
+            <summary>
+            Indicates whether the server is running or not.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServerManager.Server.LocalServer">
+            <summary>
+            The socket of the locally running server.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServerManager.Server.Host">
+            <summary>
+            The IP addres of the server. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServerManager.Server.BacklogNumber">
+            <summary>
+            The number of pending connections the server supports.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.WebServerManager.Server.WebServerManager">
+            <summary>
+            The <see cref="F:Gadgeteer.Networking.WebServerManager.Server.WebServerManager"/> object that manages the server.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServerManager.Server.#ctor(Gadgeteer.Networking.WebServerManager)">
+            <summary>
+            Creates the <see cref="T:Gadgeteer.Networking.WebServerManager.Server"/> object. 
+            </summary>
+            <param name="WebServerManager">The WebServerManager object that manages the server.</param>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServerManager.Server.StartLocal(System.String,System.Int32)">
+            <summary>
+            Starts the server.
+            </summary>
+            <param name="ipAddress">the IP address the server will run on.</param>
+            <param name="Port">The port the server will use.</param>
+            <returns>A string that contains the server address.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServerManager.Server.ProcessRequest">
+            <summary>
+            Processes incoming requests 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebServerManager.Server.Stop">
+            <summary>
+            Stops the server. 
+            </summary>
+        </member>
+    </members>
+</doc>

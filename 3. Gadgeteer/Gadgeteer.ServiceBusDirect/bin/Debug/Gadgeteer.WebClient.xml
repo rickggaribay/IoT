@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gadgeteer.WebClient</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Networking.HttpContent">
+            <summary>
+             Abstract class used to handle different types for http content.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpContent.StringToByte(System.String)">
+            <summary>
+             Helper method to create a byte array containing string data.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Networking.POSTContent">
+            <summary>
+             Encapsulates the data and functionality required for Http POST requests.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.POSTContent.CreateWebFormData(System.Collections.IDictionary)">
+            <summary>
+             Create a <see cref="T:Gadgeteer.Networking.POSTContent"/> object, that is typically used for html forms. 
+            </summary>
+            <param name="keyValueParamaters">A <see cref="T:System.Collection.IDictionary"/> object containing key/value pairs for the http body.</param>
+            <returns>A <see cref="T:Gadgeteer.Networking.POSTContent"/> object encapsulating the key/value pairs as a byte array, formatted for POST requests.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.POSTContent.CreateTextBasedContent(System.String)">
+            <summary>
+            Create a <see cref="T:Gadgeteer.Networking.POSTContent"/> object, that includes text content, typically used for JSON, XML, or plan text.
+            </summary>
+            <param name="content">String data that will be sent to the server.</param>
+            <returns>A <see cref="T:Gadgeteer.Networking.POSTContent"/> object encapsulating the string data, formatted for POST requests.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.POSTContent.CreateBinaryBasedContent(System.Byte[])">
+            <summary>
+             Create a <see cref="T:Gadgeteer.Networking.POSTContent"/> object, that includes raw byte content.
+            </summary>
+            <param name="data">A byte[] array containing data to be sent to the server.</param>
+            <returns>A <see cref="T:Gadgeteer.Networking.POSTContent"/> object encapsulating the byte array data, formatted for POST requests.</returns>
+        </member>
+        <member name="T:Gadgeteer.Networking.GETContent">
+            <summary>
+             Encapsulates data and functionality required for Http GET request.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.GETContent.CreateGETParameterList(System.Collections.IDictionary)">
+            <summary>
+             Adds passed arguments to the Url so that they can be processed by the targeted server. 
+            </summary>
+            <param name="keyValueParameters">A <see cref="T:System.Collection.IDictionary"/> object containing key/value pairs that will be 
+            added to the request Url.</param>
+            <returns>A <see cref="T:Gadgeteer.Networking.GETContent"/> object encapsulating key/value pairs formatted for a GET request. </returns>
+        </member>
+        <member name="T:Gadgeteer.Networking.PUTContent">
+            <summary>
+             Encapsulates data and functionality required for an Http PUT request.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.PUTContent.CreateWebFormData(System.Collections.IDictionary)">
+            <summary>
+             Create a <see cref="T:Gadgeteer.Networking.PUTContent"/> object, that is typically used for html forms. 
+            </summary>
+            <param name="keyValuePairs">A <see cref="T:System.Collection.IDictionary"/> object containing key/value pairs for the http body.</param>
+            <returns>A <see cref="T:Gadgeteer.Networking.PUTContent"/> object encapsulating the key/value pairs as a byte array, formatted for PUT requests.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.PUTContent.CreateTextBasedContent(System.String)">
+            <summary>
+             Create a <see cref="T:Gadgeteer.Networking.PUTContent"/> object, that includes text content, typically used for JSON, XML, or plan text.
+            </summary>
+            <param name="content">String data that will be sent to the server.</param>
+            <returns>A <see cref="T:Gadgeteer.Networking.PUTContent"/> object encapsulating the string data, formatted for PUT requests.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.PUTContent.CreateBinaryBasedContent(System.Byte[])">
+            <summary>
+             Create a <see cref="T:Gadgeteer.Networking.PUTContent"/> object, that includes raw byte content.
+            </summary>
+            <param name="data">A byte[] array containing data to be sent to the server.</param>
+            <returns>A <see cref="T:Gadgeteer.Networking.PUTContent"/> object encapsulating the byte array data, formatted for PUT requests.</returns>
+        </member>
+        <member name="T:Gadgeteer.Networking.DELETEContent">
+            <summary>
+             Encapsulates data and functionality required for an Http DELETE request.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.DELETEContent.CreateDELETEParameterList(System.Collections.IDictionary)">
+            <summary>
+             Adds arguments to the URL so that these can be processed by the targeted server. 
+            </summary>
+            <param name="keyValueParameters">&gt;A <see cref="T:System.Collection.IDictionary"/> object containing key/value pairs that will be 
+            added to the request Url.</param>
+            <returns>A <see cref="T:Gadgeteer.Networking.DELETEContent"/> object encapsulating key/value pairs formatted for a DELETE request. </returns>
+        </member>
+        <member name="T:Gadgeteer.Networking.HttpHelper">
+            <summary>
+            Helper class to create <see cref="T:Gadgeteer.Networking.HttpRequest"/> objects that are configured for the various http request methods (GET, PUT etc)
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpHelper.CreateHttpPutRequest(System.String,Gadgeteer.Networking.PUTContent,System.String)">
+            <summary>
+            Create an Http PUT request.
+            </summary>
+            <param name="Url">The Url of the web server to which the request will be sent.</param>
+            <param name="Content">The <see cref="T:Gadgeteer.Networking.PUTContent"/> object to be sent to the Url.</param>
+            <param name="ContentType">The MIME-Type of the message.</param>
+            <returns>An <see cref="T:Gadgeteer.Networking.HttpRequest"/> object that can be used to make PUT request.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpHelper.CreateHttpPostRequest(System.String,Gadgeteer.Networking.POSTContent,System.String)">
+            <summary>
+            Create an Http POST request.
+            </summary>
+            <param name="Url">The Url of the web server to which the request will be sent.</param>
+            <param name="Content">The <see cref="T:Gadgeteer.Networking.POSTContent"/> object to be sent to the Url.</param>
+            <param name="ContentType">The MIME-Type of the message.</param>
+            <returns>An <see cref="T:Gadgeteer.Networking.HttpRequest"/> object that can be used to make POST request.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpHelper.CreateHttpGetRequest(System.String,Gadgeteer.Networking.GETContent)">
+            <summary>
+            Create an Http GET request.
+            </summary>
+            <param name="Url">The Url of the web server to which the request will be sent.</param>
+            <param name="Content">The <see cref="T:Gadgeteer.Networking.GETContent"/> object to be sent to the Url.</param>
+            <returns>An <see cref="T:Gadgeteer.Networking.HttpRequest"/> object that can be used to make GET request.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpHelper.CreateHttpGetRequest(System.String)">
+            <summary>
+            Create an Http GET request.
+            </summary>
+            <param name="Url">The Url of the web server to which the request will be sent.</param>
+            <returns>An <see cref="T:Gadgeteer.Networking.HttpRequest"/> object that can be used to make GET request.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpHelper.CreateHttpDeleteRequest(System.String,Gadgeteer.Networking.DELETEContent)">
+            <summary>
+            Create an Http DELETE request.
+            </summary>
+            <param name="Url">The Url of the web server to which the request will be sent.</param>
+            <param name="Content">The <see cref="T:Gadgeteer.Networking.DELETEContent"/> object to be sent to the Url.</param>
+            <returns>An <see cref="T:Gadgeteer.Networking.HttpRequest"/> object that can be used to make DELETE request.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpHelper.CreateHttpDeleteRequest(System.String)">
+            <summary>
+            Create an Http DELETE request.
+            </summary>
+            <param name="Url">The Url of the web server to which the request will be sent.</param>
+            <returns>An <see cref="T:Gadgeteer.Networking.HttpRequest"/> object that can be used to make DELETE request.</returns>
+        </member>
+        <member name="T:Gadgeteer.Networking.HttpRequest">
+            <summary>
+             This class builds up a web request which can then be sent to the specified server.
+            </summary>
+            <remarks>Many of the web (and web service) access methods return an object of this class. Use the returned object to set up a response
+             handler, for example: reqest.<see cref="E:Gadgeteer.Networking.HttpRequest.ResponseReceived"/> += new HttpRequest.ResponseHandler(messageReq_ResponseReceived);
+             Note that the request must then be sent using the <see cref="M:Gadgeteer.Networking.HttpRequest.SendRequest"/> method, which is non-blocking</remarks>
+        </member>
+        <member name="F:Gadgeteer.Networking.HttpRequest.content">
+            <summary>
+            The stream of the request. The stream is created by the sub-classes GET-, PUT-, POST-, DELETE stream.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.HttpRequest.AdditionalHeaderFieldsTable">
+            <summary>
+            Identifies additional header fields that can be added by the user.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.HttpRequest._Lock">
+            <summary>
+            Private lock to prohibit race conditions.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.HttpRequest.response">
+            <summary>
+            The response returned by the requested server.  The data of the reponse is preserved and immediately raises an event
+            if the data is requested again or an additional event handler is added after the server sent the response. 
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.HttpRequest._ResponseReceived">
+            <summary>
+            The internally used event that includes the added handlers.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.HttpRequest._OnReceived">
+            <summary>
+            The internally used event handler for the event pattern specified by the rest of the Gadgeteer API.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpRequest.OnResponseReceivedEvent(Gadgeteer.Networking.HttpRequest,Gadgeteer.Networking.HttpResponse)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Networking.HttpRequest.ResponseReceived"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Networking.HttpRequest"/> object that raised the event</param>
+            <param name="response">The <see cref="T:Gadgeteer.Networking.HttpResponse"/> object that the web server returned</param>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpRequest.AddHeaderField(System.String,System.String)">
+            <summary>
+             Adds a new field to the http header.
+            </summary>
+             <param name="name">The name of the header field.</param>
+             <param name="value">The value that correspondes to the name parameter. </param>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpRequest.HandleRequestSync">
+            <summary>
+             Synchronously requests a server with the specified parameters.  
+             This should not be called directly. Instead, WaitForResponse 
+             should be used. This method provides the acutal implementation 
+             for the async request
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.HttpRequest.RequestSent">
+            <summary>
+            Determines whether the request has been sent so that <see cref="M:Gadgeteer.Networking.HttpRequest.WaitForResponse"/> and <see cref="M:Gadgeteer.Networking.HttpRequest.SendRequest"/>
+            do not start the request again, which would raise an exception.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpRequest.WaitForResponse">
+            <summary>
+            Starts the request and blocks the current thread until a response from the specified source is received. An 
+            event is raised as soon as the requested server replies. 
+            </summary>
+            <returns>A <see cref="T:Gadgeteer.Networking.HttpResponse"/> object that contains data and methods to handle the response.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpRequest.WaitForPicture">
+            <summary>
+            Blocks the current thread and returns a <see cref="T:Gadgeteer.Picture"/> object.
+            </summary>
+            <returns>The requested <see cref="T:Gadgeteer.Picture"/>.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpRequest.WaitForBytes">
+            <summary>
+            Blocks the current thread and returns raw bytes.
+            </summary>
+            <returns>A byte[] array.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpRequest.WaitForStream">
+            <summary>
+            Blocks the current thread and returns a <see cref="T:System.IO.Stream"/> object.
+            </summary>
+            <returns>The requested <see cref="T:System.IO.Stream"/> object.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpRequest.WaitForText">
+            <summary>
+            Blocks the current thread and returns a string.
+            </summary>
+            <returns>The requested data as a string. </returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpRequest.SendRequest">
+            <summary>
+            Sends the request asynchronously and does not block the current thread. 
+            The Received event is raised as soon as the server replies. 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpRequest.#ctor(Gadgeteer.Networking.HttpRequest.RequestMethod,System.String,Gadgeteer.Networking.HttpContent,System.String,System.String,System.String)">
+            <summary>
+            Internal constructor that creates an <see cref="T:Gadgeteer.Networking.HttpRequest"/> object
+            </summary>
+            <param name="method">The underlying Http method.</param>
+            <param name="URL">The URL of the server.</param>
+            <param name="content">The request content to be sent to the server.</param>
+            <param name="contentType">The mimetype of the encapsulated data.</param>
+            <param name="acceptsType">The type that the client accepts or would prefer to receive. Can be ignored by the server.</param>
+            <param name="userAgent">Generally used to identfy a requesting device or browser. Can simulate a specific environment.</param>
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpRequest.URL">
+            <summary>
+            The URL to be requested.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpRequest.ContentType">
+            <summary>
+            The stream type of the encaspulated data.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpRequest.Accepts">
+            <summary>
+            The stream type that the request accepts or expects. 
+            This field can be used explicitly for a certain stream type. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpRequest.HttpRequestMethod">
+            <summary>
+            Geturns the method http uses for the request. 
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpRequest.UserAgent">
+            <summary>
+            specifies a field that is used to simulate a certain device, such as a windows phone. Example user agents are: 
+            <list type="bullet">
+            <item><description>Internet Explorer 9:  Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)</description></item>
+            <item><description>Windows Phone: Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0)</description></item>
+            </list>
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpRequest.IsReceived">
+            <summary>
+            Specifies the state of the current request. True, if a response is already received. False, if no response is received.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpRequest.Proxy">
+            <summary>
+            Specifies the web proxy settings
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Networking.HttpRequest.ResponseReceived">
+            <summary>
+             Event used for an asynchronously handled Http request.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Networking.HttpRequest.RequestMethod">
+            <summary>
+            The standard HTTP request methods that can be used to configure an HttpRequest object
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.HttpRequest.RequestMethod.GET">
+            <summary>
+            GET request
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.HttpRequest.RequestMethod.PUT">
+            <summary>
+            PUT request
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.HttpRequest.RequestMethod.POST">
+            <summary>
+            POST request
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.HttpRequest.RequestMethod.DELETE">
+            <summary>
+            Delete request
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Networking.HttpRequest.ResponseHandler">
+            <summary>
+            Specifies the signature for the method that is called after a response is received from the requested source. 
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Networking.HttpRequest"/> object that raised the event</param>
+            <param name="response">The <see cref="T:Gadgeteer.Networking.HttpResponse"/> object that the web server returned</param>
+        </member>
+        <member name="T:Gadgeteer.Networking.HttpResponse">
+            <summary>
+            Encapsulates the data returned by the server.
+            </summary>
+        </member>
+        <member name="F:Gadgeteer.Networking.HttpResponse.headerFields">
+            <summary>
+            Private collection that contains all the header fields sent by the server. Users can access this data via 
+            GetHeaderField(); 
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpResponse.GetHeaderField(System.String)">
+            <summary>
+            Gets the value of the specified header field or null.
+            </summary>
+            <param name="name">a string that identifies the name of the header field.</param>
+            <returns>The value of the specified header field.</returns>
+        </member>
+        <member name="M:Gadgeteer.Networking.HttpResponse.GetWebHeaderCollection">
+            <summary>
+            Get the header fields that are returned by the server
+            </summary>
+            <returns>Header fields that are returned by the server</returns>
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpResponse.StatusCode">
+            <summary>
+            The status code that the server returns.
+            </summary>
+            
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpResponse.ContentType">
+            <summary>
+            The mime-type of the encapsulated data.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpResponse.Text">
+            <summary>
+            Gets the requested stream or an error message.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpResponse.Stream">
+            <summary>
+            Gets the requested data as a <see cref="T:System.IO.Stream"/> object.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpResponse.Picture">
+            <summary>
+            Return the requested data as a picture or an error message.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpResponse.RawContentBytes">
+            <summary>
+            Gets the raw binary data of the requested data.
+            </summary>
+        </member>
+        <member name="P:Gadgeteer.Networking.HttpResponse.URL">
+            <summary>
+            The URL requested. 
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Networking.WebClient">
+            <summary>
+            Represents a Web Client used in a Microsoft .NET Gadgeteer application.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Networking.WebClient.GetFromWeb(System.String)">
+            <summary>
+            Make an asynchronous (non-blocking) request for a web page. Use the ResponseReceived event of the returned 
+            HttpRequest object to obtain the actual web page.
+            </summary>
+            <param name="url">Url of the web page to get</param>
+            <returns>An HttpRequest object on success, null otherwise</returns>
+        </member>
+        <member name="P:Gadgeteer.Networking.WebClient.Proxy">
+            <summary>
+            Property to get or set the web proxy to use for this request.
+            </summary>
+        </member>
+    </members>
+</doc>

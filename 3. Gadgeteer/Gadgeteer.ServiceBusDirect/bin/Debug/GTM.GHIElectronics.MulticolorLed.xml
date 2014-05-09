@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GTM.GHIElectronics.MulticolorLed</name>
+    </assembly>
+    <members>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed">
+            <summary>
+            Represents a multi-color Light Emitting Diode (LED) module.
+            </summary>
+            <remarks>
+            <note>
+             <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> derives from 
+             <see cref="T:Gadgeteer.Modules.DaisyLinkModule"/>. This means that the hardware modules
+             represented by this class can be chained together on the same socket.
+            </note>
+            <para>
+            The hardware module that this class represents consists of three light emitting diodes, red, green, and blue.
+            The methods and properties of <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> enable you to set these colors in any combination.
+            For instance, you can set the red diode to its maximum brightness, the green diode to half of its maximum brightness,
+            and the blue diode to one quarter of its maximum brightness. The brightness of each color component is represented
+            by the values zero (off) to 255 (maximum).
+            </para>
+            <note>
+            Although the hardware module contains three light emitting diodes, the rest of this topic, and the other topics that are part of this class 
+            refer to the hardware module as a whole. For instance, the phrase "The LED is off" means that all three of the light emitting diodes are off, 
+            and the phrase "The LED is blinking" means that one or more of the light emitting didoes are blinking.
+            </note>
+            <para>
+             A <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> can be in one of six states:</para>
+            <list type="bullet">
+             <item>Off - The LED is off.</item>
+             <item>On - The LED displays one or more colors that remain constant.</item>
+             <item>Blink - The LED displays one or more colors and then (after a default or specified duration) turns off. </item>
+             <item>Blink (repeat) - The LED blinks repeatedly.</item>
+             <item>Fade - The LED displays one or more colors that gradually lose intensity until the LED is off.</item>
+             <item>Fade (repeat) - The LED repeatedly fades and lights.</item>
+            </list>
+            <para>
+             Some methods of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> class cause the current state of the LED to change.
+             For instance, if the LED is blinking and you call the <see cref="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.TurnRed"/> method, the LED will stop
+             blinking and remain red. Similarly, if the LED is displaying a constant color and you call the
+             <see cref="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.FadeOnce(Gadgeteer.Color)"/> method, the LED will fade from the specfied color and then turn off.
+            </para>
+            <para>
+             Other methods do not cause the state of the LED to change. For instance, if the LED is blinking red, 
+             and you call the <see cref="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.AddBlue"/> method, the LED will continue to blink, now in red and blue.
+             Also, if you set the <see cref="T:Gadgeteer.Color"/> property directly, it does not affect the display state of the LED.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.#ctor(System.Int32)">
+            <summary></summary>
+            <param name="socketNumber">The mainboard socket that has the multi-color LED plugged into it.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.GetAll(System.Int32)">
+            <summary>
+            Creates an array of new <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> objects, one for each hardware module that is physically connected to the specified socket.
+            </summary>
+            <param name="socketNumber">The socket to get the objects for.</param>
+            <returns>An array of <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> objects.</returns>
+            <remarks>
+            <para>
+             Use this method to retrieve an array of newly instantiated objects that correspond to the hardware modules that are physically connected to the specified socket.
+             When using this method, keep in mind the following points:
+            </para>
+            <list type="bullet">
+             <item>
+              This method creates new objects. If you have already created objects associated with socket <paramref name="socketNumber"/>, this method will fail.
+             </item>
+             <item>This method should only be called once. Subsequent calls to this method will fail.</item>
+            </list>
+            <para>
+             This method is useful when you don't know the number of modules that are connected to the specified socket, or when that number can vary.
+             By calling this method, you can obtain the proper number of object references, in the correct order. The object returned in the first index 
+             of the array (index 0) corresponds to the hardware module that is first on the chain (that is, closest to the main board), the second index 
+             of the array (index 1) corresponds to the hardware module that is second on the chain, and so on.
+            </para>
+            <para>
+             If you create objects associated with socket <paramref name="socketNumber"/> before calling this method, or call this method more than once, this method
+             will fail because module objects have already been assigned their positons on the chain.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.TurnBlue">
+            <summary>
+            Changes the color of the LED to blue, stopping a blink or fade if one is in progress.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.TurnRed">
+            <summary>
+             Changes the color of the LED to red, stopping a blink or fade if one is in progress.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.TurnGreen">
+            <summary>
+             Changes the color of the LED to green, stopping a blink or fade if one is in progress.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.TurnOff">
+            <summary>
+             Turns the LED off.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.TurnWhite">
+            <summary>
+             Changes the color of the LED to white, stopping a blink or fade if one is in progress.
+            </summary>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.TurnColor(Gadgeteer.Color)">
+            <summary>
+            Changes the color of the LED to the specified color, stopping a blink or fade if one is in progress.
+            </summary>
+            <param name="color">The color to change the LED to.</param>              
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.SetRedIntensity(System.Byte)">
+            <summary>
+            Sets the red component of the current color (if there is a two-color animation, this affects the first color).
+            </summary>
+            <param name="intensity">The amount to set for the red intensity, 0 (no red) to 255 (full red).</param>
+            <remarks>
+            When you call this method, the display state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> does not change unless it is off. 
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.SetRedIntensity(System.Int32)">
+            <summary>
+            Sets the red component of the current color (if there is a two-color animation, this affects the first color)
+            </summary>
+            <param name="intensity">The amount to set for the red intensity.</param>
+            <remarks>
+            When you call this method, the display state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> does not change unless it is off. 
+            If <paramref name="intensity"/> is outside the range 0-255, it is constrained to that range (the valid range for color intensities),
+            and no exception is raised.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.SetGreenIntensity(System.Byte)">
+            <summary>
+            Sets the green component of the current color (if there is a two-color animation, this affects the first color)
+            </summary>
+            <param name="intensity">The amount to set for the green intensity, 0 (no green) to 255 (full green).</param>
+            <remarks>
+            When you call this method, the display state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> does not change unless it is off. 
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.SetGreenIntensity(System.Int32)">
+            <summary>
+            Sets the green component of the current color (if there is a two-color animation, this affects the first color)
+            </summary>
+            <param name="intensity">The amount to set for the green intensity.</param>
+            <remarks>
+            When you call this method, the display state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> does not change unless it is off. 
+            If <paramref name="intensity"/> is outside the range 0-255, it is constrained to that range (the valid range for color intensities),
+            and no exception is raised.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.SetBlueIntensity(System.Byte)">
+            <summary>
+            Sets the blue component of the current color (if there is a two-color animation, this affects the first color)
+            </summary>
+            <param name="intensity">The amount to set for the blue intensity, 0 (no blue) to 255 (full blue).</param>
+            <remarks>
+            When you call this method, the display state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> does not change unless it is off. 
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.SetBlueIntensity(System.Int32)">
+            <summary>
+            Sets the blue component of the current color (if there is a two-color animation, this affects the first color)
+            </summary>
+            <param name="intensity">The amount to set for the blue intensity.</param>
+            <remarks>
+            When you call this method, the display state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> does not change unless it is off. 
+            If <paramref name="intensity"/> is outside the range 0-255, it is constrained to that range (the valid range for color intensities),
+            and no exception is raised.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.AddRed">
+            <summary>
+            Adds a full red component to the current color (if there is a two-color animation, this affects the first color).
+            </summary>
+            <remarks>
+            When you call this method, the display state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> does not change unless it is off. 
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.RemoveRed">
+            <summary>
+            Removes all of the red component from the current color (if there is a two-color animation, this affects the first color).
+            </summary>
+            <remarks>
+            When you call this method, the display state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> does not change unless it is off. 
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.AddGreen">
+            <summary>
+            Adds a full green component to the current color (if there is a two-color animation, this affects the first color).
+            </summary>
+            <remarks>
+            When you call this method, the display state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> does not change unless it is off. 
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.RemoveGreen">
+            <summary>
+            Removes all of the green component from the current color (if there is a two-color animation, this affects the first color).
+            </summary>
+            <remarks>
+            When you call this method, the display state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> does not change unless it is off. 
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.AddBlue">
+            <summary>
+            Adds a full blue component to the current color (if there is a two-color animation, this affects the first color).
+            </summary>
+            <remarks>
+            When you call this method, the display state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> does not change unless it is off. 
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.RemoveBlue">
+            <summary>
+            Removes all of the blue component from the current color (if there is a two-color animation, this affects the first color).
+            </summary>
+            <remarks>
+            When you call this method, the display state of the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> does not change unless it is off. 
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.GetCurrentColor">
+            <summary>
+            Returns the current LED color.
+            </summary>
+            <returns>The current <see cref="T:Gadgeteer.Color"/>.</returns>
+            <remarks>
+             If you call this method while the <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> is performing an animation (blink or fade), 
+             the return value represents the first state of the animation.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.BlinkOnce(Gadgeteer.Color)">
+            <summary>
+            Causes the LED to light in the specified color for one second, and then turn off.
+            </summary>
+            <param name="color">The color to display.</param>
+            <remarks>
+            The default blink time for this method is one second.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.BlinkOnce(Gadgeteer.Color,System.TimeSpan)">
+            <summary>
+            Causes the LED to light in the specified color for the specified duration, and then turn off.
+            </summary>
+            <param name="color">The color to display.</param>
+            <param name="blinkTime">The duration before the LED turns off.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.BlinkOnce(Gadgeteer.Color,System.TimeSpan,Gadgeteer.Color)">
+            <summary>
+            Causes the LED to light in the specified color for the specified duration, and then switch to another color.
+            </summary>
+            <param name="blinkColor">The color to display until <paramref name="blinkTime"/> elapses.</param>
+            <param name="blinkTime">The duration before the LED changes from <paramref name="blinkColor"/> to <paramref name="endColor"/>.</param>
+            <param name="endColor">The color to switch to when <paramref name="blinkTime"/> elapses.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.BlinkRepeatedly(Gadgeteer.Color)">
+            <summary>
+            Causes the LED to light in the specified color for one second, turn off, and repeat.
+            </summary>
+            <param name="color">The color to display.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.BlinkRepeatedly(Gadgeteer.Color,System.TimeSpan,Gadgeteer.Color,System.TimeSpan)">
+            <summary>
+             Causes the LED to light in the specified color for the specified duration, 
+             switch to the second color for another specified duration, and repeat.
+            </summary>
+            <param name="color1">The color used for the first part of the blink.</param>
+            <param name="blinkTime1">The duration before the LED changes from <paramref name="color1"/> to <paramref name="color2"/>.</param>
+            <param name="color2">The color used for the second part of the blink.</param>
+            <param name="blinkTime2">The duration before the LED changes from <paramref name="color2"/> back to <paramref name="color1"/>.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.FadeOnce(Gadgeteer.Color)">
+            <summary>
+            Causes the LED to light in the specified color, and then fade to black (off) in one second.
+            </summary>
+            <param name="color">The color to begin the fade with.</param>
+            <remarks>
+            The default fade time for this method is one second.
+            </remarks>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.FadeOnce(Gadgeteer.Color,System.TimeSpan)">
+            <summary>
+            Causes the LED to light in the specified color, and then fade to black (off) in the specified duration.
+            </summary>
+            <param name="color">The color to begin the fade with.</param>
+            <param name="fadeTime">The duration of the fade.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.FadeOnce(Gadgeteer.Color,System.TimeSpan,Gadgeteer.Color)">
+            <summary>
+            Causes the LED to light in the specified color, and then fade to another color in the specified duration.
+            </summary>
+            <param name="fromColor">The color to begin the fade with.</param>
+            <param name="fadeTime">The duration of the fade.</param>
+            <param name="toColor">The color to end the fade with.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.FadeRepeatedly(Gadgeteer.Color)">
+            <summary>
+            Causes the LED to light in the specified color, fade to black (off) in one second, and repeat.
+            </summary>
+            <param name="color">The color to begin the fade with.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.FadeRepeatedly(Gadgeteer.Color,System.TimeSpan,Gadgeteer.Color,System.TimeSpan)">
+            <summary>
+            Cause the LED to repeatedly fade back and forth between two colors
+            </summary>
+            <param name="color1">The color to begin the fade with.</param>
+            <param name="fadeTime1">The duration of the fade from <paramref name="color1"/> to <paramref name="color2"/>.</param>
+            <param name="color2">The color of the second part of the fade.</param>
+            <param name="fadeTime2">The duration of the fade from <paramref name="color2"/> to <paramref name="color1"/>.</param>
+        </member>
+        <member name="M:Gadgeteer.Modules.GHIElectronics.MulticolorLed.OnAnimationFinishedEvent(Gadgeteer.Modules.GHIElectronics.MulticolorLed)">
+            <summary>
+            Raises the <see cref="E:Gadgeteer.Modules.GHIElectronics.MulticolorLed.AnimationFinished"/> event.
+            </summary>
+            <param name="sender">The <see cref="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed"/> that raised the event.</param>
+        </member>
+        <member name="P:Gadgeteer.Modules.GHIElectronics.MulticolorLed.GreenBlueSwapped">
+            <summary>
+            Accessor/Mutator for the property used to correct the blue/green channels.
+            </summary>
+        </member>
+        <member name="E:Gadgeteer.Modules.GHIElectronics.MulticolorLed.AnimationFinished">
+            <summary>
+            Raised when the LED has finished a BlinkOnce or FadeOnce animation.
+            </summary>
+        </member>
+        <member name="T:Gadgeteer.Modules.GHIElectronics.MulticolorLed.AnimationFinishedEventHandler">
+            <summary>
+            The delegate that is used for the <see cref="E:Gadgeteer.Modules.GHIElectronics.MulticolorLed.AnimationFinished"/> event.
+            </summary>
+            <param name="led">The LED which finished its BlinkOnce or FadeOnce animation.</param>
+        </member>
+    </members>
+</doc>

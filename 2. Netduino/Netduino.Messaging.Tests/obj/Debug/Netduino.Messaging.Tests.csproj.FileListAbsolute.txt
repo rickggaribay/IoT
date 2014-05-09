@@ -1,0 +1,21 @@
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.Tests\bin\Debug\Netduino.Messaging.Tests.exe.config
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.Tests\bin\Debug\Netduino.Messaging.Tests.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.Tests\bin\Debug\Netduino.Messaging.Tests.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.Tests\bin\Debug\M2Mqtt.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.Tests\obj\Debug\Netduino.Messaging.Tests.csprojResolveAssemblyReference.cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.Tests\obj\Debug\Netduino.Messaging.Tests.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.Tests\obj\Debug\Netduino.Messaging.Tests.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.Tests\bin\Debug\Netduino.Messaging.Tests.exe.config
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.Tests\bin\Debug\Netduino.Messaging.Tests.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.Tests\bin\Debug\Netduino.Messaging.Tests.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.Tests\bin\Debug\M2Mqtt.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.Tests\obj\Debug\Netduino.Messaging.Tests.csprojResolveAssemblyReference.cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.Tests\obj\Debug\Netduino.Messaging.Tests.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.Tests\obj\Debug\Netduino.Messaging.Tests.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.Tests\bin\Debug\Netduino.Messaging.Tests.exe.config
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.Tests\bin\Debug\Netduino.Messaging.Tests.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.Tests\bin\Debug\Netduino.Messaging.Tests.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.Tests\bin\Debug\M2Mqtt.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.Tests\obj\Debug\Netduino.Messaging.Tests.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.Tests\obj\Debug\Netduino.Messaging.Tests.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.Tests\obj\Debug\Netduino.Messaging.Tests.csprojResolveAssemblyReference.cache

@@ -1,0 +1,92 @@
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\le\Netduino.Messaging.MQTT.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\be\Netduino.Messaging.MQTT.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\le\Netduino.Messaging.MQTT.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\be\Netduino.Messaging.MQTT.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\Netduino.Messaging.MQTT.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\Netduino.Messaging.MQTT.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\le\Netduino.Messaging.MQTT.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\le\Netduino.Messaging.MQTT.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\be\Netduino.Messaging.MQTT.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\be\Netduino.Messaging.MQTT.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\LE\M2Mqtt.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\LE\SecretLabs.NETMF.Hardware.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\LE\SecretLabs.NETMF.Hardware.Netduino.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\BE\M2Mqtt.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\BE\SecretLabs.NETMF.Hardware.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\BE\SecretLabs.NETMF.Hardware.Netduino.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\LE\M2Mqtt.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\LE\SecretLabs.NETMF.Hardware.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\LE\SecretLabs.NETMF.Hardware.Netduino.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\BE\M2Mqtt.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\BE\SecretLabs.NETMF.Hardware.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\BE\SecretLabs.NETMF.Hardware.Netduino.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\M2Mqtt.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\SecretLabs.NETMF.Hardware.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\SecretLabs.NETMF.Hardware.Netduino.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\SecretLabs.NETMF.Hardware.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\SecretLabs.NETMF.Hardware.Netduino.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\obj\Debug\Netduino.Messaging.MQTT.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\obj\Debug\Netduino.Messaging.MQTT.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\obj\Debug\Netduino.Messaging.MQTT.csprojResolveAssemblyReference.cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\obj\Debug\TinyCLR_DebugReferences.cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\bin\Debug\M2Mqtt.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\obj\Debug\be\Netduino.Messaging.MQTT.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\obj\Debug\be\Netduino.Messaging.MQTT.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\obj\Debug\le\Netduino.Messaging.MQTT.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\IoT\Boards\Netduino\Netduino.MQTT\Netduino.Messaging\Netduino.Messaging.MQTT\obj\Debug\le\Netduino.Messaging.MQTT.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\le\Netduino.Messaging.MQTT.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\be\Netduino.Messaging.MQTT.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\le\Netduino.Messaging.MQTT.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\be\Netduino.Messaging.MQTT.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\Netduino.Messaging.MQTT.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\Netduino.Messaging.MQTT.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\le\Netduino.Messaging.MQTT.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\le\Netduino.Messaging.MQTT.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\be\Netduino.Messaging.MQTT.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\be\Netduino.Messaging.MQTT.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\LE\M2Mqtt.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\LE\SecretLabs.NETMF.Hardware.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\LE\SecretLabs.NETMF.Hardware.Netduino.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\SecretLabs.NETMF.Hardware.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\SecretLabs.NETMF.Hardware.Netduino.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\SecretLabs.NETMF.Hardware.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\bin\Debug\SecretLabs.NETMF.Hardware.Netduino.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\obj\Debug\Netduino.Messaging.MQTT.csprojResolveAssemblyReference.cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\obj\Debug\TinyCLR_DebugReferences.cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\obj\Debug\Netduino.Messaging.MQTT.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\Netduino\Netduino.Messaging.MQTT\obj\Debug\Netduino.Messaging.MQTT.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\le\Netduino.Messaging.MQTT.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\be\Netduino.Messaging.MQTT.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\le\Netduino.Messaging.MQTT.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\be\Netduino.Messaging.MQTT.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\Netduino.Messaging.MQTT.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\Netduino.Messaging.MQTT.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\le\Netduino.Messaging.MQTT.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\le\Netduino.Messaging.MQTT.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\be\Netduino.Messaging.MQTT.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\be\Netduino.Messaging.MQTT.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\LE\M2Mqtt.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\LE\SecretLabs.NETMF.Hardware.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\LE\SecretLabs.NETMF.Hardware.Netduino.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\SecretLabs.NETMF.Hardware.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\SecretLabs.NETMF.Hardware.Netduino.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\SecretLabs.NETMF.Hardware.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\SecretLabs.NETMF.Hardware.Netduino.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\obj\Debug\be\Netduino.Messaging.MQTT.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\obj\Debug\be\Netduino.Messaging.MQTT.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\obj\Debug\le\Netduino.Messaging.MQTT.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\obj\Debug\le\Netduino.Messaging.MQTT.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\obj\Debug\Netduino.Messaging.MQTT.exe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\obj\Debug\Netduino.Messaging.MQTT.pdb
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\BE\M2Mqtt.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\BE\SecretLabs.NETMF.Hardware.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\BE\SecretLabs.NETMF.Hardware.Netduino.pe
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\LE\M2Mqtt.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\LE\SecretLabs.NETMF.Hardware.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\LE\SecretLabs.NETMF.Hardware.Netduino.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\BE\M2Mqtt.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\BE\SecretLabs.NETMF.Hardware.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\BE\SecretLabs.NETMF.Hardware.Netduino.pdbx
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\bin\Debug\M2Mqtt.dll
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\obj\Debug\Netduino.Messaging.MQTT.csprojResolveAssemblyReference.cache
+C:\Users\rick.garibay\Dropbox\AppDev\2014\May\VSLive\IoT\2. Netduino\Netduino.Messaging.MQTT\obj\Debug\TinyCLR_DebugReferences.cache

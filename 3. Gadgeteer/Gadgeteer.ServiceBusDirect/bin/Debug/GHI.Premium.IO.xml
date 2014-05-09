@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GHI.Premium.IO</name>
+    </assembly>
+    <members>
+        <member name="T:GHI.Premium.IO.PersistentStorage">
+            <summary>
+            Handles the available storage devices.
+            </summary>
+            <remarks>
+            The user must use this class to handle the available storage devices. They can be used with the FAT file system or the USB Client Mass Storage (PC USB-connection to NETMF platform).<br/>
+            Using this class makes handling Storage devices more flexible and it coordinates access between Micro Framework File System and the PC over USB Client communication to make sure there are no conflicts.<br/>
+            You can use either Micro Framework File System or USB Client Mass Storage at a time, however, you can switch between the two as needed.<br/>
+            <br/>
+            <strong style="color:blue">Storage Devices with the File System</strong><br/>
+            FAT File System lets you create and manipulate files and folders on the connected SD and USB storage devices.<br/>
+            The user should refer to .Net Micro Framework documentation for details on handling files/folders.<br/>
+            <strong>Note:</strong> Only FAT32/FAT(FAT16) format is supported (NOT FAT12). You can format your storage device on a PC with a FAT32 option before using it with Micro Framework. If your device is not FAT formatted, you will get an Exception when accessing files/folders.<br/>
+            <br/>
+            SD card, USB file systems...etc are <strong>NOT</strong> mounted automatically. They cannot be accessed until you mount them using this class. The examples provided at the end mount the storage devices automatically.<br/>
+            Here are the steps to use a Storage Device with the file system:
+            <ul>
+            <li>The user detects that an SD card or USB drive is inserted to the system.</li>
+            <li>First, it must be inialized as a storage device using <c>myPS = new PersistentStorage(...)</c>.</li>
+            <li>The user should mount it using <c>myPS.MountFileSystem()</c>.</li>
+            <li>Now, the user can use any file system functionalities and handle files/folder.</li>
+            <li>The user detects that the storage device SD, or USB is removed or changed.</li>
+            <li>It should be unmounted using <c>myPS.UnmountFileSystem()</c>.</li>
+            <li>You can specify that you need it to be removed using <c>myPS.Dispose()</c>.</li>
+            <li>The same steps can be repeated as necessary.</li>
+            </ul>
+            When a storage device is mounted, it is available under a certain name (root directory). This can be obtained using several methods, for example, to get the root directory of the first available volume, you can use Micro Framework method: <c>VolumeInfo.GetVolumes()[0].RootDirectory</c>.<br/>
+            <br/>
+            The availability of the following depends on your platform.
+            <table border="1">
+            <tr><th>Storage Type</th><th>Constructor</th><th>Root Directory</th></tr>
+            <tr><td>SD</td><td>new PersistantStorage("SD")</td><td>"SD"</td></tr>
+            <tr><td>NAND</td><td>new PersistantStorage("NAND")</td><td>"NAND"</td></tr>
+            <tr><td>USB</td><td>new PersistantStorage(usbDevice)</td><td>"USB", "USBx" where x is a given storage index.</td></tr>
+            </table>
+            If you need to access a USB memory, make sure you have an understanding of how USB Host devices are accessed and handled before using them as storage devices.<br/>
+            To access a USB Mass Storage device, you need to use the USB Device object. Some USB Mass Storage devices have multiple logical units, for example, a USB card reader that can access different types or storage cards. Each card slot has a different logical unit index which can be used when creating a <c>PersistantStorage</c>.<br/>
+            <br/>
+            <strong style="color:red">IMPORTANT NOTE: </strong> The following can cause files or the file system to get corrupted: after mounting a storage device, the storage device MUST not be removed before all write operations are done. If you open any files, make sure to close them. Also, if you create a directory, delete files...etc, you should call <c>yourPersistentStorage.UnmountFileSystem()</c> or <c>yourVolumeInfo.FlushAll()</c>. It is best to always unmount before removing the storage device.<br/>
+            <br/>
+            <strong style="color:blue">Storage Devices with USB Client Access</strong><br/>
+            USB Client is where your .Net Micro Framework device becomes a USB slave and on the other end you have a USB Master such as a PC.<br/>
+            Using USB Client functionality, your .Net Micro Framework device will appear as a virtual Mass Storage device (similar to a USB Drive). For example, you can have an SD card and other physical USB thumb drives internally in your embedded device. These are exposed with one USB Client connection to your PC and the Operating System (Windows) on your PC will see the available embedded storage devices and manipulate them.<br/>
+            Please refer to <c>GHI.Premium.USBClient</c> if you need to use this functionality.<br/>
+            <br/>
+            <strong style="color:blue">Using both the File System and USB Client Access</strong><br/>
+            As mentioned above you can use the file system and the USB Client as follows:<br/>
+            <ul>
+            <li>When the Storage Device is created, it is NOT mounted as a file system or used as a USB Clent device by default. It should be initialized through <c>myPS = new PersistentStorage(...)</c>.</li>
+            <li>Let's assume the user needs it to be available as a USB Client MS device, simply tell USB Client to enable the Mass Storage access. When done, USB Client Host PC access must be disabled before proceeding with other functionalites. <c>USBC_MassStorage.EnableLun(x) ... PC Host is now accessing the storage device ... USBC_MassStorage.DisableLun(x)</c>.</li>
+            <li>Now, the storage device file system can be safely mounted and used with Micro Framework. When done, it must be unmounted before proceeding with other functionalities. <c>myPS.MountFileSystem()... Handle files/folders through Micro Framework classes ... my.UnmountFileSystem()</c>.</li>
+            <li>Repeat the second and third steps as necessary and their order can be exchanged as necessary.</li>
+            <li>When the storage device is removed, the user can specify this at the end. <c>myPS.Dispose()</c>.</li>
+            </ul>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.IO.PersistentStorage.DetectSDCard">
+            <summary>
+            Detects if an SD card is connected.
+            </summary>
+            <returns><c>true</c> if an SD card is inserted.</returns>
+            <remarks>
+            This detects if an SD card is connected to your hardware. This is not supported by all SD cards but it works most of the time.<br/>
+            Typically, the user must connect a 1 mega ohm pull down resistor to the DAT3 SD signal to get accurate detections.<br/>
+            <br/>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.IO.PersistentStorage.Dispose">
+            <summary>
+            Disposes the Persistent Storage.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.IO.PersistentStorage.#ctor(System.String)">
+            <summary>
+            Creates a storage using the device ID string.
+            </summary>
+            <param name="DeviceID">Device ID.</param>
+        </member>
+        <member name="M:GHI.Premium.IO.PersistentStorage.Finalize">
+            <exclude/>
+        </member>
+        <member name="M:GHI.Premium.IO.PersistentStorage.#ctor(GHI.Premium.System.USBH_Device)">
+            <summary>
+            Creates a storage using the USB device ID and the USB interface index.
+            </summary>
+            <param name="usbDevice">USB Storage Device.</param>
+        </member>
+        <member name="M:GHI.Premium.IO.PersistentStorage.#ctor(GHI.Premium.System.USBH_Device,System.Byte)">
+            <summary>
+            Creates a storage using the USB device ID, the USB interface index and the logical unit number.
+            </summary>
+            <param name="usbDevice">USB Storage Device.</param>
+            <param name="massStorageLogicalUnit">Mass Storage Logical Unit index.</param>
+        </member>
+        <member name="M:GHI.Premium.IO.PersistentStorage.MountFileSystem">
+            <summary>
+            Mounts the file system for the storage device.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.IO.PersistentStorage.UnmountFileSystem">
+            <summary>
+            Unmounts the file system for the storage device.
+            </summary>
+        </member>
+    </members>
+</doc>

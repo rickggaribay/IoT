@@ -1,0 +1,1027 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GHI.Premium.Hardware</name>
+    </assembly>
+    <members>
+        <member name="T:GHI.Premium.Hardware.LowLevel.Watchdog">
+            <summary>
+            Provides Watchdog functionality.
+            </summary>
+            <remarks>
+            Watchdog is used to reset the system if it enters an erroneous state. The Watchdog is enabled with a specified timeout. The user must keep resetting the Watchdog time counter within this timeout interval or otherwise the system will reset.<br/>
+            <c>Watchdog.LastResetCause</c> gives you information about the last known reset cause. Note that this flag is automatically reset after it is read.<br/>
+            <br/>
+            This should only be used by advanced users.<br/>
+            <br/>
+            <strong>Note: </strong> On some systems, once the Watchdog is enabled, it cannot be disabled.<br/>
+            <br/>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.LowLevel.Watchdog.Enable(System.UInt32)">
+            <summary>
+            Enables the Watchdog.
+            </summary>
+            <param name="timeout_ms">Timeout in milli-seconds.</param>
+        </member>
+        <member name="M:GHI.Premium.Hardware.LowLevel.Watchdog.Disable">
+            <summary>
+            Disables the Watchdog.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Hardware.LowLevel.Watchdog.ResetCounter">
+            <summary>
+            Resets the Watchdog time counter.
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Hardware.LowLevel.Watchdog.LastResetCause">
+            <summary>
+            Last known reset cause.
+            </summary>
+            <remarks>
+            This can be used for troubleshooting when the system resets. Note that this flag is automatically reset after it is read.<br/>
+            <br/>
+            <strong style="color:blue">EMX and G120</strong><br/>
+            Works correctly.<br/>
+            <br/>
+            </remarks>
+        </member>
+        <member name="P:GHI.Premium.Hardware.LowLevel.Watchdog.MAX_TIMEOUT">
+            <summary>
+            Maximum supported timeout.
+            </summary>
+            <remarks>
+            Value is platform dependant.
+            </remarks>
+        </member>
+        <member name="T:GHI.Premium.Hardware.LowLevel.Watchdog.ResetCause">
+            <summary>
+            Cause of system reset.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.LowLevel.Watchdog.ResetCause.HardReset">
+            <summary>
+            Hard reset.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.LowLevel.Watchdog.ResetCause.WatchdogReset">
+            <summary>
+            Reset because of the Watchdog timer elapsing.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Hardware.SoftwareI2CBus">
+            <summary>
+            Master I2C bus functionality implemented in software.
+            </summary>
+            <remarks>
+            This class provides I2C functionality on any two digital pins. It is implemented by toggling the pins using software. It only supports one master on the same bus. Multiple masters on different buses work correctly.<br/>
+            <br/>
+            You must provide two pins: one for I2C clock and one for I2C data. The user must connect external pull-up resistors on the pins as required for I2C operation.<br/>
+            <br/>
+            Currently, only 7-bit I2C addresses are supported.<br/>
+            Clock rate is currently ignored. Specify 0 for this field. This will make the rate as fast as possible.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SoftwareI2CBus.#ctor(Microsoft.SPOT.Hardware.Cpu.Pin,Microsoft.SPOT.Hardware.Cpu.Pin)">
+            <summary>
+            Creates an I2C bus using the clock and data pins.
+            </summary>
+            <param name="clockPin">Clock pin.</param>
+            <param name="dataPin">Data pin.</param>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SoftwareI2CBus.CreateI2CDevice(System.UInt16,System.Int32)">
+            <summary>
+            Creates an I2C device on the bus.
+            </summary>
+            <param name="address">Address of the device. This must be a 7 bit address.</param>
+            <param name="clockRateKHz">Clock rate in KHz. Currently ignored. Specify 0 to go as fast as possible.</param>
+            <returns>Created I2C device.</returns>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SoftwareI2CBus.DirectI2CWriteRead(Microsoft.SPOT.Hardware.Cpu.Pin,Microsoft.SPOT.Hardware.Cpu.Pin,System.Int32,System.UInt16,System.Byte[],System.Int32,System.Int32,System.Byte[],System.Int32,System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+            Processes I2C directly without creating objects.
+            </summary>
+            <param name="clockPin">Clock pin.</param>
+            <param name="dataPin">Data pin.</param>
+            <param name="clockRateKHz">Clock rate in KHz.</param>
+            <param name="address">Address of the device.</param>
+            <param name="writeBuffer">Write buffer.</param>
+            <param name="writeOffset">Offset into the write buffer.</param>
+            <param name="writeLength">Number of bytes to write.</param>
+            <param name="readBuffer">Read buffer.</param>
+            <param name="readOffset">Offset into the read buffer.</param>
+            <param name="readLength">Number of bytes to read.</param>
+            <param name="numWritten">Number of bytes written successfully.</param>
+            <param name="numRead">Number of bytes read successfully.</param>
+            <returns><c>true</c> if all the required bytes are written and read successfully.</returns>
+            <remarks>
+            Do not use this method. It is intended for internal use only. See <c>CreateI2CDevice</c> instead.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SoftwareI2CBus.Dispose">
+            <summary>
+            Disposes the I2C bus.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SoftwareI2CBus.Finalize">
+            <exclude/>
+        </member>
+        <member name="T:GHI.Premium.Hardware.SoftwareI2CBus.I2CDevice">
+            <summary>
+            Represents an I2C device on a bus.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SoftwareI2CBus.I2CDevice.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a data buffer to the I2C device.
+            </summary>
+            <param name="buffer">Buffer.</param>
+            <param name="offset">Offset into the buffer.</param>
+            <param name="count">Number of bytes to write.</param>
+            <returns>Number of bytes sent successfully.</returns>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SoftwareI2CBus.I2CDevice.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads a data buffer from the I2C device.
+            </summary>
+            <param name="buffer">Buffer.</param>
+            <param name="offset">Offset into the buffer.</param>
+            <param name="count">Number of bytes to read.</param>
+            <returns>Number of bytes read successfully.</returns>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SoftwareI2CBus.I2CDevice.WriteRead(System.Byte[],System.Int32,System.Int32,System.Byte[],System.Int32,System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+            Writes a data buffer then reads a data buffer from the I2C device.
+            </summary>
+            <param name="writeBuffer">Write buffer.</param>
+            <param name="writeOffset">Offset into the write buffer.</param>
+            <param name="writeLength">Number of bytes to write.</param>
+            <param name="readBuffer">Read buffer.</param>
+            <param name="readOffset">Offset into the read buffer.</param>
+            <param name="readLength">Number of bytes to read.</param>
+            <param name="numWritten">Number of bytes written successfully.</param>
+            <param name="numRead">Number of bytes read successfully.</param>
+            <returns><c>true</c> if all the required bytes are written and read successfully.</returns>
+        </member>
+        <member name="T:GHI.Premium.Hardware.ParallelPort">
+            <summary>
+            Provides ParallelPort functionality.
+            </summary>
+            <remarks>
+            This class controls multiple pins at the same time. The data is written and/or read by using 8 data pins.<br/>
+            The pins can be any I/Os available on the used platform.<br/>
+            When writing to the ParallelPort, the write pin is pulsed after each byte to signal that data is ready. The write pin is required for writing operation.<br/>
+            When reading from the ParallelPort, the read pin is pulsed before each byte to signal that data will be read. The read pin is required for reading operation.<br/>
+            <br/>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.ParallelPort.#ctor(Microsoft.SPOT.Hardware.Cpu.Pin[],Microsoft.SPOT.Hardware.Cpu.Pin)">
+            <summary>
+            Creates a new ParallelPort.
+            </summary>
+            <param name="dataPins">Must be valid 8 data pins. dataPins[0] corresponds to data bit 0 and so on.</param>
+            <param name="writePin">This pin must be provided for writing. The pin is active low.</param>
+        </member>
+        <member name="M:GHI.Premium.Hardware.ParallelPort.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes data to the ParallelPort.
+            </summary>
+            <param name="data">Data buffer.</param>
+            <param name="offset">Offset.</param>
+            <param name="count">Count.</param>
+        </member>
+        <member name="M:GHI.Premium.Hardware.ParallelPort.Dispose">
+            <summary>
+            Disposes the ParallelPort and all used pins.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Hardware.ParallelPort.Finalize">
+            <exclude />
+        </member>
+        <member name="T:GHI.Premium.Hardware.SignalCapture">
+            <summary>
+            Captures the pin's digital waveform into a buffer.
+            </summary>
+            <remarks>
+            This performs a simple Pin Capture. It <b>blocks</b> all the managed threads until a specified timeout is passed or the specified pin toggles count is reached.<br/>
+            When the pin's state changes, the state, high or low, time is calculated and stored.<br/>
+            <br/>
+            The pin can be an <c>InputPort</c> or an <c>InterruptPort</c>. The underlying <c>Port</c> object can be obtained from this class and controlled directly.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SignalCapture.#ctor(Microsoft.SPOT.Hardware.Cpu.Pin,Microsoft.SPOT.Hardware.Port.ResistorMode)">
+            <summary>
+            Constructor for input and interrupt pins.
+            </summary>
+            <param name="pin">Pin.</param>
+            <param name="resistorMode">Resistor mode.</param>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SignalCapture.#ctor(Microsoft.SPOT.Hardware.Cpu.Pin,Microsoft.SPOT.Hardware.Port.ResistorMode,Microsoft.SPOT.Hardware.Port.InterruptMode)">
+            <summary>
+            Constructor for interrupt pins only.
+            </summary>
+            <param name="pin">Pin.</param>
+            <param name="resistorMode">Resistor mode.</param>
+            <param name="interruptMode">Interrupt mode.</param>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SignalCapture.Read(System.Boolean@,System.UInt32[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Reads the pin's waveform. The method stores the initial state for the user.
+            </summary>
+            <param name="initialState">The initial state of the pin.</param>
+            <param name="buffer">Buffer holds the pin toggle times in microseconds.</param>
+            <param name="offset">Offset.</param>
+            <param name="count">Count.</param>
+            <param name="timeout">Timeout in milliseconds.</param>
+            <returns>Number of pin toggles.</returns>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SignalCapture.Read(System.Boolean,System.UInt32[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Reads the pin's waveform after waiting for an initial state.
+            </summary>
+            <param name="waitForState">Waits for this pin state before starting the capture.</param>
+            <param name="buffer">The buffer holds the pin toggle times in microseconds.</param>
+            <param name="offset">Offset.</param>
+            <param name="count">Count.</param>
+            <param name="timeout">Timeout in milliseconds.</param>
+            <returns>Number of pin toggles.</returns>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SignalCapture.Dispose">
+            <summary>
+            Disposes the pin and marks it as available.
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Hardware.SignalCapture.InternalPort">
+            <summary>
+            Gets the underlying <c>Port</c> object for this pin.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Hardware.CANErrorReceivedEventArgs">
+            <summary>
+            CAN error received event arguments.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Hardware.CANErrorReceivedEventArgs.#ctor(GHI.Premium.Hardware.CAN.Error)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="Error">CAN error.</param>
+        </member>
+        <member name="F:GHI.Premium.Hardware.CANErrorReceivedEventArgs.Error">
+            <summary>
+            Associated error with this event.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Hardware.CANDataReceivedEventArgs">
+            <summary>
+            CAN data received event arguments.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Hardware.CANDataReceivedEventHandler">
+            <summary>
+            CAN data received event handler.
+            </summary>
+            <param name="sender">CAN sender.</param>
+            <param name="args">Event arguments.</param>
+        </member>
+        <member name="T:GHI.Premium.Hardware.CANErrorReceivedEventHandler">
+            <summary>
+            CAN error received event handler.
+            </summary>
+            <param name="sender">CAN sender.</param>
+            <param name="args">Event arguments.</param>
+        </member>
+        <member name="T:GHI.Premium.Hardware.CAN">
+            <summary>
+            Provides Controller Area Network (CAN) functionality.
+            </summary>
+            <remarks>
+            Controller Area Network (CAN) is a common network in the automotive industry. This class provides functions to read/write messages, Get events for incoming data or errors, and set filters on messages' IDs.<br/>
+            <br/>
+            <strong style="color:blue">Platform Support</strong><br/>
+            <br/>
+            <strong style="color:blue">Using CAN</strong><br/>
+            CAN is constructed using the channel number and the bitrate. Note that the bitrate defines the timings needed and must be set as provided in the example section.<br/>
+            Since processing all incoming messages is important, there is an optional <c>receiveBufferSize</c> argument. You can increase the number of bufferd messages to make sure the application can process all of them. Also, it is recommended to use the filters.<br/>
+            <br/>
+            Messages are read using <c>GetMessages(...)</c>. This method is optimized for batch reading. The more messages read, the faster it will be versus reading them individually. Event are sent when messages are available. Also, <c>ReceivedMessagesCount</c> provides the number of available messages.<br/>
+            <br/>
+            Messages are written using <c>PostMessages(...)</c>. The messages are queued for transmission. <c>PostedMessagesSent</c> specifies whether all messages are transmitted.<br/>
+            <br/>
+            <strong style="color:blue">CAN Errors</strong><br/>
+            CAN errors are sent as events to the user using <c>ErrorReceivedEvent</c>. <c>RXOver</c> error is sent when the input buffer is full and a message is lost. In this case, you can increase the receive buffer size in the CAN constructor and use the CAN filters. Another important error is <c>BusOff</c>. When this error occurs, the CAN controller is stopeed from further communications. To enable the controller again, use <c>CAN.Reset</c>.<br/>
+            Also, there are error counters: <c>ReceiveErrorCount</c> and <c>TransmitErrorCount</c>.<br/>
+            <br/>
+            <strong style="color:blue">CAN Filters</strong><br/>
+            Software filters for messages' IDs are supported for exact and group matches. One of them or both can be used at the same time. Exact matches are done using <c>SetExplicitFilters</c>. Only messages with identifiers included in these filters will pass through to the receive buffer. Group identifiers defines a group (range) or more of messages that are filtered using <c>SetGroupFilters</c>. Only messages with identifiers between a lower bound and an upper bound are passed to the receive buffer. Searching through software filters is done natively and highly optimized.<br/>
+            Hardware filters are not directly supported but can be set using registers (<c>Register</c> class). You can set explicit or group identifiers for each CAN controller. For complete details, please see LPC24xx User Manual.<br/>
+            A combination of software and hardware filters can be used.<br/>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.CAN.SetExplicitFilters(System.UInt32[])">
+            <summary>
+            Sets explicit filters.
+            </summary>
+            <param name="filters">Messages' IDs to filter.</param>
+            <remarks>
+            This filters exact matches for message identifiers (standard or extended). The provided filters will be copied internally and searched using an optimized software search.<br/>
+            For example, to only receive messages with these IDs (0x1234, 0x5789, 0x12345678), do the following:<br/>
+            <code>
+            uint[] explicitIDs = new uint[] {0x1234, 0x5789, 0x12345678};
+            can.SetExplicitFilters(explicitIDs);
+            </code>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.CAN.SetGroupFilters(System.UInt32[],System.UInt32[])">
+            <summary>
+            Sets group (range) filters.
+            </summary>
+            <param name="lowerBounds">Group lower bounds for messages' IDs to filter. Each lower bound corresponds to an upper bound.</param>
+            <param name="upperBounds">Group upper bounds for messages' IDs to filter. Each upper bound corresponds to a lower bound.</param>
+            <remarks>
+            This filters a group (range) of message identifiers (standard or extended). The provided filters will be copied internally and searched using an optimized software search.<br/>
+            Every pair of a lower bound at index i and an upper bound at the same index defines a valid group. The provided groups MUST not overlap. Otherwise, the method will throw an argument exception.<br/>
+            For example, to only receive messages with these two groups of IDs [0x1200 to 0x1248] and [0x500 to 0x1000], do the following:<br/>
+            <code>
+            uint[] lowerBounds = new uint[] { 0x1200, 0x500 };
+            uint[] upperBounds = new uint[] { 0x1248, 0x1000 };
+            can.SetGroupFilters(lowerBounds, upperBounds);
+            </code>
+            Note that the bounds' limits are considered valid. In the above example, 0x1200, 0x1248, 0x500 and 0x1000 are valid IDs and will pass through to the receive buffer.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.CAN.DisableExplicitFilters">
+            <summary>
+            Disables the explicit filters.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Hardware.CAN.DisableGroupFilters">
+            <summary>
+            Disables the group filters.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Hardware.CAN.#ctor(GHI.Premium.Hardware.CAN.Channel,System.UInt32)">
+            <summary>
+            Initializes CAN.
+            </summary>
+            <param name="channel">Channel.</param>
+            <param name="bitrate">Bitrate. Refer to provided the example.</param>
+            <remarks>
+            For bitrate calculation, please see the provided example.<br/>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.CAN.#ctor(GHI.Premium.Hardware.CAN.Channel,System.UInt32,System.Int32)">
+            <summary>
+            Initializes CAN.
+            </summary>
+            <param name="channel">Channel.</param>
+            <param name="bitrate">Bitrate. Refer to provided the example.</param>
+            <param name="receiveBufferSize">Specifies the receive buffer size (number of internally buffered CAN messages).</param>
+            <remarks>
+            For bitrate calculation, please see the provided example.<br/>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.CAN.Reset">
+            <summary>
+            Resets the CAN controller.
+            </summary>
+            <remarks>
+            This methods resets the CAN controller. This is needed in the Bus Off condition because the controller get disabled automatically.<br/>
+            Note that a reset causes the hardware buffered messages to be lost (this is 2 for receive and 3 for transmit). The software receive buffer is not affected. The software filters are not affected either.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.CAN.GetMessages(GHI.Premium.Hardware.CAN.Message[],System.Int32,System.Int32)">
+            <summary>
+            Receives CAN messages.
+            </summary>
+            <param name="msg">User provided messages buffer.</param>
+            <param name="offset">Offset into the buffer.</param>
+            <param name="count">Number of messages to read.</param>
+            <returns>Number of read messages.</returns>
+            <remarks>
+            This methods reads messages, if available, and returns how many messages it was able to read.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.CAN.PostMessages(GHI.Premium.Hardware.CAN.Message[],System.Int32,System.Int32)">
+            <summary>
+            Posts (queues for writing) CAN messages.
+            </summary>
+            <param name="msg">User provided messages buffer.</param>
+            <param name="offset">Offset into the buffer.</param>
+            <param name="count">Number of messages to write.</param>
+            <returns>Number of written messages.</returns>
+            <remarks>
+            This methods writes as many messages as possible until the internal buffers are full. The user MUST check the return value to see how many messages were written.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.CAN.Finalize">
+            <exclude/>
+        </member>
+        <member name="M:GHI.Premium.Hardware.CAN.Dispose">
+            <summary>
+            Disposes CAN.
+            </summary>
+        </member>
+        <member name="E:GHI.Premium.Hardware.CAN.DataReceivedEvent">
+            <summary>
+            Data received event.
+            </summary>
+            <remarks>
+            The event will fire only once when CAN messages are received. Then the user can read as many CAN messages as possible. If there are more unread messages, the event will fire again automatically.
+            </remarks>
+        </member>
+        <member name="E:GHI.Premium.Hardware.CAN.ErrorReceivedEvent">
+            <summary>
+            Error received event.
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Hardware.CAN.ReceiveErrorCount">
+            <summary>
+            CAN receive error count.
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Hardware.CAN.TransmitErrorCount">
+            <summary>
+            CAN transmit error count.
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Hardware.CAN.ReceivedMessagesCount">
+            <summary>
+            The number of messages ready to be read.
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Hardware.CAN.PostedMessagesSent">
+            <summary>
+            A boolean value denoting if all posted (queued for writing) messages are sent.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Hardware.CAN.Error">
+            <summary>
+            CAN errors.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.CAN.Error.Overrun">
+            <summary>
+            A CAN message is lost because the hardware was not able to receive the message in time.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.CAN.Error.RXOver">
+            <summary>
+            A CAN message is lost because the receive buffer is full. Try increasing the receive message buffer in the CAN constructor and use CAN filters.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.CAN.Error.BusOff">
+            <summary>
+            CAN Bus Off condition. Note that the controller is disabled in this case. Use <c>CAN.Reset()</c> to re-enable it.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.CAN.Error.ErrorPassive">
+            <summary>
+            Error passive condition.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Hardware.CAN.Channel">
+            <summary>
+            Lists the available CAN channels.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.CAN.Channel.Channel_1">
+            <summary>CAN channel.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.CAN.Channel.Channel_2">
+            <summary>CAN channel.</summary>
+        </member>
+        <member name="T:GHI.Premium.Hardware.CAN.Message">
+            <summary>
+            CAN message.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.CAN.Message.Data">
+            <summary>
+            The CAN message data.
+            </summary>
+            <remarks>
+            The message data is a maximum of 8 bytes. The user store data directly before trasmitting.<br/>
+            When receiving data, the user can read this field directly.
+            </remarks>
+        </member>
+        <member name="F:GHI.Premium.Hardware.CAN.Message.ArbID">
+            <summary>
+            CAN message ID.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.CAN.Message.DLC">
+            <summary>
+            CAN message data count.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.CAN.Message.IsRTR">
+            <summary>
+            Specifies if the message is RTR (Remote Transmission Request).
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.CAN.Message.IsEID">
+            <summary>
+            Specifies if the message is EID (Extended ID - 29 bit identifier). Otherwise, it is 11 bit identifier.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.CAN.Message.TimeStamp">
+            <summary>
+            Received message time stamp.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Hardware.Configuration">
+            <summary>
+            Provides access to some hardware and software configurations.
+            </summary>
+            <remarks>
+            Some of the configurations must only be used by advanced users. If you need to revert to the default settings and you are not able to do so in software, you must download TinyCLR firmware files and possibly TinyBooter again to your hardware. The configurations are normally saved in the config file.<br/>
+            Configurations will be saved internally and always used for future reboots, unless otherwise noted.<br/>
+            <br/>
+            <strong>Note:</strong> You must reset the hardware after you change the settings for them to take effect, unless otherwise noted.<br/>
+            </remarks>
+        </member>
+        <member name="T:GHI.Premium.Hardware.Configuration.StartUpLogo">
+            <summary>
+            Startup logo.
+            </summary>
+            <remarks>
+            You can set a custom startup logo for your device. This is saved internally and will be used on every reboot.<br/>
+            There are restrictions on the size of the logo, see <c>SupportedWidth</c> and <c>SupportedHeight</c>. This class only accepts a Bitmap byte array which can be generated from <c>myBitmap.GetBitmap()</c>.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.Configuration.StartUpLogo.Set(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sets custom Startup logo.
+            </summary>
+            <param name="bitmapBytes"><c>Bitmap</c> bytes.</param>
+            <param name="destX">Logo x position.</param>
+            <param name="destY">Logo y position.</param>
+            <returns><c>true</c> if configurations where updated. <c>false</c> if configurations did not change.</returns>
+        </member>
+        <member name="P:GHI.Premium.Hardware.Configuration.StartUpLogo.Enabled">
+            <summary>
+            Gets/Sets Startup Logo enable.
+            </summary>
+        </member>
+        <member name="P:GHI.Premium.Hardware.Configuration.StartUpLogo.SupportedWidth">
+            <summary>
+            Supported Width.
+            </summary>
+            <remarks>
+            Currently fixed to 180.
+            </remarks>
+        </member>
+        <member name="P:GHI.Premium.Hardware.Configuration.StartUpLogo.SupportedHeight">
+            <summary>
+            Supported Height.
+            </summary>
+            <remarks>
+            Currently fixed to 180.
+            </remarks>
+        </member>
+        <member name="T:GHI.Premium.Hardware.Configuration.LCD">
+            <summary>
+            LCD configurations.
+            </summary>
+            <remarks>
+            This class can change the used LCD. You can change the needed display settings to match your LCD requirements.<br/>
+            Do not use <c>LCD_Configuration.PriorityEnable</c> unless necessary. It may degrade performance.<br/>
+            <br/>
+            Note that setting <c>PixelClockRateKHz</c> to 0 will not refresh the LCD and it will be disabled.
+            <br/>
+            <strong style="color:blue">EMX</strong><br/>
+            The LCD Controller Source Clock is 72 MHz. LCD Clock = PixelClockRateKHz<br/>
+            Maximum supported resolution is 800x600.<br/>
+            <br/>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.Configuration.LCD.SetRotation(GHI.Premium.Hardware.Configuration.LCD.Rotation)">
+            <summary>
+            Changes LCD orientation.
+            </summary>
+            <param name="rot">Rotation setting.</param>
+            <returns><c>true</c> if configurations where updated. <c>false</c> if configurations did not change.</returns>
+            <remarks>
+            This is used to rotate the LCD. For example, if the LCD need to be viewed from the side or upside down.<br/>
+            Typically, an LCD with the needed orientation should be used and this method is not needed. But in cases where the LCD cannot be changed, use this function.<br/>
+            Assume an LCD with 320x240 resolution. After rotation 90 degrees, the LCD graphics will be 240x320 instead.<br/>
+            <strong>Note</strong> that because of the dimension change, the LCD must NOT be rotated while WPF is active. Typically, the user will set the LCD rotation at startup and then run the WPF application.<br/>
+            The change in dimensions and LCD rotation is done in software and consumes CPU processing time when graphics are flushed to the LCD. Therefore, only use it if necessary.<br/>
+            Also, when LCD is rotated, touch events are rotated accordingly. You need to set the touch calibration after rotation.<br/>
+            <br/>
+            For example to rotate 320x240 LCD to output 240x320 graphics,<br/>
+            1) Set rotation to CW 90 degrees.<br/>
+            2) Start WPF. Dimensions and graphics are 240x320 now.<br/>
+            3) Calibrate touch if used.<br/>
+            <br/>
+            <strong>Note:</strong> Rotation settings are done dynamically; no reboot is needed and they are NOT saved internally. They must be set each time the application starts.
+            </remarks>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.HeadlessConfig">
+            <summary>
+            Choose for headless LCD.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Hardware.Configuration.LCD.EnableLCDBootupMessages(System.Boolean)">
+            <summary>
+            Enables/Disables LCD bootup messages.
+            </summary>
+            <param name="IsEnabled"><c>true</c> if messages are enabled.</param>
+            <returns><c>true</c> if configurations where updated. <c>false</c> if configurations did not change.</returns>
+        </member>
+        <member name="M:GHI.Premium.Hardware.Configuration.LCD.Set(GHI.Premium.Hardware.Configuration.LCD.Configurations)">
+            <summary>
+            Sets LCD Configuration.
+            </summary>
+            <param name="config">LCD configuration.</param>
+            <returns><c>true</c> if configurations where updated. <c>false</c> if configurations did not change.</returns>
+        </member>
+        <member name="T:GHI.Premium.Hardware.Configuration.LCD.Rotation">
+            <summary>
+            Rotation type.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Rotation.Rotate_Normal">
+            <summary>Normal.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Rotation.Rotate_CW_90">
+            <summary>Rotate clockwise 90 degrees.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Rotation.Rotate_180">
+            <summary>Rotate 180 degrees.</summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Rotation.Rotate_CCW_90">
+            <summary>Rotate counterclockwise 90 degrees.</summary>
+        </member>
+        <member name="T:GHI.Premium.Hardware.Configuration.LCD.Configurations">
+            <summary>
+            Configurations.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Hardware.Configuration.LCD.Configurations.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Hardware.Configuration.LCD.Configurations.#ctor(System.UInt32,System.UInt32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.UInt32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="Width">Resolution width.</param>
+            <param name="Height">Resolution height.</param>
+            <param name="OutputEnableIsFixed"><c>true</c> if LCD enable is a fixed state. <c>false</c> if LCD enable is managed by LCD controller.</param>
+            <param name="OutputEnablePolarity"><c>true</c> if active state is high.</param>
+            <param name="HorizontalSyncPolarity"><c>true</c> if active state is high.</param>
+            <param name="VerticalSyncPolarity"><c>true</c> if active state is high.</param>
+            <param name="PixelPolarity"><c>true</c> if your LCD clocks data on the rising edge of the LCD clock.</param>
+            <param name="HorizontalSyncPulseWidth">Horizontal Sync pulse width in clock cycles.</param>
+            <param name="HorizontalBackPorch">Horizontal back porch in clock cycles.</param>
+            <param name="HorizontalFrontPorch">Horizontal front porch in clock cycles.</param>
+            <param name="VerticalSyncPulseWidth">Vertical Sync pulse width given by number of lines.</param>
+            <param name="VerticalBackPorch">Vertical back porch given by number of lines.</param>
+            <param name="VerticalFrontPorch">Vertical front porch given by number of lines.</param>
+            <param name="PixelClockRateKHz">Pixel clock rate.</param>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.Width">
+            <summary>
+            Resolution width.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.Height">
+            <summary>
+            Resolution height.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.OutputEnableIsFixed">
+            <summary>
+            <c>true</c> if LCD enable is a fixed state. <c>false</c> if LCD enable is managed by LCD controller.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.OutputEnablePolarity">
+            <summary>
+            <c>true</c> if active state is high.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.HorizontalSyncPolarity">
+            <summary>
+            <c>true</c> if active state is high.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.VerticalSyncPolarity">
+            <summary>
+            <c>true</c> if active state is high.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.PixelPolarity">
+            <summary>
+            <c>true</c> if your LCD clocks data on the rising edge of the LCD clock.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.HorizontalSyncPulseWidth">
+            <summary>
+            Horizontal Sync pulse width in clock cycles.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.HorizontalBackPorch">
+            <summary>
+            Horizontal back porch in clock cycles.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.HorizontalFrontPorch">
+            <summary>
+            Horizontal front porch in clock cycles.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.VerticalSyncPulseWidth">
+            <summary>
+            Vertical Sync pulse width given by number of lines.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.VerticalBackPorch">
+            <summary>
+            Vertical back porch given by number of lines.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.VerticalFrontPorch">
+            <summary>
+            Vertical front porch given by number of lines.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.Configuration.LCD.Configurations.PixelClockRateKHz">
+            <summary>
+            Pixel clock rate.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Hardware.LowLevel.Power">
+            <summary>
+            Power Management Methods.
+            </summary>
+            <remarks>
+            This class provides several methods to manage the power.<br/>
+            Important Note: When using waking up upon InterruptInputs activity, the desired InterruptPort must be enabled with glitch filter or has OnInterrupt event assigned.<br/>
+            <br/>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.LowLevel.Power.Hibernate(GHI.Premium.Hardware.LowLevel.Power.WakeUpInterrupt)">
+            <summary>
+            Hibernates the system.
+            </summary>
+            <param name="WakeUpInterrupt">The interrupt(s) desired to wake up the system </param>
+            <remarks>
+            This method is very useful when power saving is a must. On Hibernate, the processor will turn off completely.<br/>
+            You have to specifiy interrupt(s) to wake up the system later.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.LowLevel.Power.EthernetOscillatorEnable(System.Boolean)">
+            <summary>
+            This method turns off the Ethernet oscillator when Ethernet networking is not used.<br/>
+            </summary>
+            <param name="state"><c>false</c> to disable the oscillator.</param>
+            <remarks>
+            On EMX module power savings is about 25mA.
+            </remarks>
+        </member>
+        <member name="T:GHI.Premium.Hardware.LowLevel.Power.WakeUpInterrupt">
+            <summary>
+            Interrupts that can wake up the system after hibernating.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.LowLevel.Power.WakeUpInterrupt.EINT0">
+            <summary>
+            External Interrupt 0 (IO23 on EMX/Embedded Master).
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.LowLevel.Power.WakeUpInterrupt.CAN">
+            <summary>
+            Activity of the CAN bus.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.LowLevel.Power.WakeUpInterrupt.InterruptInputs">
+            <summary>
+            Specified activity on any InterruptPort.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.LowLevel.Power.WakeUpInterrupt.BrownOutDetect">
+            <summary>
+            Brown-Out Detect interrupt.
+            </summary>
+        </member>
+        <member name="F:GHI.Premium.Hardware.LowLevel.Power.WakeUpInterrupt.RTCAlarm">
+            <summary>
+            Assertion of an RTC alarm interrupt.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Hardware.RealTimeClock">
+            <summary>
+            Access to the internal Real Time Clock.
+            </summary>
+            <remarks>
+            With Real Time Clock, you can keep track of date and time even if the power is off. The time is running using an external backup battery and can last for years.<br/>
+            The RTC time is not related to the NETMF time. You have to set the time manually at startup, see examples.<br/>
+            To verify that a valid time is stored (battery is still running), the user has to make some checks for validations. For example:<br/>
+            - The battery can be monitored.<br/>
+            - <c>RealTimeClock.GetTime()</c> might throw an exception because of incorrect time.<br/>
+            - <c>RealTimeClock.GetTime()</c> will return infeasible dates that the user can check, such as, a date that is less than 2010.<br/>
+            - Store a checksum in the <c>BatteryRAM</c>. The number will only be correct and stay the same if the connected battery is alive.<br/>
+            <br/>
+            Please refer to your platform user manual for details on requirements and hardware connections.<br/>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.RealTimeClock.SetTime(System.DateTime)">
+            <summary>
+            Sets RTC.
+            </summary>
+            <param name="time">Date and time.</param>
+        </member>
+        <member name="M:GHI.Premium.Hardware.RealTimeClock.GetTime">
+            <summary>
+            Gets RTC.
+            </summary>
+            <returns>Date and time.</returns>
+        </member>
+        <member name="M:GHI.Premium.Hardware.RealTimeClock.SetAlarm(System.DateTime)">
+            <summary>
+            Sets the alarm.
+            </summary>
+            <param name="time">Date and time.</param>
+            <remarks>
+            This feature lets the user specify an alarm time. This can be used to drive the ALARM pin high or wakeup the processor from hibernation.<br/>
+            The alarm pin is an RTC controlled output. This is a 1.8 V pin. The pin goes low when the alarm time is specified. It goes HIGH when an RTC alarm is generated.<br/>
+            The RTC can supply battery power to the ALARM pin and that can be used by external hardware to restore module power and resume operation.<br/>
+            <br/>
+            </remarks>
+        </member>
+        <member name="P:GHI.Premium.Hardware.RealTimeClock.IsTimeValid">
+            <summary>
+            RTC is valid if it was set before and still running using a charged battery.
+            </summary>
+        </member>
+        <member name="T:GHI.Premium.Hardware.LowLevel.AddressSpace">
+            <summary>
+            Provides access to the address space.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Hardware.LowLevel.AddressSpace.Write(System.UInt32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a buffer to the target address space.
+            </summary>
+            <param name="address">Starting address.</param>
+            <param name="buffer">Buffer.</param>
+            <param name="offset">Offset.</param>
+            <param name="count">Count.</param>
+        </member>
+        <member name="M:GHI.Premium.Hardware.LowLevel.AddressSpace.Read(System.UInt32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads the address space into a buffer.
+            </summary>
+            <param name="address">Starting address.</param>
+            <param name="buffer">Buffer.</param>
+            <param name="offset">Offset.</param>
+            <param name="count">Count.</param>
+        </member>
+        <member name="T:GHI.Premium.Hardware.LowLevel.Register">
+            <summary>
+            Provide register access.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Hardware.LowLevel.Register.#ctor(System.UInt32)">
+            <summary>
+            Creates a new register.
+            </summary>
+            <param name="address">Address.</param>
+        </member>
+        <member name="M:GHI.Premium.Hardware.LowLevel.Register.Write(System.UInt32)">
+            <summary>
+            Writes a value to the register.
+            </summary>
+            <param name="value">Value to be written.</param>
+        </member>
+        <member name="M:GHI.Premium.Hardware.LowLevel.Register.Read">
+            <summary>
+            Reads the register's value.
+            </summary>
+            <returns>Value of the register.</returns>
+        </member>
+        <member name="M:GHI.Premium.Hardware.LowLevel.Register.SetBits(System.UInt32)">
+            <summary>
+            Sets certain bits in the register using a mask.
+            </summary>
+            <param name="mask">Register value mask.</param>
+            <remarks>
+            Bits of value 1 in mask are set in the register.<br/>
+            Bits of value 0 in mask are not changed.<br/>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.LowLevel.Register.ClearBits(System.UInt32)">
+            <summary>
+            Clears certain bits in the register using a mask.
+            </summary>
+            <param name="mask">Register value mask.</param>
+            <remarks>
+            Bits of value 1 in mask are cleared in the register.<br/>
+            Bits of value 0 in mask are not changed.<br/>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.LowLevel.Register.ToggleBits(System.UInt32)">
+            <summary>
+            Toggles certain bits in the register using a mask.
+            </summary>
+            <param name="mask">Register value mask.</param>
+            <remarks>
+            Bits of value 1 in mask are toggled in the register.<br/>
+            Bits of value 0 in mask are not changed.<br/>
+            </remarks>
+        </member>
+        <member name="T:GHI.Premium.Hardware.SignalGenerator">
+            <summary>
+            Provides signal generation functionality.
+            </summary>
+            <remarks>
+            This is available on any pin. It has a blocking option for fast accurate timings and a non-blocking option that uses interrupts. This doesn't use real hardware signal generation. Therefore, it may not be 100% accurate. Also, there is a limit in how much time the pin can toggle. Values are platform dependent.<br/>
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SignalGenerator.Dispose">
+            <summary>
+            Disposes the pin and marks it as available again.
+            </summary>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SignalGenerator.#ctor(Microsoft.SPOT.Hardware.Cpu.Pin,System.Boolean,System.Int32)">
+            <summary>
+            Creates a new signal generation pin.
+            </summary>
+            <param name="pin">Pin.</param>
+            <param name="initialValue">Initial pin value.</param>
+            <param name="MAX_TIMINGS_BUFFER_SIZE">Maximum number of non-blocking timings.</param>
+            <remarks>
+            <c>MAX_TIMINGS_BUFFER_SIZE</c> limits the number of non-blocking timings that are set. For example, if you set this value to 10, you can send between 0 and 10 toggle timings in the <c>Set</c> method.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SignalGenerator.Finalize">
+            <exclude/>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SignalGenerator.Set(System.Boolean)">
+            <summary>
+            Sets the current pin state.
+            </summary>
+            <param name="pinState">Pin state.</param>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SignalGenerator.Set(System.Boolean,System.UInt32[],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Sets pin state transition times. This is a non-blocking method.
+            </summary>
+            <param name="initialValue">Initial pin value.</param>
+            <param name="timingsBuffer_us">Toggle timings.</param>
+            <param name="bufferOffset">Offset.</param>
+            <param name="bufferCount">Count.</param>
+            <param name="bufferRepeating">State transitions loop again when done.</param>
+            <remarks>
+            First, the pin is set to <c>initialValue</c>. After <c>timingsBuffer_us[bufferOffset + 0]</c> micro seconds, the pin will toggle its state and so on until <c>bufferCount</c> is reached. When done, if <c>bufferRepeating</c> is <c>true</c>, the signal will get regenerated automatically.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SignalGenerator.SetBlocking(System.Boolean,System.UInt32[],System.Int32,System.Int32,System.UInt32,System.Boolean)">
+            <summary>
+            Sets pin state transition times. This is a blocking method.
+            </summary>
+            <param name="initialValue">Initial pin value.</param>
+            <param name="timingsBuffer_us">Toggle timings.</param>
+            <param name="bufferOffset">Offset.</param>
+            <param name="bufferCount">Count.</param>
+            <param name="lastBitHoldTime_us">Holds the last pin state for this much time (without toggling the state) before returning to the user.</param>
+            <param name="disableInterrupts"><c>true</c> to disable processor interrupts during this call in order to get accurate timings.</param>
+            <remarks>
+            First, the pin is set to <c>initialValue</c>. After <c>timingsBuffer_us[bufferOffset + 0]</c> micro seconds, the pin will toggle its state and so on until <c>bufferCount</c> is reached. When done, it will hold the last pin state for lastBitHoldTime_us micro seconds.
+            </remarks>
+        </member>
+        <member name="M:GHI.Premium.Hardware.SignalGenerator.SetBlocking(System.Boolean,System.UInt32[],System.Int32,System.Int32,System.UInt32,System.Boolean,System.UInt32)">
+            <summary>
+            Sets pin state transition times. This is a blocking method.
+            </summary>
+            <param name="initialValue">Initial pin value.</param>
+            <param name="timingsBuffer_us">Toggle timings.</param>
+            <param name="bufferOffset">Offset.</param>
+            <param name="bufferCount">Count.</param>
+            <param name="lastBitHoldTime_us">Holds the last pin state for this much time (without toggling the state) before returning to the user.</param>
+            <param name="disableInterrupts"><c>true</c> to disable processor interrupts during this call in order to get accurate timings.</param>
+            <param name="carrierFrequency_hz">If this is set, it will generate a carrier frequency. Note that this is generated using software and may not be fully accurate.</param>
+            <remarks>
+            First, the pin is set to <c>initialValue</c>. After <c>timingsBuffer_us[bufferOffset + 0]</c> micro seconds, the pin will toggle its state and so on until <c>bufferCount</c> is reached. When done, it will hold the last pin state for lastBitHoldTime_us micro seconds.<br/>
+            This is intended for internal use by GHI.
+            </remarks>
+        </member>
+        <member name="P:GHI.Premium.Hardware.SignalGenerator.IsActive">
+            <summary>
+            Signal Generation toggling active state. 
+            </summary>
+            <remarks>
+            This flag is <c>true</c> when the OC is processing the timings buffer to toggle the pin.<br/>
+            For example, assume the used toggle timings are [300, 500, 400] and SignalGenerator.Set(...) is called then:<br/>
+            <code>
+            SignalGenerator.Set(...);
+            while(SignalGenerator.IsActive) // This will be true for 300 + 500 + 400 micro seconds
+            ;
+            </code>
+            </remarks>
+        </member>
+    </members>
+</doc>
